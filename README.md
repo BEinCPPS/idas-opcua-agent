@@ -4,7 +4,7 @@
 A. Your project structure is as follows: <br/>
 ```
 <your_project_dir>
-   |__ node-opcua (the original [NodeOPCUA SDK distribution](http://node-opcua.github.io/))
+   |__ node-opcua (the original <a href="http://node-opcua.github.io/">NodeOPCUA SDK distribution</a>)
    |__ idas-opcua-agent (your IDAS OPC-UA Agent)
 ```
 B. You have an _unsecured_ Orion Context Broker (OCB) instance running on some host that you can reach on the network<br/>
