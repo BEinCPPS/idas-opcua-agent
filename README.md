@@ -1,5 +1,5 @@
 ##IDAS OPC-UA Agent
-###HOW TO RUN THE IDAS OPC-UE AGENT AGAINST A LOCAL SIMULATED OPC-UE SERVER
+###HOW TO RUN THE IDAS OPC-UA AGENT AGAINST A LOCAL SIMULATED OPC-UA SERVER
 ###Pre-requisites
 A. Your project structure is as follows: <br/>
 ```
@@ -7,6 +7,7 @@ A. Your project structure is as follows: <br/>
    |__ node-opcua (the original NodeOPCUA SDK distribution*)
    |__ idas-opcua-agent (your IDAS OPC-UA Agent)
 ```
+
 B. You have an _unsecured_ Orion Context Broker (OCB) instance running on some host that you can reach on the network<br/>
 C. Configure the IDAS OPC-UA Agent (Agent) so that it can talk to the OCB instance:
 <br/>
