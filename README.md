@@ -16,7 +16,7 @@ C. Configure the IDAS OPC-UA Agent (Agent) so that it can talk to the OCB instan
 2. ```cd to <your_project_dir>/node-opcua```
 3. Launch the simulated Server: ```node bin/simple_server.js```
 4. Look at the on-screen log for any problems 
-5. Once the server has initialized itself, take note of the endpoint: look at "endpointUrl" log line on the screen (something like "**opc.tcp://<machine_name>:<port>**")
+5. Once the server has initialized itself, take note of the endpoint: look at "endpointUrl" log line on the screen (something like "```opc.tcp://<machine_name>:<port>```")
 6. Leave the terminal session running: you can shut down the Server anytime by pressing CTRL+C
 7. Open a new and separate terminal session
 8. ```cd to <your_project_dir>/opcua-agent```
