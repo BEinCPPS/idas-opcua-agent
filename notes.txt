@@ -1,0 +1,189 @@
+	Orion Context Broker terminology
+
+		Fiware-Service defines a CB Tenant, aka Service
+			Each Tenant/Service is uniquely identified by a name 
+				Names are strings of <=50 lowercase alphanumeric characters + "_"
+			Each Tenant/Service defines its own scope/namespace (subservices, devices), which is invisible to others
+			The target Tenant/Service of incoming requests is qualified by an optional HTTP header; e.g.,
+				POST http://127.0.0.1:9977/notify
+				Content-Length: 725
+				User-Agent: orion/0.13.0
+				Host: 127.0.0.1:9977
+				Accept: application/json
+				Fiware-Service: t_02
+				Content-Type: application/json
+
+				{
+				...
+				}
+			If no Fiware-Service header is present, requests are run against the default Tenant/Service
+
+		Fiware-ServicePath defines a hierarchical namespace beneath a Teenant/Service, aka Scope or Subservice
+			Each Scope/Subservice is uniquely identified, within the enclosing Tenant/Service, by a path
+				The path must start with "/" (only 'absolute' paths are allowed)
+				10 maximum levels in a path
+				50 maximum characters in each level, only alphanum and underscore allowed
+			The target Scope/Subservice of incoming requests is qualified by an optional HTTP header; e.g.,
+				POST http://127.0.0.1:9977/notify
+				Content-Length: 725
+				User-Agent: orion/0.13.0
+				Host: 127.0.0.1:9977
+				Accept: application/json
+				Fiware-Service: t_02
+				Fiware-ServicePath: /Madrid/Gardens/ParqueNorte/Parterre1
+				Content-Type: application/json
+
+				{
+				...
+				}
+			If no Fiware-ServicePath header is present, requests are run against the root ("/") Scope/Subservice
+
+		Entities, aka Contexts, are defined within a Tenant/Service (which may be the default) and a Scope/Subservice (which may be "/")
+
+		The NGSI10 subsystem is what you usually think of in association with the CB: it provides means for publishing event-driven data sources and to subscribe to such publications. The NGSI9 susbystem is for discovery of publications: you don't need to query the NGSI9 subsystem if you know already what you are searching for (and you don't need to even if you only know "more or less" your targets, as in NGSI10 you can query by patterns). The important thing to understand is that these two subsystems are separate: if you plan to use NGSI9, you must call NGSI9.registerContext to publish the _availability_ of any Entity that you have published by means of NGSI10.updateContext.
+
+		Another counter-intuitive concept of CB is that both NGSI9 and NGSI10 are implemented as callable web methods (API calls), which have _nothing_ to do with REST. A RESTful equivalent of (possibly) all NGSI functionality is _also_ provided as a "convenience API" in CB jargon. In the rest of this document, we will only deal with "strict" NGSI operations. Have a look at these online resources:
+			Generic NGSI9+10 overview:
+				https://forge.fiware.org/plugins/mediawiki/wiki/fiware/index.php/FI-WARE_NGSI-9_Open_RESTful_API_Specification
+				https://forge.fiware.org/plugins/mediawiki/wiki/fiware/index.php/FI-WARE_NGSI-10_Open_RESTful_API_Specification
+			Official online docs:
+				https://fiware-orion.readthedocs.io/en/develop/index.html
+
+		API calls are in the format <server>:<port>/v<api_version>/<operation>
+			Currently, the only supported API version is 1
+			Call parameters are provided as a JSON body
+			Tenant/Service and Scope/Subservice are optionally provided as HTTP headers
+			NGSI10 Operations:
+				updateContext
+				queryContext
+				subscribeContext
+				updateContextSubscription
+				unsubscribeContext
+			Example of Entity creation (default Tenant, root Scope, entity "Room1" of type "Room"):
+				(curl localhost:1026/v1/updateContext -s -S --header 'Content-Type: application/json' \
+				    --header 'Accept: application/json' -d @- | python -mjson.tool) <<EOF
+				{
+				    "contextElements": [
+					{
+					    "type": "Room",
+					    "isPattern": "false",
+					    "id": "Room1",
+					    "attributes": [
+						{
+						    "name": "temperature",
+						    "type": "float",
+						    "value": "23"
+						},
+						{
+						    "name": "pressure",
+						    "type": "integer",
+						    "value": "720"
+						}
+					    ]
+					}
+				    ],
+				    "updateAction": "APPEND"
+				} 
+				EOF
+			Example of subscription to Entity change (same Entity as above):
+				(curl localhost:1026/v1/subscribeContext -s -S --header 'Content-Type: application/json' \
+				    --header 'Accept: application/json' -d @- | python -mjson.tool) <<EOF
+				{
+				    "entities": [
+					{
+					    "type": "Room",
+					    "isPattern": "false",
+					    "id": "Room1"
+					}
+				    ],
+				    // WHAT WE WANT TO BE NOTIFIED OF
+				    "attributes": [
+					"temperature"
+				    ],
+				    // CLIENT ENDPOINT FOR NOTIFICATION
+				    "reference": "http://localhost:1028/accumulate",
+				    // ONE MONTH BEFORE EXPIRATION, YOU NEED TO UPDATE THIS TO RENEW
+				    "duration": "P1M",
+				    "notifyConditions": [
+					{
+					    "type": "ONCHANGE",
+				    	    // YOU CAN OMIT THIS TO BE NOTIFIED OF ANY CHANGE
+					    "condValues": [
+						"pressure"
+					    ]
+					}
+				    ],
+				    // FIVE SECONDS OF MINIMUM TIME TO ELAPSE BEFORE A NEW NOTIFICATION IS SENT (TIME GRANULARITY)
+				    "throttling": "PT5S"
+				}
+				EOF
+			The caller of the above with get the following response body in return:
+				{
+				    "subscribeResponse": {
+					"duration": "P1M", // CONFIRMATION OF ACTUAL DURATION
+					"subscriptionId": "51c0ac9ed714fb3b37d7d5a8" // USED FOR REFERRING TO THIS SUBSCRIPTION
+				    }
+				}
+			On each notification, the client enpoint will receive an HTTP POST request as the following:
+				POST http://localhost:1028/accumulate
+				Content-Length: 492
+				User-Agent: orion/0.9.0
+				Host: localhost:1028
+				Accept: application/json
+				Content-Type: application/json
+
+				{
+				    "subscriptionId": "51c0ac9ed714fb3b37d7d5a8", // NOTE THE SUBSCRIPTION ID
+				    "originator": "localhost",
+				    "contextResponses": [
+					{
+					    "contextElement": {
+						"attributes": [
+						    {
+							"name": "temperature",
+							"type": "float",
+							"value": "26.5"
+						    }
+						],
+						"type": "Room",
+						"isPattern": "false",
+						"id": "Room1"
+					    },
+					    "statusCode": {
+						"code": "200",
+						"reasonPhrase": "OK"
+					    }
+					}
+				    ]
+				}
+			To update an existing subscription you do the following:
+				(curl localhost:1026/v1/updateContextSubscription -s -S --header 'Content-Type: application/json' \
+				    --header 'Accept: application/json' -d @- | python -mjson.tool) <<EOF
+				{
+				    "subscriptionId": "51c0ac9ed714fb3b37d7d5a8", // NOTE THE SUBSCRIPTION ID
+				    "duration": "P2M" // NEW DURATION
+				}
+				EOF
+			To unsubscribe you do the following:
+				(curl localhost:1026/v1/unsubscribeContext -s -S --header 'Content-Type: application/json' \
+				    --header 'Accept: application/json' -d @- | python -mjson.tool) <<EOF
+				{
+				    "subscriptionId": "51c0ac9ed714fb3b37d7d5a8" // NOTE THE SUBSCRIPTION ID
+				}
+				EOF
+			Finally, to delete an Entity you do the following:
+				(curl localhost:1026/v1/updateContext -s -S --header 'Content-Type: application/json' \
+				    --header 'Accept: application/json' -d @- | python -mjson.tool) <<EOF
+				{
+				    "contextElements": [
+					{
+					    "type": "T",
+					    "isPattern": "false",
+					    "id": "E1"
+					}
+				    ],
+				    "updateAction": "DELETE"
+				}
+				EOF
+
+
