@@ -14,7 +14,7 @@ C. Configure the IDAS OPC-UA Agent (Agent) so that it can talk to the OCB instan
 Edit the the file ```config.js``` with the following params.<br/>
 The local port is needed for bidirectional communication (OCB->Agent)<br/>
  ```
- contextBroker: {
+contextBroker: {
     host: 'localhost', 
     port: 5000
 },
