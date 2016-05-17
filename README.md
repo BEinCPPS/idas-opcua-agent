@@ -22,8 +22,6 @@ server: {
     port: 4041
 }
 ```
-<br/>
-<br/>
 
 1. Open a terminal session
 2. ```cd to <your_project_dir>/node-opcua```
