@@ -1,8 +1,8 @@
 var config = {
     logLevel: 'DEBUG',
     contextBroker: {
-        host: '161.27.159.64', 
-        port: 8080
+        host: 'localhost', 
+        port: 5000
     },
     server: {
         port: 4041
