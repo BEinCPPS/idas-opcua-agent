@@ -6,9 +6,19 @@ A. Your project structure is as follows: <br/>
 <your_project_dir>
    |__ node-opcua (the original NodeOPCUA SDK distribution*)
    |__ idas-opcua-agent (your IDAS OPC-UA Agent)
-```
 
-B. You have an _unsecured_ Orion Context Broker (OCB) instance running on some host that you can reach on the network<br/>
+B. Configure your installation editing inside the the file ```config.js```
+ with the following params, relative to an _unsecured_ Orion Context Broker (OCB) instance running in your environment<br/>
+ and a local port to communicate with the OCB in bidirectional way.
+ ```
+  contextBroker: {
+    host: '161.27.159.64', 
+    port: 8080
+},
+server: {
+    port: 4041
+}
+```
 C. Configure the IDAS OPC-UA Agent (Agent) so that it can talk to the OCB instance:
 <br/>
 <br/>
