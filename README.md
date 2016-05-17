@@ -6,7 +6,7 @@ A. Your project structure is as follows: <br/>
 <your_project_dir>
    |__ node-opcua (the original NodeOPCUA SDK distribution*)
    |__ idas-opcua-agent (your IDAS OPC-UA Agent)
-
+```
 B. Configure your installation editing inside the the file ```config.js```
  with the following params, relative to an _unsecured_ Orion Context Broker (OCB) instance running in your environment<br/>
  and a local port to communicate with the OCB in bidirectional way.
