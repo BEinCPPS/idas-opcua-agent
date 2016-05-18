@@ -1,6 +1,6 @@
 ##IDAS OPC-UA Agent
 ###Description
-The IDAS OPC-UA Agent is a middleware to connect in bidirectional way, the IOT Devices which implements the [OPC-UA](https://opcfoundation.org/about/opc-technologies/opc-ua/) standard connection technology, with a NGSI Publish/Subscribe Context Broker as [Fiware Orion](http://catalogue.fiware.org/enablers/publishsubscribe-context-broker-orion-context-broker).
+The **IDAS OPC-UA Agent** is a middleware to connect in bidirectional way, the IOT Devices which implements the [OPC-UA](https://opcfoundation.org/about/opc-technologies/opc-ua/) standard connection technology, with a NGSI Publish/Subscribe Context Broker as [Fiware Orion](http://catalogue.fiware.org/enablers/publishsubscribe-context-broker-orion-context-broker).
 
 ###How to run the IDAS OPC-UA Agent against a local simulated OPC-UA Server
 ###Pre-requisites
