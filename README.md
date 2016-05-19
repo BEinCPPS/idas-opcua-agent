@@ -34,7 +34,7 @@ server: {
 6. Leave the terminal session running: you can shut down the Server anytime by pressing CTRL+C
 7. Open a new and separate terminal session
 8. ```cd to <your_project_dir>/opcua-agent```
-9. Launch the Agent: node index.js -e "endpointUrl" (e.g., ```node index.js -e "opc.tcp://UbuntuDesk:26543"```
+9. Launch the Agent: ```node index.js -e "endpointUrl"``` (e.g., ```node index.js -e "opc.tcp://UbuntuDesk:26543"```
 10. Look at the on-screen log for any problems, and enjoy yourself :wink:
 11. The agent will terminate itself when done
 
