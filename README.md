@@ -4,16 +4,17 @@ The **IDAS OPC-UA Agent** is a component to connect in bidirectional way, the Io
 
 ###How to run the IDAS OPC-UA Agent against a local simulated OPC-UA Server
 ###Pre-requisites
-A. Your project structure is as follows: <br/>
+A. Node.js v4.4.3 or greater and npm correctly installed. Test your installation with ```node --version```
+B. Your project structure is as follows: <br/>
 ```
 <your_project_dir>
    |__ node-opcua (the original NodeOPCUA SDK distribution https://github.com/node-opcua/node-opcua)
    |__ idas-opcua-agent (your IDAS OPC-UA Agent)
 ```
 
-B. You have an _unsecured_ Orion Context Broker (OCB) instance running on some host that you can reach on the network<br/>
+C. You have an _unsecured_ Orion Context Broker (OCB) instance running on some host that you can reach on the network<br/>
 
-C. Configure the IDAS OPC-UA Agent (Agent) so that it can talk to the OCB instance:<br/>
+D. Configure the IDAS OPC-UA Agent (Agent) so that it can talk to the OCB instance:<br/>
 Edit the the file ```config.js``` with your installation details.<br/>
 The local port is needed for bidirectional communication (OCB->Agent)<br/>
  ```
