@@ -25,7 +25,7 @@ server: {
     port: 4041
 }
 ```
-
+###Launch
 1. Open a terminal session
 2. ```cd to <your_project_dir>/node-opcua```
 3. Launch the simulated Server: ```node bin/simple_server.js```
@@ -37,5 +37,8 @@ server: {
 9. Launch the Agent: node index.js -e "<endpointUrl>" (e.g., ```node index.js -e "opc.tcp://UbuntuDesk:26543"```
 10. Look at the on-screen log for any problems, and enjoy yourself ;-)
 11. The agent will terminate itself when done
+
+###License
+IDAS OPC-UA Agent software is licensed under [Affero General Public License](http://www.gnu.org/licenses/agpl-3.0.html) (GPL) version 3.
 
 *: You can find [here](http://node-opcua.github.io/) the NodeOPCUA SDK distribution.
