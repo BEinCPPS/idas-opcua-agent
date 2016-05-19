@@ -1,8 +1,8 @@
 var config = {
     logLevel: 'DEBUG',
     contextBroker: {
-        host: 'ns3692465.ip-149-202-205.eu/orion01/', 
-        port: 80
+        host: 'localhost', 
+        port: 5000
     },
     server: {
         port: 4041
