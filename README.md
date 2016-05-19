@@ -41,4 +41,4 @@ server: {
 ###License
 IDAS OPC-UA Agent software is licensed under [Affero General Public License](http://www.gnu.org/licenses/agpl-3.0.html) (GPL) version 3.
 
-*: You can find [here](http://node-opcua.github.io/) the NodeOPCUA SDK distribution.
+* You can find [here](http://node-opcua.github.io/) the NodeOPCUA SDK distribution.
