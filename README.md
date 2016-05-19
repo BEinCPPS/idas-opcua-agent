@@ -7,7 +7,7 @@ The **IDAS OPC-UA Agent** is a component to connect in bidirectional way, the Io
 A. Your project structure is as follows: <br/>
 ```
 <your_project_dir>
-   |__ node-opcua (the original <a href="http://node-opcua.github.io/">NodeOPCUA SDK distribution</a>)
+   |__ node-opcua (the original NodeOPCUA SDK distribution http://node-opcua.github.io)
    |__ idas-opcua-agent (your IDAS OPC-UA Agent)
 ```
 
@@ -40,5 +40,3 @@ server: {
 
 ###License
 IDAS OPC-UA Agent software is licensed under [Affero General Public License](http://www.gnu.org/licenses/agpl-3.0.html) (GPL) version 3.
-
-* You can find [here](http://node-opcua.github.io/) the NodeOPCUA SDK distribution.
