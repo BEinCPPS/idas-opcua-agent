@@ -7,7 +7,7 @@ The **IDAS OPC-UA Agent** is a component to connect in bidirectional way, the Io
 A. Your project structure is as follows: <br/>
 ```
 <your_project_dir>
-   |__ node-opcua (the original NodeOPCUA SDK distribution*)
+   |__ node-opcua (the original <a href="http://node-opcua.github.io/">NodeOPCUA SDK distribution</a>)
    |__ idas-opcua-agent (your IDAS OPC-UA Agent)
 ```
 
