@@ -8,7 +8,7 @@ A. **Node.js** (v4.4.3 or greater) and npm correctly installed. Test your instal
 B. Your project structure is as follows: <br/>
 ```
 <your_project_dir>
-   |__ node-opcua (Download or clone the original NodeOPCUA SDK distribution at https://github.com/node-opcua/node-opcua )
+   |__ node-opcua (Download or clone the NodeOPCUA SDK distribution at https://github.com/node-opcua/node-opcua )
    |__ idas-opcua-agent (your IDAS OPC-UA Agent)
 ```
 
