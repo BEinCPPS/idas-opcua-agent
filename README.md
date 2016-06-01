@@ -15,8 +15,8 @@ B. Your project structure is as follows: <br/>
 C. You have an _unsecured_ Orion Context Broker (OCB) instance running on some host that you can reach on the network<br/>
 
 D. Configure the IDAS OPC-UA Agent (Agent) so that it can talk to the OCB instance:<br/>
-Edit the the file ```config.js``` with your installation details.<br/>
-The local port is needed for bidirectional communication (OCB->Agent)<br/>
+Edit the file ```config.js``` with your installation details, paying attention to the parameters below in particular.<br/>
+The ```server``` port is needed for bidirectional communication (OCB->Agent)<br/>
  ```
 contextBroker: {
     host: 'localhost', 
@@ -74,7 +74,7 @@ Change these important parameters that identify your ```context``` data inside t
 5. Once the server has initialized itself, take note of the endpoint: look at **endpointUrl** log line on the screen (something like "```opc.tcp://<machine_name>:<port>```")
 6. Leave the terminal session running: you can shut down the Server anytime by pressing CTRL+C
 7. Open a new and separate terminal session
-8. ```cd to <your_project_dir>/opcua-agent```
+8. ```cd to <your_project_dir>/idas-opcua-agent```
 9. Launch the Agent: ```node index.js -e "endpointUrl"``` (e.g., ```node index.js -e "opc.tcp://UbuntuDesk:26543"```
 10. Look at the on-screen log for any problems, and enjoy yourself :wink:
 11. The agent will terminate itself when done
