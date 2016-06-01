@@ -15,7 +15,7 @@ B. Your project structure is as follows: <br/>
 C. You have an _unsecured_ Orion Context Broker (OCB) instance running on some host that you can reach on the network<br/>
 
 D. Configure the IDAS OPC-UA Agent (Agent) so that it can talk to the OCB instance:<br/>
-Edit the file ```config.js``` with your installation details, paying attention to the parameters below in particular.<br/>
+Edit the file ```config.js``` with your installation details, paying attention in particular to the parameters below.<br/>
 The ```server``` port is needed for bidirectional communication (OCB->Agent)<br/>
  ```
 contextBroker: {
