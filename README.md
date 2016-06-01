@@ -26,13 +26,13 @@ server: {
     port: 4041
 }
 ```
-Change these important parameters that identify your *context* data inside the OCB</br>
+Change these important parameters that identify your ```context``` data inside the OCB</br>
  ```
  service: 'whirlpool',
  subservice: '/cassinetta',
 
  ```
- Change as you need the custom section for *OPC-UA mapping*
+ Change as you need the custom section for ```OPC-UA mapping```
  ```
  contexts: [
         {
