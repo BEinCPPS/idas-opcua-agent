@@ -8,7 +8,7 @@ A. **Node.js** (v4.4.3 or greater) and npm correctly installed. Test your instal
 B. Your project structure is as follows: <br/>
 ```
 <your_project_dir>
-   |__ node-opcua (the original NodeOPCUA SDK distribution https://github.com/node-opcua/node-opcua)
+   |__ node-opcua (the original ```NodeOPCUA SDK distribution```)
    |__ idas-opcua-agent (your IDAS OPC-UA Agent)
 ```
 
@@ -20,12 +20,52 @@ The local port is needed for bidirectional communication (OCB->Agent)<br/>
  ```
 contextBroker: {
     host: 'localhost', 
-    port: 5000
+    port: 7002
 },
 server: {
     port: 4041
 }
 ```
+Pay attention to change these important parameters that identify your **context** data inside the OCB:</br>
+ ```
+ service: 'whirlpool',
+ subservice: '/cassinetta',
+
+ ```
+ Change as you need the custom section for **OPC-UA mapping**:
+ ```
+ contexts: [
+        {
+           id: 'MyDevice1',
+            type: 'whr-teststation',
+            mappings: [
+                {
+                    ocb_id: 'attrib1',
+                    opcua_id: 'ns=1;s=PumpSpeed'
+                },
+                {
+                    ocb_id: 'attrib2',
+                    opcua_id: 'ns=1;s=Temperature'
+                }
+            ]
+        },
+        {
+            id: 'MyDevice2',
+            type: 'whr-teststation',
+            mappings: [
+                {
+                    ocb_id: 'attrib1',
+                    opcua_id: 'ns=1;s=PumpSpeed2'
+                },
+                {
+                    ocb_id: 'attrib2',
+                    opcua_id: 'ns=1;s=Temperature2'
+                }
+            ]
+        }
+    ]
+
+ ```
 ###Launch
 1. Open a terminal session
 2. ```cd to <your_project_dir>/node-opcua```
