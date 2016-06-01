@@ -26,7 +26,7 @@ server: {
     port: 4041
 }
 ```
-Change these important parameters that identify your ```context``` data inside the OCB</br>
+**Change** these important parameters that identify your ```context``` data inside the OCB</br>
  ```
  service: 'whirlpool',
  subservice: '/cassinetta',
