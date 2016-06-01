@@ -32,7 +32,7 @@ server: {
  subservice: '/cassinetta',
 
  ```
- Change as you need the custom section for ```OPC-UA mapping```
+ Change as you need the custom section for ```OPC-UA mapping``` with NGSI contexts
  ```
  contexts: [
         {
