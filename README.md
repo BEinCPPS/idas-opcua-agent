@@ -16,7 +16,7 @@ C. You have an _unsecured_ Orion Context Broker (OCB) instance running on some h
 
 D. Configure the IDAS OPC-UA Agent (Agent) so that it can talk to the OCB instance:<br/>
 Edit the file ```config.js``` with your installation details, paying attention in particular to the parameters below.<br/>
-The ```server``` port is needed for bidirectional communication (OCB->Agent)<br/>
+The ```server``` port is needed for bidirectional communication (OCB -> Agent)<br/>
  ```
 contextBroker: {
     host: 'localhost', 
