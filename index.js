@@ -348,6 +348,7 @@ async.series([
 
     /**
        @author ascatox 
+        Use "-browse option"
         Browse the OPCUA Server Address Space ObjectsFolder to find the Devices and the Variables to listen.
         Configuration is present in config file "browseServerOptions" section.
         Creation of contexts to listen and methods to invoke inside the server. 
