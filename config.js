@@ -1,8 +1,8 @@
 var config = {
     logLevel: 'DEBUG',
     contextBroker: {
-        host: 'localhost', 
-        port: 7002 
+        host: 'localhost',
+        port: 7001
     },
     server: {
         port: 4041
@@ -10,11 +10,13 @@ var config = {
     deviceRegistry: {
         type: 'memory'
     },
+
     types: {
         'whr-teststation': {
             service: 'whirlpool',
             subservice: '/cassinetta',
             active: [
+
                 {
                     name: 'attrib1',
                     type: 'float'
@@ -27,21 +29,40 @@ var config = {
                     name: 'attrib3',
                     type: 'string'
                 }
+
             ],
             lazy: [],
             commands: []
-        } 
-    }, 
+        }
+    },
+    //WARNING Used only with "-browse" option
+    browseServerOptions: {
+        mainFolderToBrowse: "ObjectsFolder",
+        mainObjectStructure: {
+            namePrefix: "TestStation", //devices
+            variableType1: {
+                nameSuffix: "Measure",
+                type: "integer"
+            },
+            variableType2: {
+                nameSuffix: "State",
+                type: "string"
+            },
+            methodNameSuffix: "Method"
+        }
+    },
+    //END WARNING Used only with "-browse" option
     service: 'whirlpool',
     subservice: '/cassinetta',
     providerUrl: 'http://localhost:4041',
     deviceRegistrationDuration: 'P1M',
     defaultType: 'whr-teststation',
-    
-/* start of custom section for OPC UA mapping */
+
+    /* start of custom section for OPC UA mapping */
+    /* WARNING Not considered with "-browse" option, built from Server Address Space*/
     contexts: [
         {
-           id: 'MyDevice1',
+            id: 'MyDevice1',
             type: 'whr-teststation',
             mappings: [
                 {
@@ -68,7 +89,22 @@ var config = {
                 }
             ]
         }
+    ],
+    // Orion Subscriptions to Contexts
+    // start of custom section for OPC UA mapping OCB -> Agent
+    contextSubscriptions: [
+        {
+            id: 'FrontEndState',
+            type: 'whr-mobilestation',
+            mappings: [
+                {
+                    ocb_id: 'button',
+                    opcua_id: 'ns=1;s=buttonPressed'
+                }
+            ]
+        },
     ]
+
 };
 
 module.exports = config;

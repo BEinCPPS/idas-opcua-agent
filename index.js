@@ -3,8 +3,11 @@ require("requirish")._(module);
 var treeify = require('treeify');
 var _ = require("underscore");
 var util = require("util");
+var crawler = require('./node_modules/node-opcua/lib/client/node_crawler.js');
 var async = require("async");
 var opcua = require("node-opcua");
+var dataType = opcua.DataType;
+var VariantArrayType = opcua.VariantArrayType;
 
 // iotagent-node-lib dependencies
 var iotAgentLib = require('iotagent-node-lib');
@@ -38,6 +41,9 @@ var argv = require('yargs')
     .string("debug")
     .describe("debug", " display more verbose information")
 
+    .string("browse")
+    .describe("browse", " browse Objects from opc-ua server. Fulfill browseServerOptions section in config file")
+
     .alias('e', 'endpoint')
     .alias('s', 'securityMode')
     .alias('P', 'securityPolicy')
@@ -46,6 +52,7 @@ var argv = require('yargs')
     .alias("t", 'timeout')
 
     .alias("d", "debug")
+    .alias("b", "browse")
     .example("simple_client  --endpoint opc.tcp://localhost:49230 -P=Basic256 -s=SIGN")
     .example("simple_client  -e opc.tcp://localhost:49230 -P=Basic256 -s=SIGN -u JoeDoe -p P@338@rd ")
     .example("simple_client  --endpoint opc.tcp://localhost:49230  -n=\"ns=0;i=2258\"")
@@ -70,10 +77,13 @@ if (!securityPolicy) {
 
 var timeout = parseInt(argv.timeout) * 1000 || 20000; //default 
 
+var doBrowse = argv.browse ? true : false;
+
 console.log("endpointUrl         = ".cyan, endpointUrl);
 console.log("securityMode        = ".cyan, securityMode.toString());
 console.log("securityPolicy      = ".cyan, securityPolicy.toString());
 console.log("timeout             = ".cyan, timeout ? timeout : " Infinity ");
+
 
 // set to false to disable address space crawling: might slow things down if the AS is huge
 var doCrawling = argv.crawl ? true : false;
@@ -81,6 +91,17 @@ var doCrawling = argv.crawl ? true : false;
 var client = null;
 var the_session = null;
 var the_subscriptions = [];
+var contexts = [];
+var methods = [];
+
+
+function removeSuffixFromName(name, suffix) {
+    if (name.indexOf(suffix) > -1) {
+        var str = name.replace(suffix, "");
+        return str;
+    }
+    return name;
+}
 
 function terminateAllSubscriptions() {
     if (the_subscriptions) {
@@ -104,7 +125,6 @@ function disconnect() {
 }
 
 function initSubscriptionBroker(context, mapping) {
-
     // TODO this stuff too should come from config
     var parameters = {
         requestedPublishingInterval: 100,
@@ -186,8 +206,10 @@ function initSubscriptionBroker(context, mapping) {
     });
 
     monitoredItem.on("changed", function (dataValue) {
-        console.log(monitoredItem.itemToMonitor.nodeId.toString(), " value has changed to " + dataValue.value.value);
-
+        var variableValue = null;
+        if (dataValue.value && dataValue.value != null)
+            variableValue = dataValue.value.value || null;
+        console.log(monitoredItem.itemToMonitor.nodeId.toString(), " value has changed to " + variableValue + "".bold.yellow);
         iotAgentLib.getDevice(context.id, function (err, device) {
             if (err) {
                 console.log("could not find the OCB context " + context.id + "".red.bold);
@@ -202,11 +224,12 @@ function initSubscriptionBroker(context, mapping) {
                     }
                     return null;
                 }
+
                 /* WARNING attributes must be an ARRAY */
                 var attributes = [{
                     name: mapping.ocb_id,
-                    type: findType(mapping.ocb_id),
-                    value: dataValue.value.value
+                    type: mapping.type || findType(mapping.ocb_id),
+                    value: variableValue
                 }];
                 /*WARNING attributes must be an ARRAY*/
                 iotAgentLib.update(device.name, device.type, '', attributes, device, function (err) {
@@ -226,10 +249,45 @@ function initSubscriptionBroker(context, mapping) {
     });
 }
 
+/**
+ * @author ascatox 
+ * Method call on OPCUA Server
+ * 
+ */
+function callMethods(value) {
+    //TODO Metodi multipli
+    if (!methods) return;
+    try {
+        methods[0].inputArguments = [{
+            dataType: dataType.String,
+            arrayType: VariantArrayType.Scalar,
+            value: value
+        }];
+        the_session.call(methods, function (err, results) {
+            if (!err)
+                console.log("Method invoked correctly with result: ".bold.yellow, results[0].toString());
+            else console.log("Error calling Method :".bold.red, err);
+        });
+    } catch (error) {
+        console.log("Error calling Method :".bold.red, error);
+    }
+}
+
+/**
+ * @author ascatox 
+ * Handler for incoming notifications.
+ *
+ * @param {Object} device           Object containing all the device information.
+ * @param {Array} updates           List of all the updated attributes.
+
+ */
+function notificationHandler(device, updates, callback) {
+    console.log("Data coming from OCB: ".bold.cyan, JSON.stringify(updates));
+    callMethods(updates[0].value); //TODO gestire multiple chiamate
+}
 // each of the following steps is executed in due order
 // each step MUST call callback() when done in order for the step sequence to proceed further
 async.series([
-
     //------------------------------------------
     // initialize client connection to the OCB
     function (callback) {
@@ -237,6 +295,10 @@ async.series([
             if (err) {
                 console.log('There was an error activating the Agent: ' + err.message);
                 process.exit(1);
+            } else {
+                console.log("NotificationHandler attached to ContextBroker");
+                iotAgentLib.setNotificationHandler(notificationHandler);
+
             }
             callback();
         });
@@ -245,7 +307,6 @@ async.series([
     //------------------------------------------
     // initialize client connection to the OPCUA Server
     function (callback) {
-
         var options = {
             securityMode: securityMode,
             securityPolicy: securityPolicy,
@@ -266,7 +327,6 @@ async.series([
     //------------------------------------------
     // initialize client session on the OPCUA Server
     function (callback) {
-
         var userIdentity = null; // anonymous
         if (argv.userName && argv.password) {
 
@@ -286,12 +346,78 @@ async.series([
         });
     },
 
+    /**
+       @author ascatox 
+        Browse the OPCUA Server Address Space ObjectsFolder to find the Devices and the Variables to listen.
+        Configuration is present in config file "browseServerOptions" section.
+        Creation of contexts to listen and methods to invoke inside the server. 
+      
+     **/
+    function (callback) {
+        if (doBrowse) {
+            the_session.browse(config.browseServerOptions.mainFolderToBrowse, function (err, browse_result) {
+                if (!err) {
+                    var configObj = config.browseServerOptions.mainObjectStructure;
+                    browse_result.forEach(function (result) {
+                        result.references.forEach(function (reference) {
+                            var name = reference.browseName.toString();
+                            if (name.indexOf(configObj.namePrefix) > -1) {
+                                var contextObj = {
+                                    id: name,
+                                    type: config.defaultType,
+                                    mappings: [],
+                                    active: [], //only active USED in this version
+                                    lazy: [],
+                                    commands: []
+                                };
+                                the_session.browse(reference.nodeId, function (err, browse_result_sub) {
+                                    browse_result_sub.forEach(function (resultSub) {
+                                        resultSub.references.forEach(function (referenceChild) {
+                                            var nameChild = referenceChild.browseName.toString();
+                                            if (nameChild.indexOf(configObj.variableType1.nameSuffix) > -1
+                                                ||
+                                                nameChild.indexOf(configObj.variableType2.nameSuffix) > -1) {
+                                                var type = nameChild.indexOf(configObj.variableType1.nameSuffix) > -1
+                                                    ? configObj.variableType1.type : configObj.variableType2.type;
+                                                var contextMeasureObj = {
+                                                    ocb_id: nameChild,
+                                                    opcua_id: referenceChild.nodeId.toString(),
+                                                    type: type
+                                                };
+                                                var attributeObj = {
+                                                    name: nameChild,
+                                                    type: type
+                                                }
+                                                contextObj.mappings.push(contextMeasureObj);
+                                                contextObj.active.push(attributeObj);
+                                            } else if (nameChild.indexOf(configObj.methodNameSuffix) > -1) {
+                                                var method = {
+                                                    objectId: reference.nodeId,
+                                                    methodId: referenceChild.nodeId.toString(),
+                                                    name: nameChild
+                                                };
+                                                methods.push(method);
+                                            }
+                                        });
+                                    });
+                                });
+                                contexts.push(contextObj);
+                            }
+                        });
+                    });
+                }
+                callback(err);
+            });
+        } else {
+            contexts = config.contexts;
+            callback();
+        }
+    },
+
     // ----------------------------------------
     // display namespace array
     function (callback) {
-
         var server_NamespaceArray_Id = opcua.makeNodeId(opcua.VariableIds.Server_NamespaceArray); // ns=0;i=2006
-
         the_session.readVariableValue(server_NamespaceArray_Id, function (err, dataValue, diagnosticsInfo) {
 
             console.log(" --- NAMESPACE ARRAY ---");
@@ -309,9 +435,8 @@ async.series([
     //------------------------------------------
     // crawl the address space, display as a hierarchical tree rooted in ObjectsFolder
     function (callback) {
-
         if (doCrawling) {
-            var crawler = new NodeCrawler(the_session);
+            var nodeCrawler = new crawler.NodeCrawler(the_session);
 
             var t = Date.now();
             var t1;
@@ -327,7 +452,7 @@ async.series([
             t = Date.now();
             var nodeId = "ObjectsFolder";
             console.log("now crawling object folder ...please wait...");
-            crawler.read(nodeId, function (err, obj) {
+            nodeCrawler.read(nodeId, function (err, obj) {
                 if (!err) {
                     treeify.asLines(obj, true, true, function (line) {
                         console.log(line);
@@ -335,22 +460,22 @@ async.series([
                 }
                 callback(err);
             });
-
         } else {
             callback();
         }
-
-
     },
 
     //------------------------------------------
     // initialize all subscriptions
     function (callback) {
-        config.contexts.forEach(function (context) {
+        contexts.forEach(function (context) {
             console.log('registering OCB context ' + context.id);
             var device = {
                 id: context.id,
-                type: context.type
+                type: context.type,
+                active: context.active, //only active used in this VERSION
+                lazy: context.lazy,
+                commands: context.commands
             };
             try {
                 iotAgentLib.register(device, function (err) {
@@ -371,8 +496,53 @@ async.series([
                 return;
             }
         });
-
         callback();
+    },
+    /*
+           @author ascatox 
+           I'm trying to implement communication from OCB to IOT Agent
+           by subscriptions to default Context
+    */
+    function (callback) {
+        var attributeTriggers = [];
+        config.contextSubscriptions.forEach(function (cText) {
+            cText.mappings.forEach(function (map) {
+                attributeTriggers.push(map.ocb_id);
+            });
+        });
+
+        config.contextSubscriptions.forEach(function (context) {
+            console.log('subscribing OCB context ' + context.id + " for attributes: ");
+            attributeTriggers.forEach(function (attr) {
+                console.log("attribute name: " + attr + "".cyan.bold);
+            });
+            var device = {
+                id: context.id,
+                name: context.id,
+                type: context.type,
+                service: config.service,
+                subservice: config.subservice
+            };
+            try {
+                iotAgentLib.subscribe(device, attributeTriggers,
+                    attributeTriggers, function (err) {
+                        if (err) {
+                            console.log('There was an error subscribing device [%s] to attributes [%j]'.bold.red,
+                                device.name, attributeTriggers);
+                        } else {
+                            console.log('Successfully subscribed device [%s] to attributes[%j]'.bold.yellow,
+                                device.name, attributeTriggers);
+                        }
+                        callback();
+                    });
+            } catch (err) {
+                console.log('There was an error subscribing device [%s] to attributes [%j]',
+                    device.name, attributeTriggers);
+                console.log(JSON.stringify(err).red.bold);
+                callback();
+                return;
+            }
+        });
     },
 
     //------------------------------------------
@@ -456,5 +626,4 @@ process.on('SIGINT', function () {
     terminateAllSubscriptions();
     disconnect();
 });
-
 

@@ -1,0 +1,2893 @@
+endpointUrl         =  opc.tcp://ASCATOLOW.SIENA.ENG.IT:26543
+securityMode        =  NONE
+securityPolicy      =  None
+timeout             =  20000
+time=2016-06-29T11:09:42.701Z | lvl=INFO | corr=n/a | trans=n/a | op=IoTAgentNGSI.Global | msg=Activating IOT Agent NGSI Library.
+time=2016-06-29T11:09:42.702Z | lvl=INFO | corr=n/a | trans=n/a | op=IoTAgentNGSI.Global | msg=Falling back to Transient Memory registry for NGSI Library
+time=2016-06-29T11:09:42.709Z | lvl=INFO | corr=n/a | trans=n/a | op=IoTAgentNGSI.NorthboundServer | msg=Starting IoT Agent listening on port [4041]
+time=2016-06-29T11:09:42.710Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NorthboundServer | msg=Using config:
+
+{
+    "logLevel": "DEBUG",
+    "contextBroker": {
+        "host": "161.27.159.64",
+        "port": 8080
+    },
+    "server": {
+        "port": 4041
+    },
+    "deviceRegistry": {
+        "type": "memory"
+    },
+    "types": {
+        "whr-teststation": {
+            "service": "whirlpool",
+            "subservice": "/cassinetta",
+            "active": [
+                {
+                    "name": "attrib1",
+                    "type": "float"
+                },
+                {
+                    "name": "attrib2",
+                    "type": "float"
+                },
+                {
+                    "name": "attrib3",
+                    "type": "string"
+                }
+            ],
+            "lazy": [],
+            "commands": []
+        }
+    },
+    "service": "whirlpool",
+    "subservice": "/cassinetta",
+    "providerUrl": "http://c880b292.ngrok.io",
+    "deviceRegistrationDuration": "P1M",
+    "defaultType": "whr-teststation",
+    "contexts": [
+        {
+            "id": "MyDevice1",
+            "type": "whr-teststation",
+            "mappings": [
+                {
+                    "ocb_id": "attrib1",
+                    "opcua_id": "ns=1;s=PumpSpeed"
+                },
+                {
+                    "ocb_id": "attrib2",
+                    "opcua_id": "ns=1;s=Temperature"
+                }
+            ]
+        },
+        {
+            "id": "MyDevice2",
+            "type": "whr-teststation",
+            "mappings": [
+                {
+                    "ocb_id": "attrib1",
+                    "opcua_id": "ns=1;s=PumpSpeed2"
+                },
+                {
+                    "ocb_id": "attrib2",
+                    "opcua_id": "ns=1;s=Temperature2"
+                }
+            ]
+        }
+    ]
+}
+
+time=2016-06-29T11:09:42.783Z | lvl=INFO | corr=n/a | trans=n/a | op=IoTAgentNGSI.ContextServer | msg=Loading NGSI Contect server routes
+time=2016-06-29T11:09:42.784Z | lvl=DEBUG | corr=n/a | trans=n/a | op=n/a | msg=Loading access validation Templates
+Options =  NONE None
+ connecting to  opc.tcp://ASCATOLOW.SIENA.ENG.IT:26543
+ session created
+ sessionId :  ns=1;g=1852BB87-1C5F-7C59-866A-2A9029C45F88
+ --- NAMESPACE ARRAY ---
+ Namespace  0   :  http://opcfoundation.org/UA/
+ Namespace  1   :  urn:ASCATOLOW.SIENA.ENG.IT:NodeOPCUA-Server
+ Namespace  2   :  http://opcfoundation.org/UA/DI/
+ -----------------------
+registering OCB context MyDevice1
+time=2016-06-29T11:09:43.039Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.DeviceService | msg=Registering device into NGSI Service:
+{
+    "id": "MyDevice1",
+    "type": "whr-teststation"
+}
+time=2016-06-29T11:09:43.039Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.DeviceService | msg=Device name not found, falling back to deviceId:type [whr-teststation:MyDevice1]
+registering OCB context MyDevice2
+time=2016-06-29T11:09:43.041Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.DeviceService | msg=Registering device into NGSI Service:
+{
+    "id": "MyDevice2",
+    "type": "whr-teststation"
+}
+time=2016-06-29T11:09:43.041Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.DeviceService | msg=Device name not found, falling back to deviceId:type [whr-teststation:MyDevice2]
+Starting timer  20000
+time=2016-06-29T11:09:43.042Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.DeviceService | msg=No Context Provider registrations found for unregister
+time=2016-06-29T11:09:43.042Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.DeviceService | msg=No Context Provider registrations found for unregister
+time=2016-06-29T11:09:43.165Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.DeviceService | msg=Initial entity created successfully.
+time=2016-06-29T11:09:43.166Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.InMemoryDeviceRegister | msg=Storing device with id [MyDevice1] and type [whr-teststation]
+registered successfully OCB context MyDevice1
+initializing monitoring: ns=1;s=PumpSpeed
+initializing monitoring: ns=1;s=Temperature
+time=2016-06-29T11:09:43.173Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.DeviceService | msg=Initial entity created successfully.
+time=2016-06-29T11:09:43.176Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.InMemoryDeviceRegister | msg=Storing device with id [MyDevice2] and type [whr-teststation]
+registered successfully OCB context MyDevice2
+initializing monitoring: ns=1;s=PumpSpeed2
+initializing monitoring: ns=1;s=Temperature2
+started subscription:  1
+ revised parameters 
+  revised maxKeepAliveCount   12  ( requested  12)
+  revised lifetimeCount       1000  ( requested  1000)
+  revised publishingInterval  100  ( requested  100)
+  suggested timeout hint      10000
+started subscription:  2
+ revised parameters 
+  revised maxKeepAliveCount   12  ( requested  12)
+  revised lifetimeCount       1000  ( requested  1000)
+  revised publishingInterval  100  ( requested  100)
+  suggested timeout hint      10000
+started subscription:  3
+ revised parameters 
+  revised maxKeepAliveCount   12  ( requested  12)
+  revised lifetimeCount       1000  ( requested  1000)
+  revised publishingInterval  100  ( requested  100)
+  suggested timeout hint      10000
+started subscription:  4
+ revised parameters 
+  revised maxKeepAliveCount   12  ( requested  12)
+  revised lifetimeCount       1000  ( requested  1000)
+  revised publishingInterval  100  ( requested  100)
+  suggested timeout hint      10000
+started monitoring: ns=1;s=PumpSpeed
+started monitoring: ns=1;s=Temperature
+ns=1;s=PumpSpeed2  ERROR BadNodeIdUnknown (0x80340000)
+ns=1;s=Temperature2  ERROR BadNodeIdUnknown (0x80340000)
+ns=1;s=PumpSpeed  value has changed to 104.59574156360382
+time=2016-06-29T11:09:43.301Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:43.301Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+ns=1;s=Temperature  value has changed to 10.457777906114629
+time=2016-06-29T11:09:43.411Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:43.411Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:43.418Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=PumpSpeed  value has changed to 103.87645487329249
+time=2016-06-29T11:09:43.495Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:43.495Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:43.514Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+time=2016-06-29T11:09:43.595Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 10.385992816513554
+time=2016-06-29T11:09:43.610Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:43.610Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:43.719Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+ns=1;s=PumpSpeed  value has changed to 103.21975769988062
+time=2016-06-29T11:09:43.803Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:43.804Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:43.905Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 10.320467294952607
+time=2016-06-29T11:09:43.920Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:43.920Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+ns=1;s=PumpSpeed  value has changed to 102.62078765146623
+time=2016-06-29T11:09:44.008Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:44.008Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:44.015Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+time=2016-06-29T11:09:44.105Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 10.260715923325478
+time=2016-06-29T11:09:44.123Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:44.123Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:44.220Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+ns=1;s=PumpSpeed  value has changed to 102.08064696220032
+time=2016-06-29T11:09:44.313Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:44.313Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+ns=1;s=Temperature  value has changed to 10.206848926795068
+time=2016-06-29T11:09:44.326Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:44.326Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:44.411Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+time=2016-06-29T11:09:44.428Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+keepalive  1.256 sec  pending request on server =  19
+keepalive  1.258 sec  pending request on server =  19
+ns=1;s=PumpSpeed  value has changed to 101.60397632199391
+time=2016-06-29T11:09:44.527Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:44.527Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+ns=1;s=Temperature  value has changed to 10.159329110760607
+time=2016-06-29T11:09:44.632Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:44.632Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:44.665Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=PumpSpeed  value has changed to 101.18726336262682
+time=2016-06-29T11:09:44.729Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:44.729Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:44.778Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+time=2016-06-29T11:09:44.834Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 10.11765330338436
+time=2016-06-29T11:09:44.836Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:44.836Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:44.938Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+ns=1;s=PumpSpeed  value has changed to 100.83280011125345
+time=2016-06-29T11:09:45.034Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:45.034Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:45.134Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 10.082509048226928
+time=2016-06-29T11:09:45.143Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:45.143Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+ns=1;s=PumpSpeed  value has changed to 100.54184883381538
+time=2016-06-29T11:09:45.238Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:45.238Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:45.244Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+time=2016-06-29T11:09:45.336Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 10.05356290504142
+time=2016-06-29T11:09:45.348Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:45.348Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:45.448Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+ns=1;s=PumpSpeed  value has changed to 100.31305569299137
+time=2016-06-29T11:09:45.543Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:45.543Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:45.643Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 10.030832987618744
+time=2016-06-29T11:09:45.653Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:45.653Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+keepalive  1.221 sec  pending request on server =  19
+keepalive  1.22 sec  pending request on server =  19
+ns=1;s=PumpSpeed  value has changed to 100.14656383840942
+time=2016-06-29T11:09:45.750Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:45.750Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:45.753Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+time=2016-06-29T11:09:45.848Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 10.014333447234593
+time=2016-06-29T11:09:45.856Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:45.856Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:45.957Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+ns=1;s=PumpSpeed  value has changed to 100.04218593928988
+time=2016-06-29T11:09:46.051Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:46.051Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:46.146Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 10.0040461361228
+time=2016-06-29T11:09:46.162Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:46.162Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+ns=1;s=PumpSpeed  value has changed to 100.00081926666874
+time=2016-06-29T11:09:46.258Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:46.259Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:46.271Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 10.000059439072436
+time=2016-06-29T11:09:46.370Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:46.370Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:46.375Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+time=2016-06-29T11:09:46.467Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+ns=1;s=PumpSpeed  value has changed to 100.0217397916632
+time=2016-06-29T11:09:46.561Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:46.562Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:46.664Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 10.002300884697316
+time=2016-06-29T11:09:46.674Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:46.674Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+ns=1;s=PumpSpeed  value has changed to 100.10556133098419
+time=2016-06-29T11:09:46.766Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:46.766Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:46.769Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+time=2016-06-29T11:09:46.860Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 10.01083355166025
+time=2016-06-29T11:09:46.879Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:46.879Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+keepalive  1.227 sec  pending request on server =  19
+keepalive  1.227 sec  pending request on server =  19
+ns=1;s=PumpSpeed  value has changed to 100.25089614914887
+time=2016-06-29T11:09:46.971Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:46.971Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:46.981Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 10.025587627825566
+time=2016-06-29T11:09:47.081Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:47.081Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:47.084Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+time=2016-06-29T11:09:47.192Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+ns=1;s=PumpSpeed  value has changed to 100.45998758698808
+time=2016-06-29T11:09:47.273Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:47.274Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:47.379Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 10.046575361284557
+time=2016-06-29T11:09:47.387Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:47.387Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+ns=1;s=PumpSpeed  value has changed to 100.73057941757584
+time=2016-06-29T11:09:47.479Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:47.479Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:47.495Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 10.073783685416837
+time=2016-06-29T11:09:47.595Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:47.595Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:47.599Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+time=2016-06-29T11:09:47.714Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+ns=1;s=PumpSpeed  value has changed to 101.06175806146734
+time=2016-06-29T11:09:47.785Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:47.785Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:47.889Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 10.10704961523048
+time=2016-06-29T11:09:47.901Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:47.901Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+ns=1;s=PumpSpeed  value has changed to 101.45767632359228
+time=2016-06-29T11:09:47.989Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:47.989Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:48.005Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 10.146790147455091
+time=2016-06-29T11:09:48.103Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:48.103Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+keepalive  1.225 sec  pending request on server =  19
+keepalive  1.226 sec  pending request on server =  19
+time=2016-06-29T11:09:48.113Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+time=2016-06-29T11:09:48.205Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+ns=1;s=PumpSpeed  value has changed to 101.91372670138503
+time=2016-06-29T11:09:48.296Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:48.296Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:48.401Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 10.192542658676997
+time=2016-06-29T11:09:48.409Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:48.409Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+ns=1;s=PumpSpeed  value has changed to 102.43107783637232
+time=2016-06-29T11:09:48.503Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:48.503Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:48.509Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+time=2016-06-29T11:09:48.609Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 10.24442444892442
+time=2016-06-29T11:09:48.617Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:48.617Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:48.723Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+ns=1;s=PumpSpeed  value has changed to 103.00940567515447
+time=2016-06-29T11:09:48.813Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:48.813Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:48.917Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 10.30240321744132
+time=2016-06-29T11:09:48.928Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:48.928Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+ns=1;s=PumpSpeed  value has changed to 103.64835016025577
+time=2016-06-29T11:09:49.020Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:49.020Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:49.032Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+time=2016-06-29T11:09:49.132Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 10.366442671166725
+time=2016-06-29T11:09:49.134Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:49.134Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+ns=1;s=PumpSpeed  value has changed to 104.34459567502881
+time=2016-06-29T11:09:49.223Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:49.224Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:49.240Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+time=2016-06-29T11:09:49.326Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 10.43621056226041
+time=2016-06-29T11:09:49.336Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:49.336Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+keepalive  1.233 sec  pending request on server =  19
+keepalive  1.232 sec  pending request on server =  19
+time=2016-06-29T11:09:49.436Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+ns=1;s=PumpSpeed  value has changed to 105.10645219772547
+time=2016-06-29T11:09:49.534Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:49.535Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:49.642Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 10.512539781150753
+time=2016-06-29T11:09:49.645Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:49.645Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+ns=1;s=PumpSpeed  value has changed to 105.9213074655965
+time=2016-06-29T11:09:49.739Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:49.739Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:49.745Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+time=2016-06-29T11:09:49.845Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 10.594166465148366
+time=2016-06-29T11:09:49.848Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:49.848Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:49.944Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+ns=1;s=PumpSpeed  value has changed to 106.79811363298298
+time=2016-06-29T11:09:50.044Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:50.044Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:50.146Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 10.681987536257113
+time=2016-06-29T11:09:50.156Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:50.156Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+ns=1;s=PumpSpeed  value has changed to 107.7370238708462
+time=2016-06-29T11:09:50.253Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:50.253Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:50.269Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 10.776018207831859
+time=2016-06-29T11:09:50.359Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:50.359Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:50.360Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+time=2016-06-29T11:09:50.465Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+ns=1;s=PumpSpeed  value has changed to 108.7258861076533
+time=2016-06-29T11:09:50.559Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:50.559Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+keepalive  1.228 sec  pending request on server =  19
+keepalive  1.231 sec  pending request on server =  19
+ns=1;s=Temperature  value has changed to 10.875041403504028
+time=2016-06-29T11:09:50.665Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:50.666Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:50.667Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=PumpSpeed  value has changed to 109.77564633416151
+time=2016-06-29T11:09:50.762Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:50.762Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:50.767Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 10.980153662282914
+time=2016-06-29T11:09:50.869Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:50.869Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:50.873Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+time=2016-06-29T11:09:50.971Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+ns=1;s=PumpSpeed  value has changed to 110.88633274619433
+time=2016-06-29T11:09:51.066Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:51.066Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:51.172Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 11.091357199129604
+time=2016-06-29T11:09:51.177Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:51.178Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+ns=1;s=PumpSpeed  value has changed to 112.04363984795498
+time=2016-06-29T11:09:51.270Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:51.270Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:51.293Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+time=2016-06-29T11:09:51.375Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 11.207220304176078
+time=2016-06-29T11:09:51.378Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:51.378Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+ns=1;s=PumpSpeed  value has changed to 113.26543046578091
+time=2016-06-29T11:09:51.473Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:51.473Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:51.484Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+time=2016-06-29T11:09:51.572Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 11.330029099365353
+time=2016-06-29T11:09:51.585Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:51.585Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:51.689Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+ns=1;s=PumpSpeed  value has changed to 114.53666976758515
+time=2016-06-29T11:09:51.782Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:51.782Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+keepalive  1.225 sec  pending request on server =  19
+keepalive  1.223 sec  pending request on server =  19
+time=2016-06-29T11:09:51.889Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 11.457303678777741
+time=2016-06-29T11:09:51.895Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:51.895Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+ns=1;s=PumpSpeed  value has changed to 115.86132089430059
+time=2016-06-29T11:09:51.984Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:51.985Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:51.996Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+time=2016-06-29T11:09:52.089Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 11.589917167859781
+time=2016-06-29T11:09:52.103Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:52.103Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:52.229Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+ns=1;s=PumpSpeed  value has changed to 117.2329424940947
+time=2016-06-29T11:09:52.289Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:52.289Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+ns=1;s=Temperature  value has changed to 11.727224759391962
+time=2016-06-29T11:09:52.406Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:52.407Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:52.422Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=PumpSpeed  value has changed to 118.66751256833848
+time=2016-06-29T11:09:52.497Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:52.498Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:52.513Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+time=2016-06-29T11:09:52.606Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 11.870826073569514
+time=2016-06-29T11:09:52.616Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:52.616Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:52.727Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+ns=1;s=PumpSpeed  value has changed to 120.14730100916935
+time=2016-06-29T11:09:52.805Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:52.805Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:52.901Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 12.0189457516271
+time=2016-06-29T11:09:52.923Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:52.923Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+ns=1;s=PumpSpeed  value has changed to 121.6769948113474
+time=2016-06-29T11:09:53.015Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:53.015Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:53.020Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+keepalive  1.239 sec  pending request on server =  19
+keepalive  1.238 sec  pending request on server =  19
+time=2016-06-29T11:09:53.112Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 12.172053504736148
+time=2016-06-29T11:09:53.131Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:53.131Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+ns=1;s=PumpSpeed  value has changed to 123.25563796558416
+time=2016-06-29T11:09:53.217Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:53.218Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:53.237Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+time=2016-06-29T11:09:53.326Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 12.33262074288587
+time=2016-06-29T11:09:53.334Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:53.334Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:53.441Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+ns=1;s=PumpSpeed  value has changed to 124.88224387082481
+time=2016-06-29T11:09:53.518Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:53.518Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+ns=1;s=Temperature  value has changed to 12.495490057002067
+time=2016-06-29T11:09:53.637Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:53.637Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:53.641Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=PumpSpeed  value has changed to 126.55579392824377
+time=2016-06-29T11:09:53.720Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:53.720Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:53.741Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+time=2016-06-29T11:09:53.815Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 12.663049245286093
+time=2016-06-29T11:09:53.839Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:53.839Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:53.938Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+ns=1;s=PumpSpeed  value has changed to 128.27524621288316
+time=2016-06-29T11:09:54.021Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:54.021Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:54.122Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 12.835193988121436
+time=2016-06-29T11:09:54.141Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:54.141Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+ns=1;s=PumpSpeed  value has changed to 130.03952415527135
+time=2016-06-29T11:09:54.224Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:54.224Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:54.239Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+keepalive  1.212 sec  pending request on server =  19
+keepalive  1.212 sec  pending request on server =  19
+time=2016-06-29T11:09:54.319Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 13.011816503624754
+time=2016-06-29T11:09:54.344Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:54.344Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:54.445Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+ns=1;s=PumpSpeed  value has changed to 131.84752513859843
+time=2016-06-29T11:09:54.526Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:54.526Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:54.622Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 13.192806408420541
+time=2016-06-29T11:09:54.645Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:54.645Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+ns=1;s=PumpSpeed  value has changed to 133.69811922056397
+time=2016-06-29T11:09:54.729Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:54.729Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:54.737Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+time=2016-06-29T11:09:54.825Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 13.379549187318343
+time=2016-06-29T11:09:54.848Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:54.848Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:54.945Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+ns=1;s=PumpSpeed  value has changed to 135.59014755984822
+time=2016-06-29T11:09:55.032Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:55.032Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:55.129Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 13.568964503254843
+time=2016-06-29T11:09:55.151Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:55.151Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+ns=1;s=PumpSpeed  value has changed to 137.52243221048002
+time=2016-06-29T11:09:55.233Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:55.233Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:55.245Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+time=2016-06-29T11:09:55.328Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 13.762399008953967
+time=2016-06-29T11:09:55.357Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:55.357Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:55.454Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+keepalive  1.217 sec  pending request on server =  19
+keepalive  1.222 sec  pending request on server =  19
+ns=1;s=PumpSpeed  value has changed to 139.49376332586544
+time=2016-06-29T11:09:55.549Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:55.549Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:55.652Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 13.959731814088572
+time=2016-06-29T11:09:55.660Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:55.660Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+ns=1;s=PumpSpeed  value has changed to 141.5029088876396
+time=2016-06-29T11:09:55.745Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:55.746Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:55.755Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+time=2016-06-29T11:09:55.845Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 14.160839592020107
+time=2016-06-29T11:09:55.864Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:55.864Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:55.961Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+ns=1;s=PumpSpeed  value has changed to 143.54861324462811
+time=2016-06-29T11:09:56.049Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:56.049Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:56.143Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 14.365596410659881
+time=2016-06-29T11:09:56.171Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:56.171Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+ns=1;s=PumpSpeed  value has changed to 145.6295953963484
+time=2016-06-29T11:09:56.255Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:56.255Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:56.267Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+time=2016-06-29T11:09:56.349Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 14.573874791753685
+time=2016-06-29T11:09:56.375Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:56.375Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:56.471Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+ns=1;s=PumpSpeed  value has changed to 147.74455975726886
+time=2016-06-29T11:09:56.562Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:56.562Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:56.661Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 14.785544326091586
+time=2016-06-29T11:09:56.688Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:56.688Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+keepalive  1.229 sec  pending request on server =  19
+keepalive  1.224 sec  pending request on server =  18
+ns=1;s=PumpSpeed  value has changed to 149.89218208292468
+time=2016-06-29T11:09:56.771Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:56.771Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:56.803Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+time=2016-06-29T11:09:56.867Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 15.000472727041686
+time=2016-06-29T11:09:56.889Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:56.889Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+ns=1;s=PumpSpeed  value has changed to 152.07112017863057
+time=2016-06-29T11:09:56.974Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:56.975Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:56.986Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+time=2016-06-29T11:09:57.070Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 15.218525671285569
+time=2016-06-29T11:09:57.091Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:57.091Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:57.187Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+ns=1;s=PumpSpeed  value has changed to 154.2800122783548
+time=2016-06-29T11:09:57.277Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:57.277Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:57.373Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 15.439566617538006
+time=2016-06-29T11:09:57.393Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:57.393Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+ns=1;s=PumpSpeed  value has changed to 156.51747521203603
+time=2016-06-29T11:09:57.485Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:57.485Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:57.490Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+time=2016-06-29T11:09:57.598Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 15.66886529732949
+time=2016-06-29T11:09:57.601Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:57.601Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:57.698Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+ns=1;s=PumpSpeed  value has changed to 158.78211597176107
+time=2016-06-29T11:09:57.787Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:57.787Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:57.887Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 15.89553014023048
+time=2016-06-29T11:09:57.905Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:57.905Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+keepalive  1.218 sec  pending request on server =  19
+keepalive  1.217 sec  pending request on server =  19
+ns=1;s=PumpSpeed  value has changed to 161.07251657958633
+time=2016-06-29T11:09:57.998Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:57.999Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:58.014Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+time=2016-06-29T11:09:58.096Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 16.124760144410665
+time=2016-06-29T11:09:58.116Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:58.116Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:58.222Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+ns=1;s=PumpSpeed  value has changed to 163.38724560900513
+time=2016-06-29T11:09:58.307Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:58.307Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:58.406Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 16.356411770974184
+time=2016-06-29T11:09:58.420Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:58.420Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+ns=1;s=PumpSpeed  value has changed to 165.72485642903203
+time=2016-06-29T11:09:58.511Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:58.511Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:58.533Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+time=2016-06-29T11:09:58.623Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 16.59034079739826
+time=2016-06-29T11:09:58.628Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:58.628Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+ns=1;s=PumpSpeed  value has changed to 168.08388528393294
+time=2016-06-29T11:09:58.724Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:58.724Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:58.735Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+time=2016-06-29T11:09:58.830Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 16.826400750850812
+time=2016-06-29T11:09:58.837Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:58.837Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:58.951Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+ns=1;s=PumpSpeed  value has changed to 170.4628634808358
+time=2016-06-29T11:09:59.027Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:59.027Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:59.132Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 17.064444101474677
+time=2016-06-29T11:09:59.141Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:59.142Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+keepalive  1.24 sec  pending request on server =  19
+keepalive  1.242 sec  pending request on server =  19
+time=2016-06-29T11:09:59.240Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+ns=1;s=PumpSpeed  value has changed to 172.86030143538966
+time=2016-06-29T11:09:59.246Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:59.246Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:59.345Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 17.304322079853428
+time=2016-06-29T11:09:59.353Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:59.353Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:59.466Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+ns=1;s=PumpSpeed  value has changed to 175.2747008261985
+time=2016-06-29T11:09:59.553Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:59.553Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:59.655Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 17.54588448107808
+time=2016-06-29T11:09:59.661Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:59.661Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+ns=1;s=PumpSpeed  value has changed to 177.7045527315157
+time=2016-06-29T11:09:59.756Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:59.756Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:59.769Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 17.788980912339284
+time=2016-06-29T11:09:59.861Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:09:59.861Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:09:59.981Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+ns=1;s=PumpSpeed  value has changed to 180.14833565135316
+time=2016-06-29T11:10:00.063Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:10:00.063Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:10:00.166Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 18.03345915921736
+time=2016-06-29T11:10:00.170Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:10:00.170Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+ns=1;s=PumpSpeed  value has changed to 182.60452812634102
+time=2016-06-29T11:10:00.269Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:10:00.269Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:10:00.273Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 18.279166430693277
+time=2016-06-29T11:10:00.378Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:10:00.378Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:10:00.382Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+keepalive  1.238 sec  pending request on server =  19
+keepalive  1.238 sec  pending request on server =  19
+ns=1;s=PumpSpeed  value has changed to 185.08148186912297
+time=2016-06-29T11:10:00.477Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:10:00.477Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:10:00.506Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+time=2016-06-29T11:10:00.575Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 18.526938120578958
+time=2016-06-29T11:10:00.690Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:10:00.690Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+ns=1;s=PumpSpeed  value has changed to 187.55790698988213
+time=2016-06-29T11:10:00.785Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:10:00.785Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:10:00.802Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+time=2016-06-29T11:10:00.887Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 18.774645465749654
+time=2016-06-29T11:10:00.902Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:10:00.902Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+ns=1;s=PumpSpeed  value has changed to 190.04211096435395
+time=2016-06-29T11:10:00.994Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:10:00.994Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:10:01.008Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+time=2016-06-29T11:10:01.100Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 19.024113708487345
+time=2016-06-29T11:10:01.108Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:10:01.108Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:10:01.216Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+ns=1;s=PumpSpeed  value has changed to 192.5425090979871
+time=2016-06-29T11:10:01.302Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:10:01.302Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:10:01.411Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 19.274196736714735
+time=2016-06-29T11:10:01.415Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:10:01.415Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+ns=1;s=PumpSpeed  value has changed to 195.04760825266652
+time=2016-06-29T11:10:01.505Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:10:01.505Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:10:01.523Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+time=2016-06-29T11:10:01.622Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 19.5237382683108
+time=2016-06-29T11:10:01.627Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:10:01.627Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+keepalive  1.245 sec  pending request on server =  19
+keepalive  1.245 sec  pending request on server =  19
+time=2016-06-29T11:10:01.732Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+ns=1;s=PumpSpeed  value has changed to 197.5458256669209
+time=2016-06-29T11:10:01.819Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:10:01.819Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:10:01.916Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 19.77357744812811
+time=2016-06-29T11:10:01.959Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:10:01.959Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+ns=1;s=PumpSpeed  value has changed to 200.0455798375533
+time=2016-06-29T11:10:02.022Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:10:02.022Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:10:02.060Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+time=2016-06-29T11:10:02.120Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 20.023558134737435
+time=2016-06-29T11:10:02.163Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:10:02.163Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+ns=1;s=PumpSpeed  value has changed to 202.5453055222573
+time=2016-06-29T11:10:02.227Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:10:02.227Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:10:02.260Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+time=2016-06-29T11:10:02.332Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 20.27352380036066
+time=2016-06-29T11:10:02.367Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:10:02.367Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:10:02.461Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+ns=1;s=PumpSpeed  value has changed to 205.0434404731047
+time=2016-06-29T11:10:02.529Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:10:02.529Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:10:02.626Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 20.523318820453134
+time=2016-06-29T11:10:02.670Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:10:02.670Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+ns=1;s=PumpSpeed  value has changed to 207.5384234363246
+time=2016-06-29T11:10:02.733Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:10:02.733Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+time=2016-06-29T11:10:02.762Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+time=2016-06-29T11:10:02.867Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+ns=1;s=Temperature  value has changed to 20.772786783161642
+time=2016-06-29T11:10:02.875Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:10:02.875Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+keepalive  1.248 sec  pending request on server =  19
+keepalive  1.246 sec  pending request on server =  18
+time=2016-06-29T11:10:02.893Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib1 on whr-teststation:MyDevice1
+time=2016-06-29T11:10:02.976Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Value updated successfully
+successfully updated attrib2 on whr-teststation:MyDevice1
+ns=1;s=PumpSpeed  value has changed to 210.03864334926607
+time=2016-06-29T11:10:03.041Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Updating device value in the Context Broker at [http://161.27.159.64:8080/v1/updateContext]
+time=2016-06-29T11:10:03.041Z | lvl=DEBUG | corr=n/a | trans=n/a | op=IoTAgentNGSI.NGSIService | msg=Using the following request:
+
+{
+    "url": "http://161.27.159.64:8080/v1/updateContext",
+    "method": "POST",
+    "headers": {
+        "fiware-service": "whirlpool",
+        "fiware-servicepath": "/cassinetta",
+        "X-Auth-Token": null
+    }
+}
+
+
+terminating subscription:  1
+terminating subscription:  2
+terminating subscription:  3
+terminating subscription:  4
+ closing session
+successfully terminated subscription: terminated
+successfully terminated subscription: terminated
+successfully terminated subscription: terminated
+successfully terminated subscription: terminated
+ session closed null
+ Calling disconnect
+ disconnected
+success !!   
+Exiting
