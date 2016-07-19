@@ -249,10 +249,9 @@ function initSubscriptionBroker(context, mapping) {
     });
 }
 
-/**
- * @author ascatox 
- * Method call on OPCUA Server
- * 
+/*
+  @author ascatox 
+  Method call on OPCUA Server  
  */
 function callMethods(value) {
     //TODO Metodi multipli
@@ -273,12 +272,12 @@ function callMethods(value) {
     }
 }
 
-/**
- * @author ascatox 
- * Handler for incoming notifications.
- *
- * @param {Object} device           Object containing all the device information.
- * @param {Array} updates           List of all the updated attributes.
+/*
+  @author ascatox 
+  Handler for incoming notifications.
+ 
+  @param {Object} device           Object containing all the device information.
+  @param {Array} updates           List of all the updated attributes.
 
  */
 function notificationHandler(device, updates, callback) {
