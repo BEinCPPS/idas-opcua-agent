@@ -1,8 +1,8 @@
 var config = {
     logLevel: 'DEBUG',
     contextBroker: {
-        host: 'localhost',
-        port: 7001
+        host: 'localhost'
+        port: 7001  
     },
     server: {
         port: 4041
@@ -54,7 +54,7 @@ var config = {
     //END WARNING Used only with "-browse" option
     service: 'whirlpool',
     subservice: '/cassinetta',
-    providerUrl: 'http://localhost:4041',
+    providerUrl: 'http://localhost:4041', //'http://4769258e.ngrok.io'
     deviceRegistrationDuration: 'P1M',
     defaultType: 'whr-teststation',
 

@@ -77,7 +77,7 @@ server: {
 8. ```cd to <your_project_dir>/idas-opcua-agent```
 9. Launch the Agent: ```node index.js -e "endpointUrl"``` (e.g., ```node index.js -e "opc.tcp://UbuntuDesk:26543"```
 10. Look at the on-screen log for any problems, and enjoy yourself :wink:
-11. The agent will terminate itself when done
+11. The agent will terminate itself after 20 seconds, change this using ```-t <seconds>```
 
 ###License
 IDAS OPC-UA Agent software is licensed under [Affero General Public License](http://www.gnu.org/licenses/agpl-3.0.html) (GPL) version 3.
