@@ -193,12 +193,14 @@ function initSubscriptionBroker(context, mapping) {
             attributeId: opcua.AttributeIds.Value
         },
         // TODO some of this stuff (samplingInterval for sure) should come from config
+        // TODO All these attributes are optional remove ?
         {
-            clientHandle: 13, // TODO need to understand the meaning this! we probably cannot reuse the same handle everywhere
+            //clientHandle: 13, // TODO need to understand the meaning this! we probably cannot reuse the same handle everywhere
             samplingInterval: 250,
             queueSize: 10000,
             discardOldest: true
-        }
+        },
+        opcua.read_service.TimestampsToReturn.Both
     );
 
     monitoredItem.on("initialized", function () {
@@ -230,15 +232,16 @@ function initSubscriptionBroker(context, mapping) {
                     name: mapping.ocb_id,
                     type: mapping.type || findType(mapping.ocb_id),
                     value: variableValue,
-                   /*
+                    /*
                     metadatas: [
                         {
-                            name: "arrivalTime",
+                            name: "pushingTime",
                             type: "typestamp",
-                            value: new Date() //TODO
+                            value: dataValue.sourceTimestamp
                         }
                     ]
                     */
+                    
                 }];
                 /*WARNING attributes must be an ARRAY*/
                 iotAgentLib.update(device.name, device.type, '', attributes, device, function (err) {
