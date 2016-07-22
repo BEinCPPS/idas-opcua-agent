@@ -229,7 +229,16 @@ function initSubscriptionBroker(context, mapping) {
                 var attributes = [{
                     name: mapping.ocb_id,
                     type: mapping.type || findType(mapping.ocb_id),
-                    value: variableValue
+                    value: variableValue,
+                   /*
+                    metadatas: [
+                        {
+                            name: "arrivalTime",
+                            type: "typestamp",
+                            value: new Date() //TODO
+                        }
+                    ]
+                    */
                 }];
                 /*WARNING attributes must be an ARRAY*/
                 iotAgentLib.update(device.name, device.type, '', attributes, device, function (err) {
