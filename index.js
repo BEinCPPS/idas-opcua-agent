@@ -235,7 +235,7 @@ function initSubscriptionBroker(context, mapping) {
                     /*
                     metadatas: [
                         {
-                            name: "pushingTime",
+                            name: "sourceTimestamp",
                             type: "typestamp",
                             value: dataValue.sourceTimestamp
                         }
