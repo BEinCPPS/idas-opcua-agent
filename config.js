@@ -12,9 +12,9 @@ var config = {
     },
 
     types: {
-        'whr-teststation': {
-            service: 'whirlpool',
-            subservice: '/cassinetta',
+        'teststation': {
+            service: 'testservice',
+            subservice: '/testsubservice',
             active: [
 
                 {
@@ -52,18 +52,18 @@ var config = {
         }
     },
     //END WARNING Used only with "-browse" option
-    service: 'whirlpool',
-    subservice: '/cassinetta',
+    service: 'testservice',
+    subservice: '/testsubservice',
     providerUrl: 'http://localhost:4041', //'http://4769258e.ngrok.io'
     deviceRegistrationDuration: 'P1M',
-    defaultType: 'whr-teststation',
+    defaultType: 'teststation',
 
     /* start of custom section for OPC UA mapping */
     /* WARNING Not considered with "-browse" option, built from Server Address Space*/
     contexts: [
         {
             id: 'MyDevice1',
-            type: 'whr-teststation',
+            type: 'teststation',
             mappings: [
                 {
                     ocb_id: 'attrib1',
@@ -77,7 +77,7 @@ var config = {
         },
         {
             id: 'MyDevice2',
-            type: 'whr-teststation',
+            type: 'teststation',
             mappings: [
                 {
                     ocb_id: 'attrib1',
@@ -96,7 +96,7 @@ var config = {
     contextSubscriptions: [
         {
             id: 'FrontEndState',
-            type: 'whr-mobilestation',
+            type: 'mobilestation',
             mappings: [
                 {
                     ocb_id: 'button',

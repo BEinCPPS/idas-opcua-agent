@@ -28,8 +28,8 @@ server: {
 ```
 **Change** these important parameters that identify your ```context``` data inside the OCB</br>
  ```
- service: 'whirlpool',
- subservice: '/cassinetta',
+ service: 'testservice',
+ subservice: '/testsubservice',
 
  ```
  Change as you need the custom section for ```OPC-UA mapping``` with [NGSI](https://forge.fiware.org/plugins/mediawiki/wiki/fiware/index.php/NGSI-9/NGSI-10_information_model) contexts
@@ -37,7 +37,7 @@ server: {
  contexts: [
         {
            id: 'MyDevice1',
-            type: 'whr-teststation',
+            type: 'teststation',
             mappings: [
                 {
                     ocb_id: 'attrib1',
@@ -51,7 +51,7 @@ server: {
         },
         {
             id: 'MyDevice2',
-            type: 'whr-teststation',
+            type: 'teststation',
             mappings: [
                 {
                     ocb_id: 'attrib1',
