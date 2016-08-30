@@ -32,7 +32,7 @@ server: {
  subservice: '/testsubservice',
 
  ```
- Change as you need the custom section for ```OPC-UA mapping``` with [NGSI](https://forge.fiware.org/plugins/mediawiki/wiki/fiware/index.php/NGSI-9/NGSI-10_information_model) contexts
+ Change as you need if you want the custom section for ```OPC-UA mapping``` with [NGSI](https://forge.fiware.org/plugins/mediawiki/wiki/fiware/index.php/NGSI-9/NGSI-10_information_model) contexts
  ```
  contexts: [
         {
