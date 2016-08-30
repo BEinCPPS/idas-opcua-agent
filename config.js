@@ -1,8 +1,8 @@
 var config = {
     logLevel: 'DEBUG',
     contextBroker: {
-        host: 'localhost'
-        port: 7001  
+        host: 'localhost',
+        port: 7001  //7001
     },
     server: {
         port: 4041
@@ -90,6 +90,7 @@ var config = {
             ]
         }
     ],
+    // WARNING Used only with "-browse" option
     // Orion Subscriptions to Contexts
     // start of custom section for OPC UA mapping OCB -> Agent
     contextSubscriptions: [
@@ -104,7 +105,7 @@ var config = {
             ]
         },
     ]
-
+   // WARNING Used only with "-browse" option
 };
 
 module.exports = config;

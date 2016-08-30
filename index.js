@@ -75,7 +75,7 @@ if (!securityPolicy) {
     throw new Error("Invalid securityPolicy , should be " + opcua.SecurityPolicy.enums.join(" "));
 }
 
-var timeout = parseInt(argv.timeout) * 1000 || 20000; //default 
+var timeout = parseInt(argv.timeout) * 1000 || -1; //604800*1000; //default 20000
 
 var doBrowse = argv.browse ? true : false;
 
@@ -241,7 +241,7 @@ function initSubscriptionBroker(context, mapping) {
                         }
                     ]
                     */
-                    
+
                 }];
                 /*WARNING attributes must be an ARRAY*/
                 iotAgentLib.update(device.name, device.type, '', attributes, device, function (err) {
@@ -511,50 +511,55 @@ async.series([
         callback();
     },
     /*
-           @author ascatox 
+           @author ascatox
+           Use "-browse option" 
            I'm trying to implement communication from OCB to IOT Agent
            by subscriptions to default Context
     */
     function (callback) {
-        var attributeTriggers = [];
-        config.contextSubscriptions.forEach(function (cText) {
-            cText.mappings.forEach(function (map) {
-                attributeTriggers.push(map.ocb_id);
+        if (doBrowse) {
+            var attributeTriggers = [];
+            config.contextSubscriptions.forEach(function (cText) {
+                cText.mappings.forEach(function (map) {
+                    attributeTriggers.push(map.ocb_id);
+                });
             });
-        });
 
-        config.contextSubscriptions.forEach(function (context) {
-            console.log('subscribing OCB context ' + context.id + " for attributes: ");
-            attributeTriggers.forEach(function (attr) {
-                console.log("attribute name: " + attr + "".cyan.bold);
+            config.contextSubscriptions.forEach(function (context) {
+                console.log('subscribing OCB context ' + context.id + " for attributes: ");
+                attributeTriggers.forEach(function (attr) {
+                    console.log("attribute name: " + attr + "".cyan.bold);
+                });
+                var device = {
+                    id: context.id,
+                    name: context.id,
+                    type: context.type,
+                    service: config.service,
+                    subservice: config.subservice
+                };
+                try {
+                    iotAgentLib.subscribe(device, attributeTriggers,
+                        attributeTriggers, function (err) {
+                            if (err) {
+                                console.log('There was an error subscribing device [%s] to attributes [%j]'.bold.red,
+                                    device.name, attributeTriggers);
+                            } else {
+                                console.log('Successfully subscribed device [%s] to attributes[%j]'.bold.yellow,
+                                    device.name, attributeTriggers);
+                            }
+                            callback();
+                        });
+                } catch (err) {
+                    console.log('There was an error subscribing device [%s] to attributes [%j]',
+                        device.name, attributeTriggers);
+                    console.log(JSON.stringify(err).red.bold);
+                    callback();
+                    return;
+                }
             });
-            var device = {
-                id: context.id,
-                name: context.id,
-                type: context.type,
-                service: config.service,
-                subservice: config.subservice
-            };
-            try {
-                iotAgentLib.subscribe(device, attributeTriggers,
-                    attributeTriggers, function (err) {
-                        if (err) {
-                            console.log('There was an error subscribing device [%s] to attributes [%j]'.bold.red,
-                                device.name, attributeTriggers);
-                        } else {
-                            console.log('Successfully subscribed device [%s] to attributes[%j]'.bold.yellow,
-                                device.name, attributeTriggers);
-                        }
-                        callback();
-                    });
-            } catch (err) {
-                console.log('There was an error subscribing device [%s] to attributes [%j]',
-                    device.name, attributeTriggers);
-                console.log(JSON.stringify(err).red.bold);
-                callback();
-                return;
-            }
-        });
+        } else {
+            callback();
+        }
     },
 
     //------------------------------------------
@@ -573,6 +578,10 @@ async.series([
                 //});
                 //the_subscription.terminate();
             }, timeout);
+        } else if (timeout == -1) {
+            //  Infinite activity
+            console.log("NO Timeout set!!!".bold.cyan);
+
         } else {
             callback();
         }
