@@ -26,7 +26,7 @@ server: {
     port: 4041
 }
 ```
-Change if you want, these **important** parameters that identify your ```context``` data inside the OCB (similar to schema in the RDBMS world)</br>
+Change if you want, these **important** parameters that identify your ```context``` data inside the OCB (similar to **schemas** in the RDBMS world)</br>
  ```
  service: 'testservice',
  subservice: '/testsubservice',
