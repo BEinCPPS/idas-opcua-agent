@@ -1,0 +1,24 @@
+{
+  "name": "opcua-agent",
+  "version": "0.0.1",
+  "description": "IDAS Agent for OPC UA",
+  "main": "index.js",
+  "dependencies": {
+    "deep-diff": "*",
+    "express": "^4.13.4",
+    "hashmap": "*",
+    "http": "0.0.0",
+    "iotagent-node-lib": "*",
+    "node-opcua": "0.0.54",
+    "object-path": "^0.11.4",
+    "object-search": "0.0.5",
+    "request": "^2.72.0",
+    "seriate": "0.9.0",
+    "winston": "^2.3.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mauro Isaja (Engineering Ingegneria Informatica SpA) mauro.isaja@eng.it",
+  "license": "ASL"
+}
