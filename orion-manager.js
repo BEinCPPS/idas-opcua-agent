@@ -9,6 +9,7 @@ var VariantArrayType = opcua.VariantArrayType;
 var HashMap = require("hashmap");
 var iotAgentLib = require('iotagent-node-lib');
 var config = require('./config');
+var logger = require("./logger.js");
 
 var doBrowse = true;
 
@@ -45,10 +46,10 @@ var OrionManager = (function () {
     var activate = function (callback) {
         iotAgentLib.activate(config, function (err) {
             if (err) {
-                console.log('There was an error activating the Agent: ' + err.message);
+                logger.error('There was an error activating the Agent: '.bold.red + err.message);
                 process.exit(1);
             } else {
-                console.log("NotificationHandler attached to ContextBroker");
+                logger.info("NotificationHandler attached to ContextBroker".cyan.bold);
                 iotAgentLib.setNotificationHandler(notificationHandler);
             }
             callback(err);
@@ -80,7 +81,7 @@ var OrionManager = (function () {
         }
         if (doBrowse) {
             if (addressSpaceCrawler.getServerObject() == null) {
-                console.log("No addresspace retrieved from server retrieve".bold.red);
+                logger.info("No addresspace retrieved from server retrieve".bold.red);
                 callback("No addresspace retrieved from server retrieve");
             }
             var opcuaType = addressSpaceCrawler.getServerObject().typeDefinition;
@@ -93,6 +94,7 @@ var OrionManager = (function () {
             if (testStations != null) {
                 for (var i in testStations) {
                     var testStation = testStations[i];
+                    //if (testStation.browseName.indexOf("Event") > -1) continue;
                     var contextObj = {
                         id: testStation.browseName,
                         type: config.defaultType,
@@ -106,7 +108,8 @@ var OrionManager = (function () {
                     }
                     contexts.push(contextObj);
                 }
-            } if (opcuaType === "Variable") {
+            }
+            if (opcuaType === "Variable") {
                 var contextObj = {
                     id: node.parentBrowseName,
                     type: config.defaultType,
@@ -124,8 +127,12 @@ var OrionManager = (function () {
 
     var registerContexts = function (callback) {
         var counter = 0;
+        if (contexts == null || contexts.length === 0) {
+            logger.info("No contexts found!!!".cyan.bold);
+            callback();
+        }
         contexts.forEach(function (context) {
-            console.log('registering OCB context ' + context.id);
+            logger.info('registering OCB context ' + context.id);
             var device = {
                 id: context.id,
                 type: context.type,
@@ -133,24 +140,26 @@ var OrionManager = (function () {
                 subservice: config.subservice,
                 active: context.active, //only active used in this VERSION
                 lazy: context.lazy,
-                commands: context.commands
+                commands: context.commands,
+                endpoint: config.providerUrl
             };
             try {
                 iotAgentLib.register(device, function (err) {
                     if (err) { // skip context
-                        console.log("could not register OCB context " + context.id + "".red.bold);
-                        console.log(JSON.stringify(err).red.bold);
+                        logger.error("could not register OCB context " + context.id + "".red.bold, JSON.stringify(err));
+                        logger.debug("devo capire se è stata aggiunta o meno una misura se si la devo sottoscrivere!!!!");
                     } else { // init subscriptions
-                        console.log("registered successfully OCB context " + context.id);
+                        logger.info("registered successfully OCB context " + context.id);
                         context.mappings.forEach(function (mapping) {
                             subscribeBroker.manageSubscriptionBroker(context, mapping);
+                            if (context.id.indexOf("Event") > -1)
+                                createOrionSubscription(context, device);
                         });
                     }
                     counter++;
                 });
             } catch (err) {
-                console.log("error registering OCB context".red.bold);
-                console.log(JSON.stringify(err).red.bold);
+                logger.error("error registering OCB context".red.bold, JSON.stringify(err));
                 callback(err);
                 return;
             }
@@ -159,12 +168,37 @@ var OrionManager = (function () {
         });
     }
 
+    var createOrionSubscription = function (context, device) {
+        if (typeof device === "undefined" || typeof context === "undefined" || device == null || context == null) return;
+        var attributeTriggers = [];
+        context.mappings.forEach(function (map) {
+            attributeTriggers.push(map.ocb_id);
+        });
+        try {
+            iotAgentLib.subscribe(device, attributeTriggers, attributeTriggers,
+                function (err) {
+                    if (err) {
+                        logger.error('There was an error subscribing device [%s] to attributes [%j]'.bold.red,
+                            device.name, attributeTriggers);
+                    } else {
+                        logger.info('Successfully subscribed device [%s] to attributes[%j]'.bold.yellow,
+                            device.name, attributeTriggers);
+                    }
+                });
+        } catch (err) {
+            logger.error('There was an error subscribing device [%s] to attributes [%j]',
+                device.name, attributeTriggers);
+            logger.error(JSON.stringify(err).red.bold);
+        }
+    }
 
-    var createOrionSubscriptions = function (callback) {
+    /*var createOrionSubscriptions = function (callback) {
         if (doBrowse) {
             var counter = 0;
             var attributeTriggers = [];
-            var contextSubscriptions = contexts || config.contextSubscriptions;
+            var contextSubscriptions = contexts;
+            //|| config.contextSubscriptions;
+            if (contexts == null || contexts.length === 0) callback();
             contextSubscriptions.forEach(function (cText) {
                 cText.mappings.forEach(function (map) {
                     attributeTriggers.push(map.ocb_id);
@@ -172,9 +206,9 @@ var OrionManager = (function () {
             });
             contextSubscriptions.forEach(function (context) {
                 counter++;
-                console.log('subscribing OCB context ' + context.id + " for attributes: ");
+                logger.info('subscribing OCB context ' + context.id + " for attributes: ");
                 attributeTriggers.forEach(function (attr) {
-                    console.log("attribute name: " + attr + "".cyan.bold);
+                    logger.info("attribute name: " + attr + "".cyan.bold);
                 });
 
                 var device = {
@@ -188,22 +222,22 @@ var OrionManager = (function () {
                 };
                 try {
                     iotAgentLib.subscribe(device, attributeTriggers,
-                        attributeTriggers, function (err) {
+                        attributeTriggers,
+                        function (err) {
                             if (err) {
-                                console.log('There was an error subscribing device [%s] to attributes [%j]'.bold.red,
+                                logger.error('There was an error subscribing device [%s] to attributes [%j]'.bold.red,
                                     device.name, attributeTriggers);
                                 // callback();
                             } else {
-                                console.log('Successfully subscribed device [%s] to attributes[%j]'.bold.yellow,
+                                logger.info('Successfully subscribed device [%s] to attributes[%j]'.bold.yellow,
                                     device.name, attributeTriggers);
                                 // callback();
                             }
-
                         });
                 } catch (err) {
-                    console.log('There was an error subscribing device [%s] to attributes [%j]',
+                    logger.error('There was an error subscribing device [%s] to attributes [%j]',
                         device.name, attributeTriggers);
-                    console.log(JSON.stringify(err).red.bold);
+                    logger.error(JSON.stringify(err).red.bold);
                     callback();
                     return;
                 }
@@ -214,13 +248,14 @@ var OrionManager = (function () {
         } else {
             callback();
         }
-    }
+    }*/
+
     OrionManager.prototype = {
         //constructor
         constructor: OrionManager,
         activate: activate,
         registerContexts: registerContexts,
-        createOrionSubscriptions: createOrionSubscriptions,
+        //createOrionSubscriptions: createOrionSubscriptions,
         createContextAttributesForOCB: createContextAttributesForOCB,
         getContexts: getContexts,
         setContexts: setContexts,

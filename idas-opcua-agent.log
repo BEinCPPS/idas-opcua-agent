@@ -1,0 +1,676 @@
+{"level":"info","message":"NotificationHandler attached to ContextBroker","timestamp":"2017-03-27T14:32:09.014Z"}
+{"level":"info","message":" session created","timestamp":"2017-03-27T14:32:09.214Z"}
+{"level":"info","message":" sessionId :  ns=1;g=29CBE668-7472-08F5-69DD-720B37A3393F","timestamp":"2017-03-27T14:32:09.215Z"}
+{"level":"error","message":"ns=1000;s=eventNotifierHash ERROR BadNodeIdUnknown (0x80340000)","timestamp":"2017-03-27T14:32:28.944Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1021","timestamp":"2017-03-27T14:32:29.346Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1022","timestamp":"2017-03-27T14:32:29.346Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1023","timestamp":"2017-03-27T14:32:29.346Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1024","timestamp":"2017-03-27T14:32:29.346Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1025","timestamp":"2017-03-27T14:32:29.346Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1026","timestamp":"2017-03-27T14:32:29.346Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1021","timestamp":"2017-03-27T14:32:29.347Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1022","timestamp":"2017-03-27T14:32:29.347Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1023","timestamp":"2017-03-27T14:32:29.347Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1024","timestamp":"2017-03-27T14:32:29.347Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1025","timestamp":"2017-03-27T14:32:29.347Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1026","timestamp":"2017-03-27T14:32:29.347Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1021","timestamp":"2017-03-27T14:32:29.347Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1022","timestamp":"2017-03-27T14:32:29.347Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1023","timestamp":"2017-03-27T14:32:29.347Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1024","timestamp":"2017-03-27T14:32:29.347Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1025","timestamp":"2017-03-27T14:32:29.347Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1026","timestamp":"2017-03-27T14:32:29.347Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1021","timestamp":"2017-03-27T14:32:29.348Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1022","timestamp":"2017-03-27T14:32:29.348Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1023","timestamp":"2017-03-27T14:32:29.348Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1024","timestamp":"2017-03-27T14:32:29.348Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1025","timestamp":"2017-03-27T14:32:29.348Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1026","timestamp":"2017-03-27T14:32:29.348Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1033","timestamp":"2017-03-27T14:32:29.349Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1036","timestamp":"2017-03-27T14:32:29.349Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1039","timestamp":"2017-03-27T14:32:29.349Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1042","timestamp":"2017-03-27T14:32:29.349Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1045","timestamp":"2017-03-27T14:32:29.349Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1048","timestamp":"2017-03-27T14:32:29.349Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1051","timestamp":"2017-03-27T14:32:29.350Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1054","timestamp":"2017-03-27T14:32:29.351Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1057","timestamp":"2017-03-27T14:32:29.351Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1060","timestamp":"2017-03-27T14:32:29.351Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1063","timestamp":"2017-03-27T14:32:29.351Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1066","timestamp":"2017-03-27T14:32:29.351Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1069","timestamp":"2017-03-27T14:32:29.352Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1072","timestamp":"2017-03-27T14:32:29.352Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1021","timestamp":"2017-03-27T14:32:29.364Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1022","timestamp":"2017-03-27T14:32:29.365Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1023","timestamp":"2017-03-27T14:32:29.365Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1024","timestamp":"2017-03-27T14:32:29.366Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1025","timestamp":"2017-03-27T14:32:29.366Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1026","timestamp":"2017-03-27T14:32:29.366Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1021","timestamp":"2017-03-27T14:32:29.367Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1022","timestamp":"2017-03-27T14:32:29.369Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1023","timestamp":"2017-03-27T14:32:29.370Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1024","timestamp":"2017-03-27T14:32:29.371Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1025","timestamp":"2017-03-27T14:32:29.372Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1026","timestamp":"2017-03-27T14:32:29.373Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1021","timestamp":"2017-03-27T14:32:29.374Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1022","timestamp":"2017-03-27T14:32:29.377Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1023","timestamp":"2017-03-27T14:32:29.378Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1024","timestamp":"2017-03-27T14:32:29.381Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1025","timestamp":"2017-03-27T14:32:29.381Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1026","timestamp":"2017-03-27T14:32:29.382Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1021","timestamp":"2017-03-27T14:32:29.384Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1022","timestamp":"2017-03-27T14:32:29.385Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1023","timestamp":"2017-03-27T14:32:29.386Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1024","timestamp":"2017-03-27T14:32:29.389Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1025","timestamp":"2017-03-27T14:32:29.390Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1026","timestamp":"2017-03-27T14:32:29.391Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1033","timestamp":"2017-03-27T14:32:29.392Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1036","timestamp":"2017-03-27T14:32:29.394Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1039","timestamp":"2017-03-27T14:32:29.395Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1042","timestamp":"2017-03-27T14:32:29.397Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1045","timestamp":"2017-03-27T14:32:29.399Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1048","timestamp":"2017-03-27T14:32:29.400Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1051","timestamp":"2017-03-27T14:32:29.401Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1054","timestamp":"2017-03-27T14:32:29.402Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1057","timestamp":"2017-03-27T14:32:29.403Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1060","timestamp":"2017-03-27T14:32:29.404Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1063","timestamp":"2017-03-27T14:32:29.405Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1066","timestamp":"2017-03-27T14:32:29.406Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1069","timestamp":"2017-03-27T14:32:29.407Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1072","timestamp":"2017-03-27T14:32:29.408Z"}
+{"level":"info","message":"NotificationHandler attached to ContextBroker","timestamp":"2017-03-27T14:37:18.903Z"}
+{"level":"info","message":" session created","timestamp":"2017-03-27T14:37:19.032Z"}
+{"level":"info","message":" sessionId :  ns=1;g=4C85B071-9751-5E3E-BF6A-BB282523DB65","timestamp":"2017-03-27T14:37:19.033Z"}
+{"level":"error","message":"ns=1000;s=eventNotifierHash ERROR BadNodeIdUnknown (0x80340000)","timestamp":"2017-03-27T14:37:23.683Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1021","timestamp":"2017-03-27T14:37:39.536Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1022","timestamp":"2017-03-27T14:37:39.538Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1023","timestamp":"2017-03-27T14:37:39.538Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1024","timestamp":"2017-03-27T14:37:39.538Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1025","timestamp":"2017-03-27T14:37:39.538Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1026","timestamp":"2017-03-27T14:37:39.538Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1021","timestamp":"2017-03-27T14:37:39.545Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1022","timestamp":"2017-03-27T14:37:39.546Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1023","timestamp":"2017-03-27T14:37:39.546Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1024","timestamp":"2017-03-27T14:37:39.546Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1025","timestamp":"2017-03-27T14:37:39.546Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1026","timestamp":"2017-03-27T14:37:39.546Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1021","timestamp":"2017-03-27T14:37:39.546Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1022","timestamp":"2017-03-27T14:37:39.547Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1023","timestamp":"2017-03-27T14:37:39.547Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1024","timestamp":"2017-03-27T14:37:39.547Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1025","timestamp":"2017-03-27T14:37:39.547Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1026","timestamp":"2017-03-27T14:37:39.547Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1021","timestamp":"2017-03-27T14:37:39.547Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1022","timestamp":"2017-03-27T14:37:39.547Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1023","timestamp":"2017-03-27T14:37:39.548Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1024","timestamp":"2017-03-27T14:37:39.548Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1025","timestamp":"2017-03-27T14:37:39.548Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1026","timestamp":"2017-03-27T14:37:39.548Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1033","timestamp":"2017-03-27T14:37:39.549Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1036","timestamp":"2017-03-27T14:37:39.549Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1039","timestamp":"2017-03-27T14:37:39.549Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1042","timestamp":"2017-03-27T14:37:39.550Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1045","timestamp":"2017-03-27T14:37:39.550Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1048","timestamp":"2017-03-27T14:37:39.550Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1051","timestamp":"2017-03-27T14:37:39.550Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1054","timestamp":"2017-03-27T14:37:39.550Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1057","timestamp":"2017-03-27T14:37:39.551Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1060","timestamp":"2017-03-27T14:37:39.551Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1063","timestamp":"2017-03-27T14:37:39.551Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1066","timestamp":"2017-03-27T14:37:39.552Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1069","timestamp":"2017-03-27T14:37:39.552Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1072","timestamp":"2017-03-27T14:37:39.552Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1021","timestamp":"2017-03-27T14:37:39.554Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1022","timestamp":"2017-03-27T14:37:39.555Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1023","timestamp":"2017-03-27T14:37:39.557Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1024","timestamp":"2017-03-27T14:37:39.557Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1025","timestamp":"2017-03-27T14:37:39.557Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1026","timestamp":"2017-03-27T14:37:39.567Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1021","timestamp":"2017-03-27T14:37:39.571Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1022","timestamp":"2017-03-27T14:37:39.572Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1023","timestamp":"2017-03-27T14:37:39.572Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1024","timestamp":"2017-03-27T14:37:39.573Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1025","timestamp":"2017-03-27T14:37:39.573Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1026","timestamp":"2017-03-27T14:37:39.573Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1021","timestamp":"2017-03-27T14:37:39.574Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1022","timestamp":"2017-03-27T14:37:39.575Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1023","timestamp":"2017-03-27T14:37:39.575Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1024","timestamp":"2017-03-27T14:37:39.576Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1025","timestamp":"2017-03-27T14:37:39.576Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1026","timestamp":"2017-03-27T14:37:39.577Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1021","timestamp":"2017-03-27T14:37:39.577Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1022","timestamp":"2017-03-27T14:37:39.577Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1023","timestamp":"2017-03-27T14:37:39.578Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1024","timestamp":"2017-03-27T14:37:39.580Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1025","timestamp":"2017-03-27T14:37:39.581Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1026","timestamp":"2017-03-27T14:37:39.583Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1033","timestamp":"2017-03-27T14:37:39.584Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1036","timestamp":"2017-03-27T14:37:39.587Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1039","timestamp":"2017-03-27T14:37:39.589Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1042","timestamp":"2017-03-27T14:37:39.590Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1045","timestamp":"2017-03-27T14:37:39.592Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1048","timestamp":"2017-03-27T14:37:39.593Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1051","timestamp":"2017-03-27T14:37:39.594Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1054","timestamp":"2017-03-27T14:37:39.595Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1057","timestamp":"2017-03-27T14:37:39.596Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1060","timestamp":"2017-03-27T14:37:39.598Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1063","timestamp":"2017-03-27T14:37:39.599Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1066","timestamp":"2017-03-27T14:37:39.601Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1069","timestamp":"2017-03-27T14:37:39.602Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1072","timestamp":"2017-03-27T14:37:39.605Z"}
+{"level":"info","message":"NotificationHandler attached to ContextBroker","timestamp":"2017-03-27T14:38:05.685Z"}
+{"level":"info","message":" session created","timestamp":"2017-03-27T14:38:05.815Z"}
+{"level":"info","message":" sessionId :  ns=1;g=EEAADFF1-F3E9-84F3-D812-1E756B67B53F","timestamp":"2017-03-27T14:38:05.816Z"}
+{"level":"error","message":"ns=1000;s=eventNotifierHash ERROR BadNodeIdUnknown (0x80340000)","timestamp":"2017-03-27T14:38:14.010Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1021","timestamp":"2017-03-27T14:38:14.380Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1022","timestamp":"2017-03-27T14:38:14.380Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1023","timestamp":"2017-03-27T14:38:14.380Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1024","timestamp":"2017-03-27T14:38:14.380Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1025","timestamp":"2017-03-27T14:38:14.381Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1026","timestamp":"2017-03-27T14:38:14.381Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1021","timestamp":"2017-03-27T14:38:14.385Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1022","timestamp":"2017-03-27T14:38:14.386Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1023","timestamp":"2017-03-27T14:38:14.386Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1024","timestamp":"2017-03-27T14:38:14.386Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1025","timestamp":"2017-03-27T14:38:14.386Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1026","timestamp":"2017-03-27T14:38:14.386Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1021","timestamp":"2017-03-27T14:38:14.386Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1022","timestamp":"2017-03-27T14:38:14.386Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1023","timestamp":"2017-03-27T14:38:14.386Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1024","timestamp":"2017-03-27T14:38:14.386Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1025","timestamp":"2017-03-27T14:38:14.386Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1026","timestamp":"2017-03-27T14:38:14.387Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1033","timestamp":"2017-03-27T14:38:14.387Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1036","timestamp":"2017-03-27T14:38:14.387Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1039","timestamp":"2017-03-27T14:38:14.387Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1042","timestamp":"2017-03-27T14:38:14.387Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1045","timestamp":"2017-03-27T14:38:14.387Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1048","timestamp":"2017-03-27T14:38:14.388Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1051","timestamp":"2017-03-27T14:38:14.388Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1054","timestamp":"2017-03-27T14:38:14.388Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1057","timestamp":"2017-03-27T14:38:14.388Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1060","timestamp":"2017-03-27T14:38:14.388Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1063","timestamp":"2017-03-27T14:38:14.388Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1066","timestamp":"2017-03-27T14:38:14.388Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1069","timestamp":"2017-03-27T14:38:14.388Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1072","timestamp":"2017-03-27T14:38:14.389Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1021","timestamp":"2017-03-27T14:38:14.390Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1022","timestamp":"2017-03-27T14:38:14.390Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1023","timestamp":"2017-03-27T14:38:14.390Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1024","timestamp":"2017-03-27T14:38:14.391Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1025","timestamp":"2017-03-27T14:38:14.391Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1026","timestamp":"2017-03-27T14:38:14.391Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1021","timestamp":"2017-03-27T14:38:14.393Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1022","timestamp":"2017-03-27T14:38:14.394Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1023","timestamp":"2017-03-27T14:38:14.394Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1024","timestamp":"2017-03-27T14:38:14.394Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1025","timestamp":"2017-03-27T14:38:14.394Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1026","timestamp":"2017-03-27T14:38:14.394Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1021","timestamp":"2017-03-27T14:38:14.403Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1022","timestamp":"2017-03-27T14:38:14.403Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1023","timestamp":"2017-03-27T14:38:14.403Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1024","timestamp":"2017-03-27T14:38:14.404Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1025","timestamp":"2017-03-27T14:38:14.404Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1026","timestamp":"2017-03-27T14:38:14.405Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1021","timestamp":"2017-03-27T14:38:14.405Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1022","timestamp":"2017-03-27T14:38:14.405Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1023","timestamp":"2017-03-27T14:38:14.407Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1024","timestamp":"2017-03-27T14:38:14.409Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1025","timestamp":"2017-03-27T14:38:14.410Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1026","timestamp":"2017-03-27T14:38:14.410Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1033","timestamp":"2017-03-27T14:38:14.411Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1036","timestamp":"2017-03-27T14:38:14.412Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1039","timestamp":"2017-03-27T14:38:14.413Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1042","timestamp":"2017-03-27T14:38:14.414Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1045","timestamp":"2017-03-27T14:38:14.415Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1048","timestamp":"2017-03-27T14:38:14.416Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1051","timestamp":"2017-03-27T14:38:14.417Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1054","timestamp":"2017-03-27T14:38:14.418Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1057","timestamp":"2017-03-27T14:38:14.419Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1060","timestamp":"2017-03-27T14:38:14.420Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1063","timestamp":"2017-03-27T14:38:14.421Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1066","timestamp":"2017-03-27T14:38:14.423Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1069","timestamp":"2017-03-27T14:38:14.424Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1072","timestamp":"2017-03-27T14:38:14.425Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1021","timestamp":"2017-03-27T14:38:14.426Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1022","timestamp":"2017-03-27T14:38:14.427Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1023","timestamp":"2017-03-27T14:38:14.428Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1024","timestamp":"2017-03-27T14:38:14.429Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1025","timestamp":"2017-03-27T14:38:14.430Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1026","timestamp":"2017-03-27T14:38:14.432Z"}
+{"level":"info","message":"SQL Server connection initialized!!!!","timestamp":"2017-03-27T14:40:38.327Z"}
+{"level":"info","message":"NotificationHandler attached to ContextBroker","timestamp":"2017-03-27T14:40:38.496Z"}
+{"level":"info","message":" session created","timestamp":"2017-03-27T14:40:38.618Z"}
+{"level":"info","message":" sessionId :  ns=1;g=D5A0B9A2-D322-D105-8032-5D8A389F7536","timestamp":"2017-03-27T14:40:38.619Z"}
+{"level":"error","message":"ns=1000;s=eventNotifierHash ERROR BadNodeIdUnknown (0x80340000)","timestamp":"2017-03-27T14:40:41.779Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1021","timestamp":"2017-03-27T14:40:42.099Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1022","timestamp":"2017-03-27T14:40:42.099Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1023","timestamp":"2017-03-27T14:40:42.100Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1024","timestamp":"2017-03-27T14:40:42.100Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1025","timestamp":"2017-03-27T14:40:42.100Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1026","timestamp":"2017-03-27T14:40:42.100Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1021","timestamp":"2017-03-27T14:40:42.105Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1022","timestamp":"2017-03-27T14:40:42.105Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1023","timestamp":"2017-03-27T14:40:42.105Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1024","timestamp":"2017-03-27T14:40:42.105Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1025","timestamp":"2017-03-27T14:40:42.105Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1026","timestamp":"2017-03-27T14:40:42.106Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1021","timestamp":"2017-03-27T14:40:42.106Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1022","timestamp":"2017-03-27T14:40:42.106Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1023","timestamp":"2017-03-27T14:40:42.106Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1024","timestamp":"2017-03-27T14:40:42.106Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1025","timestamp":"2017-03-27T14:40:42.106Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1026","timestamp":"2017-03-27T14:40:42.106Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1021","timestamp":"2017-03-27T14:40:42.107Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1022","timestamp":"2017-03-27T14:40:42.107Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1023","timestamp":"2017-03-27T14:40:42.107Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1024","timestamp":"2017-03-27T14:40:42.107Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1025","timestamp":"2017-03-27T14:40:42.107Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1026","timestamp":"2017-03-27T14:40:42.108Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1033","timestamp":"2017-03-27T14:40:42.108Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1036","timestamp":"2017-03-27T14:40:42.108Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1039","timestamp":"2017-03-27T14:40:42.108Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1042","timestamp":"2017-03-27T14:40:42.108Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1045","timestamp":"2017-03-27T14:40:42.108Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1048","timestamp":"2017-03-27T14:40:42.109Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1051","timestamp":"2017-03-27T14:40:42.109Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1054","timestamp":"2017-03-27T14:40:42.110Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1057","timestamp":"2017-03-27T14:40:42.111Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1060","timestamp":"2017-03-27T14:40:42.111Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1063","timestamp":"2017-03-27T14:40:42.111Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1066","timestamp":"2017-03-27T14:40:42.111Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1069","timestamp":"2017-03-27T14:40:42.111Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1072","timestamp":"2017-03-27T14:40:42.111Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1021","timestamp":"2017-03-27T14:40:42.113Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1022","timestamp":"2017-03-27T14:41:10.667Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1023","timestamp":"2017-03-27T14:41:10.668Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1024","timestamp":"2017-03-27T14:41:10.669Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1025","timestamp":"2017-03-27T14:41:10.669Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1026","timestamp":"2017-03-27T14:41:10.669Z"}
+{"level":"info","message":"SQL Server connection initialized!!!!","timestamp":"2017-03-27T14:41:40.385Z"}
+{"level":"info","message":"NotificationHandler attached to ContextBroker","timestamp":"2017-03-27T14:41:40.537Z"}
+{"level":"info","message":" session created","timestamp":"2017-03-27T14:41:40.641Z"}
+{"level":"info","message":" sessionId :  ns=1;g=7C18494B-BDF3-8F8E-F02A-114163E7798A","timestamp":"2017-03-27T14:41:40.642Z"}
+{"level":"error","message":"ns=1000;s=eventNotifierHash ERROR BadNodeIdUnknown (0x80340000)","timestamp":"2017-03-27T14:41:45.108Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1021","timestamp":"2017-03-27T14:41:45.483Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1022","timestamp":"2017-03-27T14:41:45.484Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1023","timestamp":"2017-03-27T14:41:45.484Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1024","timestamp":"2017-03-27T14:41:45.484Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1025","timestamp":"2017-03-27T14:41:45.484Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1026","timestamp":"2017-03-27T14:41:45.484Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1021","timestamp":"2017-03-27T14:41:45.489Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1022","timestamp":"2017-03-27T14:41:45.489Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1023","timestamp":"2017-03-27T14:41:45.489Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1024","timestamp":"2017-03-27T14:41:45.490Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1025","timestamp":"2017-03-27T14:41:45.490Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1026","timestamp":"2017-03-27T14:41:45.490Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1021","timestamp":"2017-03-27T14:41:45.490Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1022","timestamp":"2017-03-27T14:41:45.490Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1023","timestamp":"2017-03-27T14:41:45.490Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1024","timestamp":"2017-03-27T14:41:45.490Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1025","timestamp":"2017-03-27T14:41:45.491Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1026","timestamp":"2017-03-27T14:41:45.491Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1021","timestamp":"2017-03-27T14:41:45.491Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1022","timestamp":"2017-03-27T14:41:45.491Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1023","timestamp":"2017-03-27T14:41:45.491Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1024","timestamp":"2017-03-27T14:41:45.491Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1025","timestamp":"2017-03-27T14:41:45.492Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1026","timestamp":"2017-03-27T14:41:45.492Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1033","timestamp":"2017-03-27T14:41:45.492Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1036","timestamp":"2017-03-27T14:41:45.492Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1039","timestamp":"2017-03-27T14:41:45.492Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1042","timestamp":"2017-03-27T14:41:45.492Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1045","timestamp":"2017-03-27T14:41:45.492Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1048","timestamp":"2017-03-27T14:41:45.492Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1051","timestamp":"2017-03-27T14:41:45.493Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1054","timestamp":"2017-03-27T14:41:45.494Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1057","timestamp":"2017-03-27T14:41:45.494Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1060","timestamp":"2017-03-27T14:41:45.494Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1063","timestamp":"2017-03-27T14:41:45.495Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1066","timestamp":"2017-03-27T14:41:45.495Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1069","timestamp":"2017-03-27T14:41:45.495Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1072","timestamp":"2017-03-27T14:41:45.495Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1021","timestamp":"2017-03-27T14:41:45.497Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1022","timestamp":"2017-03-27T14:41:45.497Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1023","timestamp":"2017-03-27T14:41:45.498Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1024","timestamp":"2017-03-27T14:41:45.505Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1025","timestamp":"2017-03-27T14:41:45.506Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1026","timestamp":"2017-03-27T14:41:45.506Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1021","timestamp":"2017-03-27T14:41:45.506Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1022","timestamp":"2017-03-27T14:41:45.506Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1023","timestamp":"2017-03-27T14:41:45.506Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1024","timestamp":"2017-03-27T14:41:45.507Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1025","timestamp":"2017-03-27T14:41:45.508Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1026","timestamp":"2017-03-27T14:41:45.511Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1021","timestamp":"2017-03-27T14:41:45.514Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1022","timestamp":"2017-03-27T14:41:45.515Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1023","timestamp":"2017-03-27T14:41:45.516Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1024","timestamp":"2017-03-27T14:41:45.518Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1025","timestamp":"2017-03-27T14:41:45.518Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1026","timestamp":"2017-03-27T14:41:45.519Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1021","timestamp":"2017-03-27T14:41:45.522Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1022","timestamp":"2017-03-27T14:41:45.524Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1023","timestamp":"2017-03-27T14:41:45.525Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1024","timestamp":"2017-03-27T14:41:45.527Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1025","timestamp":"2017-03-27T14:41:45.528Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1026","timestamp":"2017-03-27T14:41:45.529Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1033","timestamp":"2017-03-27T14:41:45.531Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1036","timestamp":"2017-03-27T14:41:45.532Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1039","timestamp":"2017-03-27T14:41:45.534Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1042","timestamp":"2017-03-27T14:41:45.535Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1045","timestamp":"2017-03-27T14:41:45.536Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1048","timestamp":"2017-03-27T14:41:45.538Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1051","timestamp":"2017-03-27T14:41:45.539Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1054","timestamp":"2017-03-27T14:41:45.540Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1057","timestamp":"2017-03-27T14:41:45.541Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1060","timestamp":"2017-03-27T14:41:45.543Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1063","timestamp":"2017-03-27T14:41:45.544Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1066","timestamp":"2017-03-27T14:41:45.545Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1069","timestamp":"2017-03-27T14:41:45.546Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1072","timestamp":"2017-03-27T14:41:45.548Z"}
+{"level":"info","message":"endpointUrl         =   \"opc.tcp://localhost:26543\" -browse","timestamp":"2017-03-27T14:46:40.623Z"}
+{"level":"info","message":"securityMode        =  NONE","timestamp":"2017-03-27T14:46:40.624Z"}
+{"level":"info","message":"securityPolicy      =  None","timestamp":"2017-03-27T14:46:40.625Z"}
+{"level":"info","message":"timeout             =  -1","timestamp":"2017-03-27T14:46:40.625Z"}
+{"level":"info","message":"SQL Server connection initialized!!!!","timestamp":"2017-03-27T14:46:40.934Z"}
+{"level":"info","message":"NotificationHandler attached to ContextBroker","timestamp":"2017-03-27T14:46:41.143Z"}
+{"level":"info","message":" session created","timestamp":"2017-03-27T14:46:41.242Z"}
+{"level":"info","message":" sessionId :  ns=1;g=71C5762A-7C66-9685-7C10-2FA7A29FC53B","timestamp":"2017-03-27T14:46:41.242Z"}
+{"level":"error","message":"ns=1000;s=eventNotifierHash ERROR BadNodeIdUnknown (0x80340000)","timestamp":"2017-03-27T14:46:41.258Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1021","timestamp":"2017-03-27T14:46:41.585Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1022","timestamp":"2017-03-27T14:46:41.585Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1023","timestamp":"2017-03-27T14:46:41.585Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1024","timestamp":"2017-03-27T14:46:41.585Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1025","timestamp":"2017-03-27T14:46:41.585Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1026","timestamp":"2017-03-27T14:46:41.585Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1021","timestamp":"2017-03-27T14:46:41.590Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1022","timestamp":"2017-03-27T14:46:41.590Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1023","timestamp":"2017-03-27T14:46:41.590Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1024","timestamp":"2017-03-27T14:46:41.590Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1025","timestamp":"2017-03-27T14:46:41.590Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1026","timestamp":"2017-03-27T14:46:41.590Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1021","timestamp":"2017-03-27T14:46:41.590Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1022","timestamp":"2017-03-27T14:46:41.590Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1023","timestamp":"2017-03-27T14:46:41.590Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1024","timestamp":"2017-03-27T14:46:41.590Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1025","timestamp":"2017-03-27T14:46:41.591Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1026","timestamp":"2017-03-27T14:46:41.592Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1021","timestamp":"2017-03-27T14:46:41.594Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1022","timestamp":"2017-03-27T14:46:41.596Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1021","timestamp":"2017-03-27T14:46:41.598Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1022","timestamp":"2017-03-27T14:46:41.598Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1023","timestamp":"2017-03-27T14:46:41.598Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1024","timestamp":"2017-03-27T14:46:41.598Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1025","timestamp":"2017-03-27T14:46:41.599Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1026","timestamp":"2017-03-27T14:46:41.599Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1033","timestamp":"2017-03-27T14:46:41.599Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1036","timestamp":"2017-03-27T14:46:41.600Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1039","timestamp":"2017-03-27T14:46:41.600Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1042","timestamp":"2017-03-27T14:46:41.601Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1045","timestamp":"2017-03-27T14:46:41.601Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1048","timestamp":"2017-03-27T14:46:41.601Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1051","timestamp":"2017-03-27T14:46:41.601Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1054","timestamp":"2017-03-27T14:46:41.601Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1057","timestamp":"2017-03-27T14:46:41.601Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1060","timestamp":"2017-03-27T14:46:41.601Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1063","timestamp":"2017-03-27T14:46:41.601Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1066","timestamp":"2017-03-27T14:46:41.602Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1069","timestamp":"2017-03-27T14:46:41.602Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1072","timestamp":"2017-03-27T14:46:41.602Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1023","timestamp":"2017-03-27T14:46:41.603Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1024","timestamp":"2017-03-27T14:46:41.603Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1025","timestamp":"2017-03-27T14:46:41.603Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1026","timestamp":"2017-03-27T14:46:41.603Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1021","timestamp":"2017-03-27T14:46:41.604Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1022","timestamp":"2017-03-27T14:46:41.604Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1023","timestamp":"2017-03-27T14:46:41.604Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1024","timestamp":"2017-03-27T14:46:41.604Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1025","timestamp":"2017-03-27T14:46:41.609Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1026","timestamp":"2017-03-27T14:46:41.610Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1021","timestamp":"2017-03-27T14:46:41.611Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1022","timestamp":"2017-03-27T14:46:41.612Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1023","timestamp":"2017-03-27T14:46:41.625Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1024","timestamp":"2017-03-27T14:46:41.625Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1025","timestamp":"2017-03-27T14:46:41.625Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1026","timestamp":"2017-03-27T14:46:41.632Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1021","timestamp":"2017-03-27T14:46:41.632Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1022","timestamp":"2017-03-27T14:46:41.632Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1023","timestamp":"2017-03-27T14:46:41.633Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1024","timestamp":"2017-03-27T14:46:41.633Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1025","timestamp":"2017-03-27T14:46:41.634Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1026","timestamp":"2017-03-27T14:46:41.635Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1033","timestamp":"2017-03-27T14:46:41.635Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1036","timestamp":"2017-03-27T14:46:41.635Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1039","timestamp":"2017-03-27T14:46:41.636Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1042","timestamp":"2017-03-27T14:46:41.636Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1045","timestamp":"2017-03-27T14:46:41.641Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1048","timestamp":"2017-03-27T14:46:41.641Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1051","timestamp":"2017-03-27T14:46:41.641Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1054","timestamp":"2017-03-27T14:46:41.642Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1057","timestamp":"2017-03-27T14:46:41.642Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1060","timestamp":"2017-03-27T14:46:41.642Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1063","timestamp":"2017-03-27T14:46:41.643Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1066","timestamp":"2017-03-27T14:46:41.643Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1069","timestamp":"2017-03-27T14:46:41.643Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1072","timestamp":"2017-03-27T14:46:41.654Z"}
+{"level":"info","message":"endpointUrl         =   \"opc.tcp://localhost:26543\" -browse","timestamp":"2017-03-27T15:00:17.977Z"}
+{"level":"info","message":"securityMode        =  NONE","timestamp":"2017-03-27T15:00:17.978Z"}
+{"level":"info","message":"securityPolicy      =  None","timestamp":"2017-03-27T15:00:17.979Z"}
+{"level":"info","message":"timeout             =  -1","timestamp":"2017-03-27T15:00:17.979Z"}
+{"level":"info","message":"SQL Server connection initialized!!!!","timestamp":"2017-03-27T15:00:18.413Z"}
+{"level":"info","message":"NotificationHandler attached to ContextBroker","timestamp":"2017-03-27T15:00:18.473Z"}
+{"level":"info","message":" session created","timestamp":"2017-03-27T15:00:18.578Z"}
+{"level":"info","message":" sessionId :  ns=1;g=6A02B37B-27DE-F09B-3D7B-4163B8339DD1","timestamp":"2017-03-27T15:00:18.578Z"}
+{"level":"info","message":"endpointUrl         =   \"opc.tcp://localhost:26543\" -browse","timestamp":"2017-03-27T15:00:36.005Z"}
+{"level":"info","message":"securityMode        =  NONE","timestamp":"2017-03-27T15:00:36.007Z"}
+{"level":"info","message":"securityPolicy      =  None","timestamp":"2017-03-27T15:00:36.007Z"}
+{"level":"info","message":"timeout             =  -1","timestamp":"2017-03-27T15:00:36.007Z"}
+{"level":"info","message":"SQL Server connection initialized!!!!","timestamp":"2017-03-27T15:00:36.415Z"}
+{"level":"info","message":"NotificationHandler attached to ContextBroker","timestamp":"2017-03-27T15:00:36.475Z"}
+{"level":"info","message":" session created","timestamp":"2017-03-27T15:00:43.365Z"}
+{"level":"info","message":" sessionId :  ns=1;g=E78366DD-7CC0-F710-A939-0422F51B6C97","timestamp":"2017-03-27T15:00:43.367Z"}
+{"level":"info","message":"endpointUrl         =   \"opc.tcp://localhost:26543\" -browse","timestamp":"2017-03-27T15:01:10.644Z"}
+{"level":"info","message":"securityMode        =  NONE","timestamp":"2017-03-27T15:01:10.645Z"}
+{"level":"info","message":"securityPolicy      =  None","timestamp":"2017-03-27T15:01:10.645Z"}
+{"level":"info","message":"timeout             =  -1","timestamp":"2017-03-27T15:01:10.645Z"}
+{"level":"info","message":"SQL Server connection initialized!!!!","timestamp":"2017-03-27T15:01:11.046Z"}
+{"level":"info","message":"NotificationHandler attached to ContextBroker","timestamp":"2017-03-27T15:01:11.091Z"}
+{"level":"info","message":" session created","timestamp":"2017-03-27T15:01:13.420Z"}
+{"level":"info","message":" sessionId :  ns=1;g=B8805E43-C9DA-C3A2-C001-C726D54275F3","timestamp":"2017-03-27T15:01:13.420Z"}
+{"level":"info","message":"endpointUrl         =   \"opc.tcp://localhost:26543\" -browse","timestamp":"2017-03-27T15:02:38.169Z"}
+{"level":"info","message":"securityMode        =  NONE","timestamp":"2017-03-27T15:02:38.171Z"}
+{"level":"info","message":"securityPolicy      =  None","timestamp":"2017-03-27T15:02:38.171Z"}
+{"level":"info","message":"timeout             =  -1","timestamp":"2017-03-27T15:02:38.171Z"}
+{"level":"info","message":"SQL Server connection initialized!!!!","timestamp":"2017-03-27T15:02:38.661Z"}
+{"level":"info","message":"NotificationHandler attached to ContextBroker","timestamp":"2017-03-27T15:02:38.722Z"}
+{"level":"info","message":" session created","timestamp":"2017-03-27T15:02:40.570Z"}
+{"level":"info","message":" sessionId :  ns=1;g=93721C02-E2AB-DAB1-0755-8BF78E4C1CF6","timestamp":"2017-03-27T15:02:40.571Z"}
+{"level":"info","message":"endpointUrl         =   \"opc.tcp://localhost:26543\" -browse","timestamp":"2017-03-27T15:04:33.515Z"}
+{"level":"info","message":"securityMode        =  NONE","timestamp":"2017-03-27T15:04:33.517Z"}
+{"level":"info","message":"securityPolicy      =  None","timestamp":"2017-03-27T15:04:33.517Z"}
+{"level":"info","message":"timeout             =  -1","timestamp":"2017-03-27T15:04:33.518Z"}
+{"level":"info","message":"SQL Server connection initialized!!!!","timestamp":"2017-03-27T15:04:34.009Z"}
+{"level":"info","message":"NotificationHandler attached to ContextBroker","timestamp":"2017-03-27T15:04:34.068Z"}
+{"level":"info","message":" session created","timestamp":"2017-03-27T15:04:36.590Z"}
+{"level":"info","message":" sessionId :  ns=1;g=C9D3F569-684B-BEA6-9E58-F79C40B26FEA","timestamp":"2017-03-27T15:04:36.591Z"}
+{"level":"info","message":"endpointUrl         =   \"opc.tcp://localhost:26543\" -browse","timestamp":"2017-03-27T15:04:56.644Z"}
+{"level":"info","message":"securityMode        =  NONE","timestamp":"2017-03-27T15:04:56.646Z"}
+{"level":"info","message":"securityPolicy      =  None","timestamp":"2017-03-27T15:04:56.646Z"}
+{"level":"info","message":"timeout             =  -1","timestamp":"2017-03-27T15:04:56.646Z"}
+{"level":"info","message":"SQL Server connection initialized!!!!","timestamp":"2017-03-27T15:04:57.122Z"}
+{"level":"info","message":"NotificationHandler attached to ContextBroker","timestamp":"2017-03-27T15:04:57.190Z"}
+{"level":"info","message":"endpointUrl         =   \"opc.tcp://localhost:26543\" -browse","timestamp":"2017-03-27T15:05:18.589Z"}
+{"level":"info","message":"securityMode        =  NONE","timestamp":"2017-03-27T15:05:18.590Z"}
+{"level":"info","message":"securityPolicy      =  None","timestamp":"2017-03-27T15:05:18.591Z"}
+{"level":"info","message":"timeout             =  -1","timestamp":"2017-03-27T15:05:18.591Z"}
+{"level":"info","message":"SQL Server connection initialized!!!!","timestamp":"2017-03-27T15:05:19.072Z"}
+{"level":"info","message":"NotificationHandler attached to ContextBroker","timestamp":"2017-03-27T15:05:19.130Z"}
+{"level":"info","message":" session created","timestamp":"2017-03-27T15:05:19.241Z"}
+{"level":"info","message":" sessionId :  ns=1;g=5AD377C4-5395-3EAF-9C0F-6440CB6BD8CD","timestamp":"2017-03-27T15:05:19.242Z"}
+{"level":"info","message":"NO Timeout set!!!","timestamp":"2017-03-27T15:05:23.664Z"}
+{"level":"info","message":"Manage subscriptions to event notifier","timestamp":"2017-03-27T15:05:26.425Z"}
+{"level":"error","message":"ns=1000;s=eventNotifierHash ERROR BadNodeIdUnknown (0x80340000)","timestamp":"2017-03-27T15:05:30.173Z"}
+{"level":"info","message":"endpointUrl         =   \"opc.tcp://localhost:26543\" -browse","timestamp":"2017-03-27T15:06:44.321Z"}
+{"level":"info","message":"securityMode        =  NONE","timestamp":"2017-03-27T15:06:44.322Z"}
+{"level":"info","message":"securityPolicy      =  None","timestamp":"2017-03-27T15:06:44.322Z"}
+{"level":"info","message":"timeout             =  -1","timestamp":"2017-03-27T15:06:44.322Z"}
+{"level":"info","message":"SQL Server connection initialized!!!!","timestamp":"2017-03-27T15:06:44.904Z"}
+{"level":"info","message":"NotificationHandler attached to ContextBroker","timestamp":"2017-03-27T15:06:44.968Z"}
+{"level":"info","message":" session created","timestamp":"2017-03-27T15:06:45.077Z"}
+{"level":"info","message":" sessionId :  ns=1;g=471035F5-6AA1-E23C-6ABF-A4BC67B1A308","timestamp":"2017-03-27T15:06:45.077Z"}
+{"level":"info","message":"endpointUrl         =   \"opc.tcp://localhost:26543\" -browse","timestamp":"2017-03-27T15:07:52.027Z"}
+{"level":"info","message":"securityMode        =  NONE","timestamp":"2017-03-27T15:07:52.029Z"}
+{"level":"info","message":"securityPolicy      =  None","timestamp":"2017-03-27T15:07:52.029Z"}
+{"level":"info","message":"timeout             =  -1","timestamp":"2017-03-27T15:07:52.029Z"}
+{"level":"info","message":"SQL Server connection initialized!!!!","timestamp":"2017-03-27T15:07:52.623Z"}
+{"level":"info","message":"NotificationHandler attached to ContextBroker","timestamp":"2017-03-27T15:07:52.687Z"}
+{"level":"info","message":" session created","timestamp":"2017-03-27T15:07:52.804Z"}
+{"level":"info","message":" sessionId :  ns=1;g=558C3BDE-C295-15F8-00BF-2309CC604FD2","timestamp":"2017-03-27T15:07:52.805Z"}
+{"level":"info","message":"endpointUrl         =   \"opc.tcp://localhost:26543\" -browse","timestamp":"2017-03-27T15:09:40.398Z"}
+{"level":"info","message":"securityMode        =  NONE","timestamp":"2017-03-27T15:09:40.399Z"}
+{"level":"info","message":"securityPolicy      =  None","timestamp":"2017-03-27T15:09:40.399Z"}
+{"level":"info","message":"timeout             =  -1","timestamp":"2017-03-27T15:09:40.399Z"}
+{"level":"info","message":"SQL Server connection initialized!!!!","timestamp":"2017-03-27T15:09:40.998Z"}
+{"level":"info","message":"NotificationHandler attached to ContextBroker","timestamp":"2017-03-27T15:09:41.063Z"}
+{"level":"info","message":" session created","timestamp":"2017-03-27T15:09:41.188Z"}
+{"level":"info","message":" sessionId :  ns=1;g=076437FC-A9FB-D98D-D295-F3C34C0EF73E","timestamp":"2017-03-27T15:09:41.189Z"}
+{"level":"info","message":"endpointUrl         =   \"opc.tcp://localhost:26543\" -browse","timestamp":"2017-03-27T15:10:30.553Z"}
+{"level":"info","message":"securityMode        =  NONE","timestamp":"2017-03-27T15:10:30.555Z"}
+{"level":"info","message":"securityPolicy      =  None","timestamp":"2017-03-27T15:10:30.555Z"}
+{"level":"info","message":"timeout             =  -1","timestamp":"2017-03-27T15:10:30.555Z"}
+{"level":"info","message":"SQL Server connection initialized!!!!","timestamp":"2017-03-27T15:10:31.126Z"}
+{"level":"info","message":"NotificationHandler attached to ContextBroker","timestamp":"2017-03-27T15:10:31.191Z"}
+{"level":"info","message":" session created","timestamp":"2017-03-27T15:10:31.310Z"}
+{"level":"info","message":" sessionId :  ns=1;g=A8816FAE-44EC-E2F3-A55B-C328D26C3A85","timestamp":"2017-03-27T15:10:31.311Z"}
+{"level":"info","message":"Server Object: {\"browseName\":\"TestStationFolder\",\"nodeId\":\"ns=1;s=main_folder\",\"typeDefinition\":\"FolderType\",\"hasComponent\":[{\"browseName\":\"TestStationEventNotifier\",\"nodeId\":\"ns=1;i=1028\",\"nodeClass\":\"Object\",\"typeDefinition\":\"TestGenericType\"}]}","timestamp":"2017-03-27T15:10:35.103Z"}
+{"level":"info","message":"NO Timeout set!!!","timestamp":"2017-03-27T15:10:43.539Z"}
+{"level":"info","message":"Manage subscriptions to event notifier","timestamp":"2017-03-27T15:10:44.777Z"}
+{"level":"error","message":"ns=1000;s=eventNotifierHash ERROR BadNodeIdUnknown (0x80340000)","timestamp":"2017-03-27T15:10:44.808Z"}
+{"level":"info","message":"endpointUrl         =   \"opc.tcp://localhost:26543\" -browse","timestamp":"2017-03-27T15:12:24.819Z"}
+{"level":"info","message":"securityMode        =  NONE","timestamp":"2017-03-27T15:12:24.821Z"}
+{"level":"info","message":"securityPolicy      =  None","timestamp":"2017-03-27T15:12:24.821Z"}
+{"level":"info","message":"timeout             =  -1","timestamp":"2017-03-27T15:12:24.821Z"}
+{"level":"info","message":"SQL Server connection initialized!!!!","timestamp":"2017-03-27T15:12:25.405Z"}
+{"level":"info","message":"NotificationHandler attached to ContextBroker","timestamp":"2017-03-27T15:12:25.472Z"}
+{"level":"info","message":" session created","timestamp":"2017-03-27T15:12:25.587Z"}
+{"level":"info","message":" sessionId :  ns=1;g=BF197D4A-5E06-38A2-3074-98EF1FB5C79F","timestamp":"2017-03-27T15:12:25.588Z"}
+{"level":"info","message":"Server Object: {\"browseName\":\"TestStationFolder\",\"nodeId\":\"ns=1;s=main_folder\",\"typeDefinition\":\"FolderType\",\"hasComponent\":[{\"browseName\":\"TestStationEventNotifier\",\"nodeId\":\"ns=1;i=1028\",\"nodeClass\":\"Object\",\"typeDefinition\":\"TestGenericType\"}]}","timestamp":"2017-03-27T15:12:30.870Z"}
+{"level":"info","message":"endpointUrl         =   \"opc.tcp://localhost:26543\" -browse","timestamp":"2017-03-28T08:15:04.382Z"}
+{"level":"info","message":"securityMode        =  NONE","timestamp":"2017-03-28T08:15:04.383Z"}
+{"level":"info","message":"securityPolicy      =  None","timestamp":"2017-03-28T08:15:04.384Z"}
+{"level":"info","message":"timeout             =  -1","timestamp":"2017-03-28T08:15:04.384Z"}
+{"level":"info","message":"SQL Server connection initialized!!!!","timestamp":"2017-03-28T08:15:05.003Z"}
+{"level":"info","message":"NotificationHandler attached to ContextBroker","timestamp":"2017-03-28T08:15:05.071Z"}
+{"level":"info","message":" session created","timestamp":"2017-03-28T08:15:05.253Z"}
+{"level":"info","message":" sessionId :  ns=1;g=4E7FB867-7130-6544-15BA-981F642F806E","timestamp":"2017-03-28T08:15:05.253Z"}
+{"level":"debug","message":"Server Object: {\"browseName\":\"TestStationFolder\",\"nodeId\":\"ns=1;s=main_folder\",\"typeDefinition\":\"FolderType\",\"hasComponent\":[{\"browseName\":\"TestStationEventNotifier\",\"nodeId\":\"ns=1;i=1028\",\"nodeClass\":\"Object\",\"typeDefinition\":\"TestGenericType\"}]}","timestamp":"2017-03-28T08:15:09.526Z"}
+{"level":"info","message":"No contexts found!!!","timestamp":"2017-03-28T08:15:17.898Z"}
+{"level":"info","message":"NO Timeout set!!!","timestamp":"2017-03-28T08:15:17.900Z"}
+{"level":"info","message":"Manage subscriptions to event notifier","timestamp":"2017-03-28T08:15:22.888Z"}
+{"level":"error","message":"ns=1000;s=eventNotifierHash ERROR BadNodeIdUnknown (0x80340000)","timestamp":"2017-03-28T08:15:22.924Z"}
+{"level":"info","message":"endpointUrl         =   \"opc.tcp://localhost:26543\" -browse","timestamp":"2017-03-28T09:15:19.302Z"}
+{"level":"info","message":"securityMode        =  NONE","timestamp":"2017-03-28T09:15:19.303Z"}
+{"level":"info","message":"securityPolicy      =  None","timestamp":"2017-03-28T09:15:19.303Z"}
+{"level":"info","message":"timeout             =  -1","timestamp":"2017-03-28T09:15:19.303Z"}
+{"level":"info","message":"SQL Server connection initialized!!!!","timestamp":"2017-03-28T09:15:20.018Z"}
+{"level":"info","message":"NotificationHandler attached to ContextBroker","timestamp":"2017-03-28T09:15:23.698Z"}
+{"level":"info","message":" session created","timestamp":"2017-03-28T09:15:23.887Z"}
+{"level":"info","message":" sessionId :  ns=1;g=D5A483F4-86B7-DE37-1D1E-595821BDDA2A","timestamp":"2017-03-28T09:15:23.888Z"}
+{"level":"debug","message":"Server Object: {\"browseName\":\"TestStationFolder\",\"nodeId\":\"ns=1;s=main_folder\",\"typeDefinition\":\"FolderType\",\"hasComponent\":[{\"browseName\":\"TestStationEventNotifier\",\"nodeId\":\"ns=1;i=1028\",\"nodeClass\":\"Object\",\"typeDefinition\":\"TestGenericType\",\"hasComponent\":[{\"browseName\":\"undefined\",\"nodeId\":\"ns=1;i=1027\",\"nodeClass\":\"Variable\",\"typeDefinition\":\"GenericMeasurementType\"}]}]}","timestamp":"2017-03-28T09:15:29.333Z"}
+{"level":"info","message":"registering OCB context TestStationEventNotifier","timestamp":"2017-03-28T09:15:49.304Z"}
+{"level":"info","message":"registered successfully OCB context TestStationEventNotifier","timestamp":"2017-03-28T09:15:52.023Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1027","timestamp":"2017-03-28T09:15:52.884Z"}
+{"message":"received internal error","stack":"Error:  ServiceResult is BadSessionIdInvalid (0x80250000)\n    at /Users/ascatox/Dropbox/Sviluppo/whr/idas-opcua-agent/node_modules/node-opcua/lib/client/client_session.js:836:19\n    at modified_callback (/Users/ascatox/Dropbox/Sviluppo/whr/idas-opcua-agent/node_modules/node-opcua/lib/client/client_secure_channel_layer.js:925:24)\n    at process_request_callback (/Users/ascatox/Dropbox/Sviluppo/whr/idas-opcua-agent/node_modules/node-opcua/lib/client/client_secure_channel_layer.js:73:5)\n    at ClientSecureChannelLayer._on_message_received (/Users/ascatox/Dropbox/Sviluppo/whr/idas-opcua-agent/node_modules/node-opcua/lib/client/client_secure_channel_layer.js:117:5)\n    at emitMany (events.js:127:13)\n    at MessageBuilder.emit (events.js:201:7)\n    at MessageBuilder._decode_message_body (/Users/ascatox/Dropbox/Sviluppo/whr/idas-opcua-agent/node_modules/node-opcua/lib/misc/message_builder.js:445:22)\n    at MessageBuilderBase._feed_messageChunk (/Users/ascatox/Dropbox/Sviluppo/whr/idas-opcua-agent/node_modules/node-opcua/lib/misc/message_builder_base.js:186:18)\n    at PacketAssembler.<anonymous> (/Users/ascatox/Dropbox/Sviluppo/whr/idas-opcua-agent/node_modules/node-opcua/lib/misc/message_builder_base.js:46:14)\n    at emitOne (events.js:96:13)\n    at PacketAssembler.emit (events.js:188:7)\n    at PacketAssembler.feed (/Users/ascatox/Dropbox/Sviluppo/whr/idas-opcua-agent/node_modules/node-opcua/lib/transport/packet_assembler.js:96:14)\n    at MessageBuilderBase.feed (/Users/ascatox/Dropbox/Sviluppo/whr/idas-opcua-agent/node_modules/node-opcua/lib/misc/message_builder_base.js:150:30)\n    at ClientSecureChannelLayer._on_receive_message_chunk (/Users/ascatox/Dropbox/Sviluppo/whr/idas-opcua-agent/node_modules/node-opcua/lib/client/client_secure_channel_layer.js:824:25)\n    at ClientTCP_transport.<anonymous> (/Users/ascatox/Dropbox/Sviluppo/whr/idas-opcua-agent/node_modules/node-opcua/lib/client/client_secure_channel_layer.js:554:18)\n    at emitOne (events.js:96:13)","level":"error","timestamp":"2017-03-28T09:15:54.846Z"}
+{"level":"info","message":"endpointUrl         =   \"opc.tcp://localhost:26543\" -browse","timestamp":"2017-03-28T09:21:57.287Z"}
+{"level":"info","message":"securityMode        =  NONE","timestamp":"2017-03-28T09:21:57.289Z"}
+{"level":"info","message":"securityPolicy      =  None","timestamp":"2017-03-28T09:21:57.289Z"}
+{"level":"info","message":"timeout             =  -1","timestamp":"2017-03-28T09:21:57.289Z"}
+{"level":"info","message":"SQL Server connection initialized!!!!","timestamp":"2017-03-28T09:21:57.982Z"}
+{"level":"info","message":"NotificationHandler attached to ContextBroker","timestamp":"2017-03-28T09:22:00.938Z"}
+{"level":"info","message":" session created","timestamp":"2017-03-28T09:22:01.135Z"}
+{"level":"info","message":" sessionId :  ns=1;g=D3291FD5-12DF-2BF1-0F15-7418C32F10F6","timestamp":"2017-03-28T09:22:01.136Z"}
+{"level":"debug","message":"Server Object: {\"browseName\":\"TestStationFolder\",\"nodeId\":\"ns=1;s=main_folder\",\"typeDefinition\":\"FolderType\",\"hasComponent\":[{\"browseName\":\"TestStationEventNotifier\",\"nodeId\":\"ns=1;i=1029\",\"nodeClass\":\"Object\",\"typeDefinition\":\"TestGenericType\",\"hasComponent\":[{\"browseName\":\"hash\",\"nodeId\":\"ns=1;i=1028\",\"nodeClass\":\"Variable\",\"typeDefinition\":\"TestStationAddInfoType\"}]}]}","timestamp":"2017-03-28T09:22:06.346Z"}
+{"level":"info","message":"registering OCB context TestStationEventNotifier","timestamp":"2017-03-28T09:22:27.133Z"}
+{"level":"info","message":"registered successfully OCB context TestStationEventNotifier","timestamp":"2017-03-28T09:22:30.218Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1028","timestamp":"2017-03-28T09:22:31.843Z"}
+{"message":"received internal error","stack":"Error:  ServiceResult is BadSessionIdInvalid (0x80250000)\n    at /Users/ascatox/Dropbox/Sviluppo/whr/idas-opcua-agent/node_modules/node-opcua/lib/client/client_session.js:836:19\n    at modified_callback (/Users/ascatox/Dropbox/Sviluppo/whr/idas-opcua-agent/node_modules/node-opcua/lib/client/client_secure_channel_layer.js:925:24)\n    at process_request_callback (/Users/ascatox/Dropbox/Sviluppo/whr/idas-opcua-agent/node_modules/node-opcua/lib/client/client_secure_channel_layer.js:73:5)\n    at ClientSecureChannelLayer._on_message_received (/Users/ascatox/Dropbox/Sviluppo/whr/idas-opcua-agent/node_modules/node-opcua/lib/client/client_secure_channel_layer.js:117:5)\n    at emitMany (events.js:127:13)\n    at MessageBuilder.emit (events.js:201:7)\n    at MessageBuilder._decode_message_body (/Users/ascatox/Dropbox/Sviluppo/whr/idas-opcua-agent/node_modules/node-opcua/lib/misc/message_builder.js:445:22)\n    at MessageBuilderBase._feed_messageChunk (/Users/ascatox/Dropbox/Sviluppo/whr/idas-opcua-agent/node_modules/node-opcua/lib/misc/message_builder_base.js:186:18)\n    at PacketAssembler.<anonymous> (/Users/ascatox/Dropbox/Sviluppo/whr/idas-opcua-agent/node_modules/node-opcua/lib/misc/message_builder_base.js:46:14)\n    at emitOne (events.js:96:13)\n    at PacketAssembler.emit (events.js:188:7)\n    at PacketAssembler.feed (/Users/ascatox/Dropbox/Sviluppo/whr/idas-opcua-agent/node_modules/node-opcua/lib/transport/packet_assembler.js:96:14)\n    at MessageBuilderBase.feed (/Users/ascatox/Dropbox/Sviluppo/whr/idas-opcua-agent/node_modules/node-opcua/lib/misc/message_builder_base.js:150:30)\n    at ClientSecureChannelLayer._on_receive_message_chunk (/Users/ascatox/Dropbox/Sviluppo/whr/idas-opcua-agent/node_modules/node-opcua/lib/client/client_secure_channel_layer.js:824:25)\n    at ClientTCP_transport.<anonymous> (/Users/ascatox/Dropbox/Sviluppo/whr/idas-opcua-agent/node_modules/node-opcua/lib/client/client_secure_channel_layer.js:554:18)\n    at emitOne (events.js:96:13)","level":"error","timestamp":"2017-03-28T09:22:35.999Z"}
+{"level":"info","message":"endpointUrl         =   \"opc.tcp://localhost:26543\" -browse","timestamp":"2017-03-28T09:23:25.637Z"}
+{"level":"info","message":"securityMode        =  NONE","timestamp":"2017-03-28T09:23:25.639Z"}
+{"level":"info","message":"securityPolicy      =  None","timestamp":"2017-03-28T09:23:25.639Z"}
+{"level":"info","message":"timeout             =  -1","timestamp":"2017-03-28T09:23:25.639Z"}
+{"level":"info","message":"SQL Server connection initialized!!!!","timestamp":"2017-03-28T09:23:26.257Z"}
+{"level":"info","message":"NotificationHandler attached to ContextBroker","timestamp":"2017-03-28T09:23:26.304Z"}
+{"level":"info","message":" session created","timestamp":"2017-03-28T09:23:26.426Z"}
+{"level":"info","message":" sessionId :  ns=1;g=803E6A12-C4DD-679C-6C71-6F5540195776","timestamp":"2017-03-28T09:23:26.426Z"}
+{"level":"debug","message":"Server Object: {\"browseName\":\"TestStationFolder\",\"nodeId\":\"ns=1;s=main_folder\",\"typeDefinition\":\"FolderType\",\"hasComponent\":[{\"browseName\":\"TestStationEventNotifier\",\"nodeId\":\"ns=1;i=1029\",\"nodeClass\":\"Object\",\"typeDefinition\":\"TestGenericType\",\"hasComponent\":[{\"browseName\":\"hash\",\"nodeId\":\"ns=1;i=1028\",\"nodeClass\":\"Variable\",\"typeDefinition\":\"TestStationAddInfoType\"}]}]}","timestamp":"2017-03-28T09:23:29.291Z"}
+{"level":"info","message":"registering OCB context TestStationEventNotifier","timestamp":"2017-03-28T09:23:31.148Z"}
+{"level":"info","message":"registered successfully OCB context TestStationEventNotifier","timestamp":"2017-03-28T09:23:33.274Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1028","timestamp":"2017-03-28T09:23:39.530Z"}
+{"message":"received internal error","stack":"Error:  ServiceResult is BadSessionIdInvalid (0x80250000)\n    at /Users/ascatox/Dropbox/Sviluppo/whr/idas-opcua-agent/node_modules/node-opcua/lib/client/client_session.js:836:19\n    at modified_callback (/Users/ascatox/Dropbox/Sviluppo/whr/idas-opcua-agent/node_modules/node-opcua/lib/client/client_secure_channel_layer.js:925:24)\n    at process_request_callback (/Users/ascatox/Dropbox/Sviluppo/whr/idas-opcua-agent/node_modules/node-opcua/lib/client/client_secure_channel_layer.js:73:5)\n    at ClientSecureChannelLayer._on_message_received (/Users/ascatox/Dropbox/Sviluppo/whr/idas-opcua-agent/node_modules/node-opcua/lib/client/client_secure_channel_layer.js:117:5)\n    at emitMany (events.js:127:13)\n    at MessageBuilder.emit (events.js:201:7)\n    at MessageBuilder._decode_message_body (/Users/ascatox/Dropbox/Sviluppo/whr/idas-opcua-agent/node_modules/node-opcua/lib/misc/message_builder.js:445:22)\n    at MessageBuilderBase._feed_messageChunk (/Users/ascatox/Dropbox/Sviluppo/whr/idas-opcua-agent/node_modules/node-opcua/lib/misc/message_builder_base.js:186:18)\n    at PacketAssembler.<anonymous> (/Users/ascatox/Dropbox/Sviluppo/whr/idas-opcua-agent/node_modules/node-opcua/lib/misc/message_builder_base.js:46:14)\n    at emitOne (events.js:96:13)\n    at PacketAssembler.emit (events.js:188:7)\n    at PacketAssembler.feed (/Users/ascatox/Dropbox/Sviluppo/whr/idas-opcua-agent/node_modules/node-opcua/lib/transport/packet_assembler.js:96:14)\n    at MessageBuilderBase.feed (/Users/ascatox/Dropbox/Sviluppo/whr/idas-opcua-agent/node_modules/node-opcua/lib/misc/message_builder_base.js:150:30)\n    at ClientSecureChannelLayer._on_receive_message_chunk (/Users/ascatox/Dropbox/Sviluppo/whr/idas-opcua-agent/node_modules/node-opcua/lib/client/client_secure_channel_layer.js:824:25)\n    at ClientTCP_transport.<anonymous> (/Users/ascatox/Dropbox/Sviluppo/whr/idas-opcua-agent/node_modules/node-opcua/lib/client/client_secure_channel_layer.js:554:18)\n    at emitOne (events.js:96:13)","level":"error","timestamp":"2017-03-28T09:24:05.157Z"}
+{"level":"info","message":"endpointUrl         =   \"opc.tcp://localhost:26543\" -browse","timestamp":"2017-03-28T09:25:10.601Z"}
+{"level":"info","message":"securityMode        =  NONE","timestamp":"2017-03-28T09:25:10.602Z"}
+{"level":"info","message":"securityPolicy      =  None","timestamp":"2017-03-28T09:25:10.603Z"}
+{"level":"info","message":"timeout             =  -1","timestamp":"2017-03-28T09:25:10.603Z"}
+{"level":"info","message":"SQL Server connection initialized!!!!","timestamp":"2017-03-28T09:25:11.221Z"}
+{"level":"info","message":"NotificationHandler attached to ContextBroker","timestamp":"2017-03-28T09:25:11.268Z"}
+{"level":"info","message":" session created","timestamp":"2017-03-28T09:25:11.382Z"}
+{"level":"info","message":" sessionId :  ns=1;g=26AB4912-D556-C10F-4770-0F3290E6C722","timestamp":"2017-03-28T09:25:11.383Z"}
+{"level":"debug","message":"Server Object: {\"browseName\":\"TestStationFolder\",\"nodeId\":\"ns=1;s=main_folder\",\"typeDefinition\":\"FolderType\",\"hasComponent\":[{\"browseName\":\"TestStationEventNotifier\",\"nodeId\":\"ns=1;i=1029\",\"nodeClass\":\"Object\",\"typeDefinition\":\"TestGenericType\",\"hasComponent\":[{\"browseName\":\"hash\",\"nodeId\":\"ns=1;i=1028\",\"nodeClass\":\"Variable\",\"typeDefinition\":\"TestStationAddInfoType\"}]}]}","timestamp":"2017-03-28T09:25:17.023Z"}
+{"level":"info","message":"registering OCB context TestStationEventNotifier","timestamp":"2017-03-28T09:25:23.368Z"}
+{"level":"info","message":"registered successfully OCB context TestStationEventNotifier","timestamp":"2017-03-28T09:25:26.889Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1028","timestamp":"2017-03-28T09:26:03.845Z"}
+{"message":"received internal error","stack":"Error:  ServiceResult is BadSessionIdInvalid (0x80250000)\n    at /Users/ascatox/Dropbox/Sviluppo/whr/idas-opcua-agent/node_modules/node-opcua/lib/client/client_session.js:836:19\n    at modified_callback (/Users/ascatox/Dropbox/Sviluppo/whr/idas-opcua-agent/node_modules/node-opcua/lib/client/client_secure_channel_layer.js:925:24)\n    at process_request_callback (/Users/ascatox/Dropbox/Sviluppo/whr/idas-opcua-agent/node_modules/node-opcua/lib/client/client_secure_channel_layer.js:73:5)\n    at ClientSecureChannelLayer._on_message_received (/Users/ascatox/Dropbox/Sviluppo/whr/idas-opcua-agent/node_modules/node-opcua/lib/client/client_secure_channel_layer.js:117:5)\n    at emitMany (events.js:127:13)\n    at MessageBuilder.emit (events.js:201:7)\n    at MessageBuilder._decode_message_body (/Users/ascatox/Dropbox/Sviluppo/whr/idas-opcua-agent/node_modules/node-opcua/lib/misc/message_builder.js:445:22)\n    at MessageBuilderBase._feed_messageChunk (/Users/ascatox/Dropbox/Sviluppo/whr/idas-opcua-agent/node_modules/node-opcua/lib/misc/message_builder_base.js:186:18)\n    at PacketAssembler.<anonymous> (/Users/ascatox/Dropbox/Sviluppo/whr/idas-opcua-agent/node_modules/node-opcua/lib/misc/message_builder_base.js:46:14)\n    at emitOne (events.js:96:13)\n    at PacketAssembler.emit (events.js:188:7)\n    at PacketAssembler.feed (/Users/ascatox/Dropbox/Sviluppo/whr/idas-opcua-agent/node_modules/node-opcua/lib/transport/packet_assembler.js:96:14)\n    at MessageBuilderBase.feed (/Users/ascatox/Dropbox/Sviluppo/whr/idas-opcua-agent/node_modules/node-opcua/lib/misc/message_builder_base.js:150:30)\n    at ClientSecureChannelLayer._on_receive_message_chunk (/Users/ascatox/Dropbox/Sviluppo/whr/idas-opcua-agent/node_modules/node-opcua/lib/client/client_secure_channel_layer.js:824:25)\n    at ClientTCP_transport.<anonymous> (/Users/ascatox/Dropbox/Sviluppo/whr/idas-opcua-agent/node_modules/node-opcua/lib/client/client_secure_channel_layer.js:554:18)\n    at emitOne (events.js:96:13)","level":"error","timestamp":"2017-03-28T09:26:17.800Z"}
+{"level":"info","message":"endpointUrl         =   \"opc.tcp://localhost:26543\" -browse","timestamp":"2017-03-28T09:28:36.215Z"}
+{"level":"info","message":"securityMode        =  NONE","timestamp":"2017-03-28T09:28:36.216Z"}
+{"level":"info","message":"securityPolicy      =  None","timestamp":"2017-03-28T09:28:36.216Z"}
+{"level":"info","message":"timeout             =  -1","timestamp":"2017-03-28T09:28:36.216Z"}
+{"level":"info","message":"SQL Server connection initialized!!!!","timestamp":"2017-03-28T09:28:36.938Z"}
+{"level":"info","message":"NotificationHandler attached to ContextBroker","timestamp":"2017-03-28T09:28:37.005Z"}
+{"level":"info","message":" session created","timestamp":"2017-03-28T09:28:37.123Z"}
+{"level":"info","message":" sessionId :  ns=1;g=9E9ED87C-B622-B301-1178-EBCF29ECDA32","timestamp":"2017-03-28T09:28:37.124Z"}
+{"level":"debug","message":"Server Object: {\"browseName\":\"TestStationFolder\",\"nodeId\":\"ns=1;s=main_folder\",\"typeDefinition\":\"FolderType\",\"hasComponent\":[{\"browseName\":\"TestStationEventNotifier\",\"nodeId\":\"ns=1;i=1029\",\"nodeClass\":\"Object\",\"typeDefinition\":\"TestGenericType\",\"hasComponent\":[{\"browseName\":\"hash\",\"nodeId\":\"ns=1;i=1028\",\"nodeClass\":\"Variable\",\"typeDefinition\":\"TestStationAddInfoType\"}]}]}","timestamp":"2017-03-28T09:28:39.659Z"}
+{"level":"info","message":"registering OCB context TestStationEventNotifier","timestamp":"2017-03-28T09:28:42.370Z"}
+{"level":"info","message":"registered successfully OCB context TestStationEventNotifier","timestamp":"2017-03-28T09:28:44.054Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1028","timestamp":"2017-03-28T09:28:55.251Z"}
+{"message":"received internal error","stack":"Error:  ServiceResult is BadSessionIdInvalid (0x80250000)\n    at /Users/ascatox/Dropbox/Sviluppo/whr/idas-opcua-agent/node_modules/node-opcua/lib/client/client_session.js:836:19\n    at modified_callback (/Users/ascatox/Dropbox/Sviluppo/whr/idas-opcua-agent/node_modules/node-opcua/lib/client/client_secure_channel_layer.js:925:24)\n    at process_request_callback (/Users/ascatox/Dropbox/Sviluppo/whr/idas-opcua-agent/node_modules/node-opcua/lib/client/client_secure_channel_layer.js:73:5)\n    at ClientSecureChannelLayer._on_message_received (/Users/ascatox/Dropbox/Sviluppo/whr/idas-opcua-agent/node_modules/node-opcua/lib/client/client_secure_channel_layer.js:117:5)\n    at emitMany (events.js:127:13)\n    at MessageBuilder.emit (events.js:201:7)\n    at MessageBuilder._decode_message_body (/Users/ascatox/Dropbox/Sviluppo/whr/idas-opcua-agent/node_modules/node-opcua/lib/misc/message_builder.js:445:22)\n    at MessageBuilderBase._feed_messageChunk (/Users/ascatox/Dropbox/Sviluppo/whr/idas-opcua-agent/node_modules/node-opcua/lib/misc/message_builder_base.js:186:18)\n    at PacketAssembler.<anonymous> (/Users/ascatox/Dropbox/Sviluppo/whr/idas-opcua-agent/node_modules/node-opcua/lib/misc/message_builder_base.js:46:14)\n    at emitOne (events.js:96:13)\n    at PacketAssembler.emit (events.js:188:7)\n    at PacketAssembler.feed (/Users/ascatox/Dropbox/Sviluppo/whr/idas-opcua-agent/node_modules/node-opcua/lib/transport/packet_assembler.js:96:14)\n    at MessageBuilderBase.feed (/Users/ascatox/Dropbox/Sviluppo/whr/idas-opcua-agent/node_modules/node-opcua/lib/misc/message_builder_base.js:150:30)\n    at ClientSecureChannelLayer._on_receive_message_chunk (/Users/ascatox/Dropbox/Sviluppo/whr/idas-opcua-agent/node_modules/node-opcua/lib/client/client_secure_channel_layer.js:824:25)\n    at ClientTCP_transport.<anonymous> (/Users/ascatox/Dropbox/Sviluppo/whr/idas-opcua-agent/node_modules/node-opcua/lib/client/client_secure_channel_layer.js:554:18)\n    at emitOne (events.js:96:13)","level":"error","timestamp":"2017-03-28T09:29:13.497Z"}
+{"level":"info","message":"endpointUrl         =   \"opc.tcp://localhost:26543\" -browse","timestamp":"2017-03-28T09:30:55.367Z"}
+{"level":"info","message":"securityMode        =  NONE","timestamp":"2017-03-28T09:30:55.368Z"}
+{"level":"info","message":"securityPolicy      =  None","timestamp":"2017-03-28T09:30:55.368Z"}
+{"level":"info","message":"timeout             =  -1","timestamp":"2017-03-28T09:30:55.368Z"}
+{"level":"info","message":"SQL Server connection initialized!!!!","timestamp":"2017-03-28T09:30:56.095Z"}
+{"level":"info","message":"NotificationHandler attached to ContextBroker","timestamp":"2017-03-28T09:30:56.160Z"}
+{"level":"info","message":" session created","timestamp":"2017-03-28T09:30:56.281Z"}
+{"level":"info","message":" sessionId :  ns=1;g=BC376A03-46E5-E6C3-8BA3-0BB3644EEA14","timestamp":"2017-03-28T09:30:56.282Z"}
+{"level":"debug","message":"Server Object: {\"browseName\":\"TestStationFolder\",\"nodeId\":\"ns=1;s=main_folder\",\"typeDefinition\":\"FolderType\",\"hasComponent\":[{\"browseName\":\"TestStationEventNotifier\",\"nodeId\":\"ns=1;i=1029\",\"nodeClass\":\"Object\",\"typeDefinition\":\"TestGenericType\",\"hasComponent\":[{\"browseName\":\"hash\",\"nodeId\":\"ns=1;i=1028\",\"nodeClass\":\"Variable\",\"typeDefinition\":\"TestStationAddInfoType\"}]}]}","timestamp":"2017-03-28T09:30:58.462Z"}
+{"level":"info","message":"registering OCB context TestStationEventNotifier","timestamp":"2017-03-28T09:31:00.047Z"}
+{"level":"info","message":"registered successfully OCB context TestStationEventNotifier","timestamp":"2017-03-28T09:31:01.958Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1028","timestamp":"2017-03-28T09:31:03.951Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1028","timestamp":"2017-03-28T09:31:06.555Z"}
+{"level":"debug","message":"Entering in UPDATE ALL...","timestamp":"2017-03-28T09:31:06.564Z"}
+{"level":"info","message":"endpointUrl         =   \"opc.tcp://localhost:26543\" -browse","timestamp":"2017-03-28T09:32:17.412Z"}
+{"level":"info","message":"securityMode        =  NONE","timestamp":"2017-03-28T09:32:17.414Z"}
+{"level":"info","message":"securityPolicy      =  None","timestamp":"2017-03-28T09:32:17.414Z"}
+{"level":"info","message":"timeout             =  -1","timestamp":"2017-03-28T09:32:17.414Z"}
+{"level":"info","message":"SQL Server connection initialized!!!!","timestamp":"2017-03-28T09:32:18.160Z"}
+{"level":"info","message":"NotificationHandler attached to ContextBroker","timestamp":"2017-03-28T09:32:18.229Z"}
+{"level":"info","message":" session created","timestamp":"2017-03-28T09:32:18.340Z"}
+{"level":"info","message":" sessionId :  ns=1;g=A76BF4B3-F0AB-1DF6-4446-2ED59F5A5207","timestamp":"2017-03-28T09:32:18.341Z"}
+{"level":"debug","message":"Server Object: {\"browseName\":\"TestStationFolder\",\"nodeId\":\"ns=1;s=main_folder\",\"typeDefinition\":\"FolderType\",\"hasComponent\":[{\"browseName\":\"TestStationEventNotifier\",\"nodeId\":\"ns=1;i=1029\",\"nodeClass\":\"Object\",\"typeDefinition\":\"TestGenericType\",\"hasComponent\":[{\"browseName\":\"hash\",\"nodeId\":\"ns=1;i=1028\",\"nodeClass\":\"Variable\",\"typeDefinition\":\"TestStationAddInfoType\"}]}]}","timestamp":"2017-03-28T09:32:33.943Z"}
+{"level":"info","message":"registering OCB context TestStationEventNotifier","timestamp":"2017-03-28T09:32:37.112Z"}
+{"level":"info","message":"registered successfully OCB context TestStationEventNotifier","timestamp":"2017-03-28T09:32:40.736Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1028","timestamp":"2017-03-28T09:32:49.188Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1028","timestamp":"2017-03-28T09:32:53.682Z"}
+{"level":"debug","message":"Entering in UPDATE ALL...","timestamp":"2017-03-28T09:32:53.686Z"}
+{"level":"info","message":"endpointUrl         =   \"opc.tcp://localhost:26543\" -browse","timestamp":"2017-03-28T09:33:44.376Z"}
+{"level":"info","message":"securityMode        =  NONE","timestamp":"2017-03-28T09:33:44.378Z"}
+{"level":"info","message":"securityPolicy      =  None","timestamp":"2017-03-28T09:33:44.378Z"}
+{"level":"info","message":"timeout             =  -1","timestamp":"2017-03-28T09:33:44.378Z"}
+{"level":"info","message":"SQL Server connection initialized!!!!","timestamp":"2017-03-28T09:33:45.195Z"}
+{"level":"info","message":"NotificationHandler attached to ContextBroker","timestamp":"2017-03-28T09:33:45.265Z"}
+{"level":"info","message":" session created","timestamp":"2017-03-28T09:33:45.376Z"}
+{"level":"info","message":" sessionId :  ns=1;g=97A39D85-1500-4231-99FE-1D8C311C1727","timestamp":"2017-03-28T09:33:45.377Z"}
+{"level":"debug","message":"Server Object: {\"browseName\":\"TestStationFolder\",\"nodeId\":\"ns=1;s=main_folder\",\"typeDefinition\":\"FolderType\",\"hasComponent\":[{\"browseName\":\"TestStationEventNotifier\",\"nodeId\":\"ns=1;i=1029\",\"nodeClass\":\"Object\",\"typeDefinition\":\"TestGenericType\",\"hasComponent\":[{\"browseName\":\"hash\",\"nodeId\":\"ns=1;i=1028\",\"nodeClass\":\"Variable\",\"typeDefinition\":\"TestStationAddInfoType\"}]}]}","timestamp":"2017-03-28T09:33:48.577Z"}
+{"level":"info","message":"registering OCB context TestStationEventNotifier","timestamp":"2017-03-28T09:33:50.260Z"}
+{"level":"info","message":"registered successfully OCB context TestStationEventNotifier","timestamp":"2017-03-28T09:33:54.843Z"}
+{"level":"info","message":"initializing monitoring: ns=1;i=1028","timestamp":"2017-03-28T09:33:58.463Z"}
+{"level":"info","message":"started monitoring: ns=1;i=1028","timestamp":"2017-03-28T09:34:02.594Z"}

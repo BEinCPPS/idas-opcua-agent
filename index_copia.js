@@ -83,33 +83,32 @@ var timeout = parseInt(argv.timeout) * 1000 || -1; //604800*1000; //default 2000
 //var doBrowse = true; //TODO
 //argv.browse ? true : false;
 
-console.log("endpointUrl         = ".cyan, endpointUrl);
-console.log("securityMode        = ".cyan, securityMode.toString());
-console.log("securityPolicy      = ".cyan, securityPolicy.toString());
-console.log("timeout             = ".cyan, timeout ? timeout : " Infinity ");
+logger.info("endpointUrl         = ".cyan, endpointUrl);
+logger.info("securityMode        = ".cyan, securityMode.toString());
+logger.info("securityPolicy      = ".cyan, securityPolicy.toString());
+logger.info("timeout             = ".cyan, timeout ? timeout : " Infinity ");
 
 var client = null;
 var the_session = null;
 //var methods = [];
 
-var addressSpaceCrawler = require('./address-space-crawler.js'); 
+var addressSpaceCrawler = require('./address-space-crawler.js');
 addressSpaceCrawler.init();
-var orionManager = require('./orion-manager.js'); 
+var orionManager = require('./orion-manager.js');
 orionManager.init();
-var subscribeBroker = require('./subscribe-broker.js'); 
+var subscribeBroker = require('./subscribe-broker.js');
 subscribeBroker.init();
-var addressSpaceListener = require('./address-space-listener.js');
 
 
 function disconnect() {
     console.log(" closing session");
     the_session.close(function (err) {
-        logger.error(" session closed "+err);
+        logger.error(" session closed " + err);
     });
 
     console.log(" Calling disconnect");
     client.disconnect(function (err) {
-        logger.error(" disconnected "+err);
+        logger.error(" disconnected " + err);
     });
 }
 
@@ -176,7 +175,7 @@ function callMethods(value) {
             client.connect(endpointUrl, callback);
 
             client.on("connection_reestablished", function () {
-                console.log(" !!!!!!!!!!!!!!!!!!!!!!!!  CONNECTION RESTABLISHED !!!!!!!!!!!!!!!!!!!");
+                logger.info(" !!!!!!!!!!!!!!!!!!!!!!!!  CONNECTION RESTABLISHED !!!!!!!!!!!!!!!!!!!".cyan.bold);
 
             });
         },
@@ -199,7 +198,7 @@ function callMethods(value) {
                     logger.info(" session created".yellow);
                     logger.info(" sessionId : ", session.sessionId.toString());
                     subscribeBroker.setSession(the_session);
-                    subscribeBroker.manageSubscriptionForEventNotifier();
+                    
                 }
                 callback(err);
             });
@@ -218,9 +217,9 @@ function callMethods(value) {
             orionManager.registerContexts(callback);
         },
 
-        function (callback) {
-            orionManager.createOrionSubscriptions(callback);
-        },
+        // function (callback) {
+        //     orionManager.createOrionSubscriptions(callback);
+        // },
 
         //------------------------------------------
         // set up a timer that shuts down the client after a given time
@@ -240,9 +239,9 @@ function callMethods(value) {
                 }, timeout);
             } else if (timeout == -1) {
                 //  Infinite activity
-                console.log("NO Timeout set!!!".bold.cyan);
-                //setTimeout(browseAndSubscribe, 10000);
-
+                logger.info("NO Timeout set!!!".bold.cyan);
+                logger.info("Manage subscriptions to event notifier");
+                //subscribeBroker.manageSubscriptionForEventNotifier();
             } else {
                 callback();
             }
@@ -251,29 +250,29 @@ function callMethods(value) {
         //------------------------------------------
         // when the timer goes off, we first close the session...
         function (callback) {
-            console.log(" closing session");
+            logger.info(" Closing session".cyan.bold);
             the_session.close(function (err) {
-                console.log(" session closed", err);
+                logger.error(" session closed", err);
                 callback();
             });
         },
 
         // ...and finally the the connection
         function (callback) {
-            console.log(" Calling disconnect");
+            logger.info(" Calling disconnect");
             client.disconnect(callback);
         }
 
     ], function (err) {
         // this is called whenever a step call callback() passing along an err object
-        console.log(" disconnected".cyan);
+        logger.info(" disconnected".cyan);
 
         if (err) {
-            console.log(" client : process terminated with an error".red.bold);
-            console.log(" error", err);
-            console.log(" stack trace", err.stack);
+            logger.error(" client : process terminated with an error".red.bold);
+            logger.error(" error", err);
+            logger.error(" stack trace", err.stack);
         } else {
-            console.log("success !!   ");
+            logger.info("success !!   ");
         }
         // force disconnection
         if (client) {
@@ -288,7 +287,7 @@ function callMethods(value) {
 
     // not much use for this...
     process.on("error", function (err) {
-        console.log(" UNTRAPPED ERROR", err.message);
+        logger.error(" UNTRAPPED ERROR", err.message);
     });
 
     // handle CTRL+C
@@ -302,10 +301,9 @@ function callMethods(value) {
             process.exit(1);
         }
 
-        console.log(" Received client interruption from user ".red.bold);
-        console.log(" shutting down ...".red.bold);
+        logger.info(" Received client interruption from user ".red.bold);
+        logger.info(" shutting down ...".red.bold);
         subscribeBroker.terminateAllSubscriptions();
         disconnect();
     });
 })();
-

@@ -11,7 +11,8 @@ var config = require('./config');
 
 var orionUpdater = require('./orion-updater.js');
 var doBrowse = true; //TODO
-var dbManager = require('./db-manager.js').init();
+var dbManager = require('./db-manager.js');
+dbManager.init();
 var logger = require("./logger.js");
 var addressSpaceUpdater = require('./address-space-updater.js');
 
@@ -44,8 +45,6 @@ var SubscribeBroker = (function () {
             publishingEnabled: true,
             priority: 10
         };
-        initSubscription();
-
     }
     var reset = function () {
         the_subscriptions = null;
@@ -83,8 +82,7 @@ var SubscribeBroker = (function () {
                 subscription.publish_engine.timeoutHint);
 
         }).on("internal_error", function (err) {
-
-            logger.error("received internal error".red.bold, JSON.stringify(err));
+            logger.error("received internal error".red.bold, err);
 
         }).on("keepalive", function () {
 
@@ -106,35 +104,30 @@ var SubscribeBroker = (function () {
         the_subscriptions.push(subscription);
     }
 
-    var manageSubscriptionForEventNotifier = function (eventNotifier) {
+    /*var manageSubscriptionForEventNotifier = function (eventNotifier) {
         if (subscription == null) initSubscription();
         var monitoredItem = subscription.monitor({
                 nodeId: "ns=1000;s=eventNotifierHash", //TODO
                 attributeId: opcua.AttributeIds.Value
-            },
-            // TODO some of this stuff (samplingInterval for sure) should come from config
-            // TODO All these attributes are optional remove ?
-            {
-                //clientHandle: 13, // TODO need to understand the meaning this! we probably cannot reuse the same handle everywhere
+            }, {
                 samplingInterval: 250,
                 queueSize: 10000,
                 discardOldest: true
             },
             opcua.read_service.TimestampsToReturn.Both
         );
-
         monitoredItem.on("initialized", function () {
             logger.info("started monitoring: " + monitoredItem.itemToMonitor.nodeId.toString());
         });
 
         monitoredItem.on("changed", function (dataValue) {
-            logger.info("Event notifier received with hash: " + JSON.stringify(dataValue));
+            logger.info("Event notifier received with hash: " + JSON.stringify(dataValue).cyan.bold);
             var variableValue = null;
             if (typeof dataValue.value !== "undefined" && dataValue.value != null) //TODO typeof dataValue.value !== 'undefined'
                 variableValue = dataValue.value.value;
             if (variableValue !== "") {
                 if (doBrowse) {
-                    addressSpaceCrawler.crawlServer(variableValue);
+                    addressSpaceUpdater.updateAll();
                 }
             }
         });
@@ -142,7 +135,7 @@ var SubscribeBroker = (function () {
         monitoredItem.on("err", function (err_message) {
             logger.error(monitoredItem.itemToMonitor.nodeId.toString() + " ERROR".red, err_message);
         });
-    }
+    }*/
 
     var manageSubscriptionBroker = function (context, mapping) {
         if (subscription == null) initSubscription();
@@ -167,30 +160,38 @@ var SubscribeBroker = (function () {
         });
 
         monitoredItem.on("changed", function (dataValue) {
-            var variableValue = null;
-            if (typeof dataValue.value !== "undefined" && dataValue.value != null) //TODO typeof dataValue.value !== 'undefined'
-                variableValue = dataValue.value.value;
-            //|| null;
-            var attributeInfoObj = null;
-            if (doBrowse) {
-                if (cacheDb.has(mapping.ocb_id)) {
-                    attributeInfoObj = cacheDb.get(mapping.ocb_id);
+            function updateChangeForContext() {
+                var variableValue = null;
+                if (typeof dataValue.value !== "undefined" && dataValue.value != null) //TODO typeof dataValue.value !== 'undefined'
+                    variableValue = dataValue.value.value;
+                //|| null;
+                var attributeInfoObj = null;
+                if (doBrowse) {
+                    if (cacheDb.has(mapping.ocb_id)) {
+                        attributeInfoObj = cacheDb.get(mapping.ocb_id);
+                        orionUpdater.updateMonitored(context, mapping, dataValue, variableValue, attributeInfoObj);
+                    } else {
+                        var fn = dbManager.getAttributeInfoFromDb(mapping.ocb_id, variableValue);
+                        if (fn == null) orionUpdater.updateMonitored(context, mapping, dataValue, variableValue, attributeInfoObj);
+                        else fn.then(function (results) {
+                            console.log(results);
+                            attributeInfoObj = results[0]; //I have always one result!!
+                            cacheDb.set(mapping.ocb_id, results[0]);
+                            orionUpdater.updateMonitored(context, mapping, dataValue, variableValue, attributeInfoObj);
+                        }, function (err) {
+                            logger.error("SQL Error happended:".bold.red, err);
+                            orionUpdater.updateMonitored(context, mapping, dataValue, variableValue, attributeInfoObj);
+                        });
+                    }
+                } else
                     orionUpdater.updateMonitored(context, mapping, dataValue, variableValue, attributeInfoObj);
-                } else {
-                    var fn = dbManager.getAttributeInfoFromDb(mapping.ocb_id, variableValue);
-                    if (fn == null) orionUpdater.updateMonitored(context, mapping, dataValue, variableValue, attributeInfoObj);
-                    else fn.then(function (results) {
-                        console.log(results);
-                        attributeInfoObj = results[0]; //I have always one result!!
-                        cacheDb.set(mapping.ocb_id, results[0]);
-                        orionUpdater.updateMonitored(context, mapping, dataValue, variableValue, attributeInfoObj);
-                    }, function (err) {
-                        logger.error("SQL Error happended:".bold.red, err);
-                        orionUpdater.updateMonitored(context, mapping, dataValue, variableValue, attributeInfoObj);
-                    });
-                }
-            } else
-                orionUpdater.updateMonitored(context, mapping, dataValue, variableValue, attributeInfoObj);
+            }
+            if (typeof dataValue.value !== "undefined" && dataValue.value != null) {
+                if (context.id.indexOf("Event") === -1) {
+                    updateChangeForContext();
+                } else
+                    addressSpaceUpdater.updateAll();
+            }
         });
 
         monitoredItem.on("err", function (err_message) {
@@ -201,7 +202,7 @@ var SubscribeBroker = (function () {
     var terminateAllSubscriptions = function () {
         if (the_subscriptions) {
             the_subscriptions.forEach(function (subscription) {
-                console.log("terminating subscription: ", subscription.subscriptionId);
+                logger.info("terminating subscription: ", subscription.subscriptionId);
                 subscription.terminate();
             });
         }
@@ -211,7 +212,7 @@ var SubscribeBroker = (function () {
         //constructor
         constructor: SubscribeBroker,
         manageSubscriptionBroker: manageSubscriptionBroker,
-        manageSubscriptionForEventNotifier: manageSubscriptionForEventNotifier,
+        //manageSubscriptionForEventNotifier: manageSubscriptionForEventNotifier,
         terminateAllSubscriptions: terminateAllSubscriptions,
         setSession: setSession,
         getSession: getSession,

@@ -1,7 +1,7 @@
 "use strict";
 // node-opcue dependencies
 require("requirish")._(module);
-var treeify = require('treeify');
+//var treeify = require('treeify');
 var _ = require("underscore");
 var util = require("util");
 var crawler = require('./node_modules/node-opcua/lib/client/node_crawler.js');
@@ -12,7 +12,7 @@ var HashMap = require("hashmap");
 var iotAgentLib = require('iotagent-node-lib');
 var config = require('./config');
 var logger = require("./logger");
-var doCrawling = false;
+var doCrawling = true;
 
 var AddressSpaceCrawler = (function () {
     var serverObject = null;
@@ -23,7 +23,9 @@ var AddressSpaceCrawler = (function () {
     var getServerObject = function () {
         return serverObject;
     }
-
+    var getServerObjectPrevious = function () {
+        return serverObjectPrevious;
+    }
     var init = function () {}
 
     var reset = function () {
@@ -31,17 +33,14 @@ var AddressSpaceCrawler = (function () {
         serverObjectPrevious = null;
     }
     var crawlServer = function (the_session, node, callback) {
-        serverObjectPrevious = JSON.parse(JSON.stringify(serverObject));
         var nodeCrawler = new crawler.NodeCrawler(the_session);
         var nodeId = typeof node === "undefined" || node == null ? "ns=1;s=main_folder" : node.nodeId;
         nodeCrawler.read(nodeId, function (err, obj) {
             if (!err) {
-                //serverObjectPrevious = JSON.parse(JSON.stringify(serverObject));
+                serverObjectPrevious = JSON.parse(JSON.stringify(serverObject));
                 serverObject = obj;
                 if (doCrawling) {
-                    treeify.asLines(obj, true, true, function (line) {
-                        logger.info(line);
-                    });
+                    logger.debug("Server Object:".bold.red, JSON.stringify(obj));
                 }
             } else
                 logger.error("Error in crawling server", JSON.stringify(err));

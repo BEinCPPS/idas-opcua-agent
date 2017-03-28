@@ -9,6 +9,7 @@ const configDb = {
     "password": config.databaseConnection.password,
     "database": config.databaseConnection.database
 };
+var logger =require("./logger.js");
 
 var DbManager = (function () {
 
@@ -41,7 +42,7 @@ var DbManager = (function () {
 
     var init = function () {
         sql.setDefault(configDb);
-        console.log("SQL Server connection initialized!!!!".bold.cyan);
+        logger.info("SQL Server connection initialized!!!!".bold.cyan);
     }
 
     var reset = function () {}
