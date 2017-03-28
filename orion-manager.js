@@ -13,22 +13,25 @@ var logger = require("./logger.js");
 
 var doBrowse = true;
 
-var addressSpaceCrawler = require('./address-space-crawler.js');
-var subscribeBroker = require('./subscribe-broker.js');
+//var addressSpaceCrawler = require('./address-space-crawler.js');
+// var subscribeBroker = require('./subscribe-broker.js');
 
 var OrionManager = (function () {
-
+    var addressSpaceCrawler = null;
+    var subscribeBroker = null;
     var contexts = null;
     //Costructor
-    var OrionManager = function () {
-        reset();
-    }
+    var OrionManager = function () {}
 
-    var init = function () {
+    var init = function (addressSpaceCrawler_, subscribeBroker_) {
         contexts = [];
+        addressSpaceCrawler = addressSpaceCrawler_;
+        subscribeBroker = subscribeBroker_;
     }
     var reset = function () {
         contexts = null;
+        subscribeBroker = null;
+        addressSpaceCrawler = null;
     }
 
     var getContexts = function () {
@@ -169,7 +172,10 @@ var OrionManager = (function () {
     }
 
     var createOrionSubscription = function (context, device) {
-        if (typeof device === "undefined" || typeof context === "undefined" || device == null || context == null) return;
+        if (typeof device === "undefined" ||
+            typeof context === "undefined" ||
+            device == null ||
+            context == null) return;
         var attributeTriggers = [];
         context.mappings.forEach(function (map) {
             attributeTriggers.push(map.ocb_id);

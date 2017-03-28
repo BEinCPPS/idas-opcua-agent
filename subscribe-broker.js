@@ -14,7 +14,7 @@ var doBrowse = true; //TODO
 var dbManager = require('./db-manager.js');
 dbManager.init();
 var logger = require("./logger.js");
-var addressSpaceUpdater = require('./address-space-updater.js');
+//var addressSpaceUpdater = require('./address-space-updater.js');
 
 
 
@@ -24,6 +24,9 @@ var SubscribeBroker = (function () {
     var parameters = null;
     var the_session = null;
     var subscription = null;
+    var hash = null;
+    var addressSpaceUpdater = null;
+    //var orionUpdater = null; //TODO pass as paramter
 
     //Costructor
     var SubscribeBroker = function () {}
@@ -35,7 +38,7 @@ var SubscribeBroker = (function () {
     var setSession = function (session) {
         the_session = session;
     }
-    var init = function () {
+    var init = function (addressSpaceUpdater_) {
         the_subscriptions = [];
         parameters = {
             requestedPublishingInterval: 100,
@@ -45,11 +48,16 @@ var SubscribeBroker = (function () {
             publishingEnabled: true,
             priority: 10
         };
+        addressSpaceUpdater = addressSpaceUpdater_;
+        //orionUpdater = orionUpdater_;
     }
     var reset = function () {
         the_subscriptions = null;
         cacheDb = new HashMap();
         subscription = null;
+        hash = null;
+        addressSpaceUpdater = null;
+        //orionUpdater = null;
     }
     var getSubscriptions = function () {
         return the_subscriptions;
@@ -104,49 +112,13 @@ var SubscribeBroker = (function () {
         the_subscriptions.push(subscription);
     }
 
-    /*var manageSubscriptionForEventNotifier = function (eventNotifier) {
-        if (subscription == null) initSubscription();
-        var monitoredItem = subscription.monitor({
-                nodeId: "ns=1000;s=eventNotifierHash", //TODO
-                attributeId: opcua.AttributeIds.Value
-            }, {
-                samplingInterval: 250,
-                queueSize: 10000,
-                discardOldest: true
-            },
-            opcua.read_service.TimestampsToReturn.Both
-        );
-        monitoredItem.on("initialized", function () {
-            logger.info("started monitoring: " + monitoredItem.itemToMonitor.nodeId.toString());
-        });
-
-        monitoredItem.on("changed", function (dataValue) {
-            logger.info("Event notifier received with hash: " + JSON.stringify(dataValue).cyan.bold);
-            var variableValue = null;
-            if (typeof dataValue.value !== "undefined" && dataValue.value != null) //TODO typeof dataValue.value !== 'undefined'
-                variableValue = dataValue.value.value;
-            if (variableValue !== "") {
-                if (doBrowse) {
-                    addressSpaceUpdater.updateAll();
-                }
-            }
-        });
-
-        monitoredItem.on("err", function (err_message) {
-            logger.error(monitoredItem.itemToMonitor.nodeId.toString() + " ERROR".red, err_message);
-        });
-    }*/
-
     var manageSubscriptionBroker = function (context, mapping) {
         if (subscription == null) initSubscription();
         logger.info("initializing monitoring: " + mapping.opcua_id);
         var monitoredItem = subscription.monitor({
                 nodeId: mapping.opcua_id,
                 attributeId: opcua.AttributeIds.Value
-            },
-            // TODO some of this stuff (samplingInterval for sure) should come from config
-            // TODO All these attributes are optional remove ?
-            {
+            }, {
                 //clientHandle: 13, // TODO need to understand the meaning this! we probably cannot reuse the same handle everywhere
                 samplingInterval: 250,
                 queueSize: 10000,
@@ -189,8 +161,13 @@ var SubscribeBroker = (function () {
             if (typeof dataValue.value !== "undefined" && dataValue.value != null) {
                 if (context.id.indexOf("Event") === -1) {
                     updateChangeForContext();
-                } else
-                    addressSpaceUpdater.updateAll();
+                } else {
+                    logger.info("Event notification arrived!!!".bold.cyan, dataValue.value);
+                    if (hash !== dataValue.value.value) {
+                        hash = dataValue.value.value;
+                        addressSpaceUpdater.updateAll(the_session);
+                    }
+                }
             }
         });
 

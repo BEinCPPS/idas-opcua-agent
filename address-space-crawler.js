@@ -40,7 +40,7 @@ var AddressSpaceCrawler = (function () {
                 serverObjectPrevious = JSON.parse(JSON.stringify(serverObject));
                 serverObject = obj;
                 if (doCrawling) {
-                    logger.debug("Server Object:".bold.red, JSON.stringify(obj));
+                    logger.info("Server Object:".bold.red, JSON.stringify(obj));
                 }
             } else
                 logger.error("Error in crawling server", JSON.stringify(err));

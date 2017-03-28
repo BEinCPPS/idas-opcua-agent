@@ -1,21 +1,16 @@
 "use strict";
-// node-opcue dependencies
-require("requirish")._(module);
-var _ = require("underscore");
-var util = require("util");
-var opcua = require("node-opcua");
-var dataType = opcua.DataType;
-var VariantArrayType = opcua.VariantArrayType;
 var HashMap = require("hashmap");
 var iotAgentLib = require('iotagent-node-lib');
 var config = require('./config');
 const utilsLocal = require('./utils.js');
+var orionManager = require('./orion-manager');
+var logger = require("./logger.js");
 
 
 var OrionUpdater = (function () {
 
     //Costructor
-    var OrionUpdater = function () { }
+    var OrionUpdater = function () {}
     var updateMonitored = function (context, mapping, dataValue, variableValue, attributeInfo) {
         console.log("Context " + context.id + " attribute " + mapping.ocb_id, " value has changed to " + variableValue + "".bold.yellow);
         iotAgentLib.getDevice(context.id, function (err, device) {
@@ -37,8 +32,7 @@ var OrionUpdater = (function () {
                     name: mapping.ocb_id,
                     type: mapping.type || findType(mapping.ocb_id),
                     value: variableValue,
-                    metadatas: [
-                        {
+                    metadatas: [{
                             name: "sourceTimestamp",
                             type: "typestamp",
                             value: dataValue.sourceTimestamp
@@ -51,7 +45,8 @@ var OrionUpdater = (function () {
                         {
                             name: "description",
                             type: "string",
-                            value: attributeInfo != null ? utilsLocal.removeParenthesisfromAttr(attributeInfo.Descr) : null  //TODO from database
+                            value: attributeInfo != null ?
+                                utilsLocal.removeParenthesisfromAttr(attributeInfo.Descr) : null //TODO from database
                         }
                     ]
                 }];
@@ -71,23 +66,33 @@ var OrionUpdater = (function () {
                         attributes[0].metadatas.add(measUnit);
                     }
                 }
-                console.log("ATTRIBUTES", attributes);
-                console.log("METADATAS", attributes[0].metadatas);
+                logger.debug("ATTRIBUTES".bold.cyan, JSON.stringify(attributes));
+                logger.debug("METADATAS".bold.cyan, JSON.stringify(attributes[0].metadatas));
                 /*WARNING attributes must be an ARRAY*/
                 iotAgentLib.update(device.name, device.type, '', attributes, device, function (err) {
                     if (err) {
-                        console.log("error updating " + mapping.ocb_id + " on " + device.name + "".red.bold);
-                        console.log(JSON.stringify(err).red.bold);
+                        logger.error("error updating " + mapping.ocb_id + " on " + device.name + "".red.bold);
+                        logger.error(JSON.stringify(err).red.bold);
                     } else {
-                        console.log("successfully updated " + mapping.ocb_id + " on " + device.name);
+                        logger.info("Successfully updated ".bold.red + "" + mapping.ocb_id + " on " + device.name);
                     }
                 });
             }
         });
     }
+
+    var registerContexts = function (callback) {
+        orionManager.registerContexts(callback);
+    }
+    var createContextAttributesForOCB = function (callback) {
+        orionManager.createContextAttributesForOCB(null, callback);
+    }
+
     OrionUpdater.prototype = {
         //constructor
         constructor: OrionUpdater,
+        registerContexts: registerContexts,
+        createContextAttributesForOCB: createContextAttributesForOCB,
         updateMonitored: updateMonitored
     }
     return OrionUpdater;

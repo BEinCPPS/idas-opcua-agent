@@ -93,12 +93,14 @@ var the_session = null;
 //var methods = [];
 
 var addressSpaceCrawler = require('./address-space-crawler.js');
-addressSpaceCrawler.init();
 var orionManager = require('./orion-manager.js');
-orionManager.init();
 var subscribeBroker = require('./subscribe-broker.js');
-subscribeBroker.init();
+var addressSpaceUpdater = require('./address-space-updater');
 
+addressSpaceCrawler.init();
+subscribeBroker.init(addressSpaceUpdater);
+orionManager.init(addressSpaceCrawler, subscribeBroker);
+addressSpaceUpdater.init(addressSpaceCrawler, orionManager);
 
 function disconnect() {
     console.log(" closing session");

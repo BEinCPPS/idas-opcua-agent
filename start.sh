@@ -1,6 +1,6 @@
 #!/bin/sh
 #node index.js -e "opc.tcp://BEINCPPS-01:1103"
-node index.js -e "opc.tcp://localhost:26543"  
+node index_copia.js -e "opc.tcp://localhost:26543"  
 # Change with your endpoint 
 # -b 
 # "Browse" server address
