@@ -9,15 +9,14 @@ var opcua = require("node-opcua");
 var dataType = opcua.DataType;
 var VariantArrayType = opcua.VariantArrayType;
 var HashMap = require("hashmap");
-var iotAgentLib = require('iotagent-node-lib');
 var config = require('./config');
 var logger = require("./logger");
-var doCrawling = true;
+var diff = require('deep-diff').diff;
+var doCrawling = false;
 
 var AddressSpaceCrawler = (function () {
     var serverObject = null;
     var serverObjectPrevious = null;
-    var serverHash = null;
     //Costructor
     var AddressSpaceCrawler = function () {}
     var getServerObject = function () {
@@ -39,8 +38,9 @@ var AddressSpaceCrawler = (function () {
             if (!err) {
                 serverObjectPrevious = JSON.parse(JSON.stringify(serverObject));
                 serverObject = obj;
+                logger.debug("Differences in address Space", JSON.stringify(diff(getServerObjectPrevious, serverObject)));
                 if (doCrawling) {
-                    logger.info("Server Object:".bold.red, JSON.stringify(obj));
+                    logger.debug("Server Object:".bold.cyan, JSON.stringify(obj));
                 }
             } else
                 logger.error("Error in crawling server", JSON.stringify(err));

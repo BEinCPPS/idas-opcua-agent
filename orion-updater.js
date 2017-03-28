@@ -12,11 +12,11 @@ var OrionUpdater = (function () {
     //Costructor
     var OrionUpdater = function () {}
     var updateMonitored = function (context, mapping, dataValue, variableValue, attributeInfo) {
-        console.log("Context " + context.id + " attribute " + mapping.ocb_id, " value has changed to " + variableValue + "".bold.yellow);
+        logger.debug("Context " + context.id + " attribute " + mapping.ocb_id, " value has changed to " + variableValue + "".bold.yellow);
         iotAgentLib.getDevice(context.id, function (err, device) {
             if (err) {
-                console.log("could not find the OCB context " + context.id + "".red.bold);
-                console.log(JSON.stringify(err).red.bold);
+                logger.error("could not find the OCB context " + context.id + "".red.bold);
+                logger.error(JSON.stringify(err).red.bold);
             } else {
                 function findType(name) {
                     // TODO we only search the 'active' namespace: does it make sense? probably yes
@@ -71,28 +71,18 @@ var OrionUpdater = (function () {
                 /*WARNING attributes must be an ARRAY*/
                 iotAgentLib.update(device.name, device.type, '', attributes, device, function (err) {
                     if (err) {
-                        logger.error("error updating " + mapping.ocb_id + " on " + device.name + "".red.bold);
+                        logger.error("Error updating " + mapping.ocb_id + " on " + device.name + "".red.bold);
                         logger.error(JSON.stringify(err).red.bold);
                     } else {
-                        logger.info("Successfully updated ".bold.red + "" + mapping.ocb_id + " on " + device.name);
+                        logger.debug("Successfully updated ".bold.cyan + "" + mapping.ocb_id +"".bold.red+" on " + device.name+"".bold.red);
                     }
                 });
             }
         });
     }
-
-    var registerContexts = function (callback) {
-        orionManager.registerContexts(callback);
-    }
-    var createContextAttributesForOCB = function (callback) {
-        orionManager.createContextAttributesForOCB(null, callback);
-    }
-
     OrionUpdater.prototype = {
         //constructor
         constructor: OrionUpdater,
-        registerContexts: registerContexts,
-        createContextAttributesForOCB: createContextAttributesForOCB,
         updateMonitored: updateMonitored
     }
     return OrionUpdater;

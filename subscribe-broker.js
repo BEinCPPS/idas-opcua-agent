@@ -165,6 +165,7 @@ var SubscribeBroker = (function () {
                     logger.info("Event notification arrived!!!".bold.cyan, dataValue.value);
                     if (hash !== dataValue.value.value) {
                         hash = dataValue.value.value;
+                        logger.info("START UPDATING Address Space".bold.red);
                         addressSpaceUpdater.updateAll(the_session);
                     }
                 }

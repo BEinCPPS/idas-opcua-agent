@@ -9,7 +9,6 @@ var log = new winston.Logger({
         }) //TODO
     ]
 });
-
 var logger = {
     debug: function (data, metadata) {
         log.log("debug", data, metadata);

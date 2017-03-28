@@ -4,7 +4,7 @@
   "description": "IDAS Agent for OPC UA",
   "main": "index.js",
   "dependencies": {
-    "deep-diff": "*",
+    "deep-diff": "^4.13.4",
     "express": "^4.13.4",
     "hashmap": "*",
     "http": "0.0.0",
