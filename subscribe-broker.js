@@ -133,6 +133,7 @@ var SubscribeBroker = (function () {
 
         monitoredItem.on("changed", function (dataValue) {
             function updateChangeForContext() {
+                logger.debug("Received value change for ".bold.red+" "+context.id+" for "+mapping)
                 var variableValue = null;
                 if (typeof dataValue.value !== "undefined" && dataValue.value != null) //TODO typeof dataValue.value !== 'undefined'
                     variableValue = dataValue.value.value;
@@ -159,13 +160,13 @@ var SubscribeBroker = (function () {
                     orionUpdater.updateMonitored(context, mapping, dataValue, variableValue, attributeInfoObj);
             }
             if (typeof dataValue.value !== "undefined" && dataValue.value != null) {
-                if (context.id.indexOf("Event") === -1) {
+                if (context.id.indexOf("Event") === -1) { //NOT EVENT NOTIFIER
                     updateChangeForContext();
                 } else {
                     logger.info("Event notification arrived!!!".bold.cyan, dataValue.value);
                     if (hash !== dataValue.value.value) {
                         hash = dataValue.value.value;
-                        logger.info("START UPDATING Address Space".bold.red);
+                        logger.info("START UPDATING Address Space".bold.red, hash);
                         addressSpaceUpdater.updateAll(the_session);
                     }
                 }

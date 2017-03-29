@@ -31,14 +31,9 @@ var AddressSpaceUpdater = (function () {
             function (callback) {
                 orionManager.createContextAttributesForOCB(null, callback);
             },
-            //------------------------------------------
-            // initialize all subscriptions
             function (callback) {
                 orionManager.registerContexts(callback);
             },
-            // function (callback) {
-            //     orionManager.createOrionSubscriptions(callback);
-            // }
         ], function (err) {
             if (err) {
                 logger.error(" Error in update address space from Server", err);

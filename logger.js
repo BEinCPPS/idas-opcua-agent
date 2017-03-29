@@ -3,9 +3,13 @@ var winston = require('winston');
 var log = new winston.Logger({
     level: 'debug',
     transports: [
-        new(winston.transports.Console)(),
+        new(winston.transports.Console)({
+            level: "info"
+        }),
         new(winston.transports.File)({
-            filename: 'idas-opcua-agent.log'
+            json: false,
+            filename: 'idas-opcua-agent.log',
+            level: "debug"
         }) //TODO
     ]
 });

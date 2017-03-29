@@ -8,7 +8,6 @@ var logger = require("./logger.js");
 
 
 var OrionUpdater = (function () {
-
     //Costructor
     var OrionUpdater = function () {}
     var updateMonitored = function (context, mapping, dataValue, variableValue, attributeInfo) {
@@ -31,7 +30,7 @@ var OrionUpdater = (function () {
                 var attributes = [{
                     name: mapping.ocb_id,
                     type: mapping.type || findType(mapping.ocb_id),
-                    value: variableValue,
+                    value: typeof variableValue === "undefined" || variableValue == null ? null : variableValue,
                     metadatas: [{
                             name: "sourceTimestamp",
                             type: "typestamp",
@@ -74,7 +73,7 @@ var OrionUpdater = (function () {
                         logger.error("Error updating " + mapping.ocb_id + " on " + device.name + "".red.bold);
                         logger.error(JSON.stringify(err).red.bold);
                     } else {
-                        logger.debug("Successfully updated ".bold.cyan + "" + mapping.ocb_id +"".bold.red+" on " + device.name+"".bold.red);
+                        logger.debug("Successfully updated ".bold.cyan + "" + mapping.ocb_id + "".bold.red + " on " + device.name + "".bold.red);
                     }
                 });
             }

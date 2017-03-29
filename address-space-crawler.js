@@ -12,7 +12,7 @@ var HashMap = require("hashmap");
 var config = require('./config');
 var logger = require("./logger");
 var diff = require('deep-diff').diff;
-var doCrawling = false;
+var doCrawling = true;
 
 var AddressSpaceCrawler = (function () {
     var serverObject = null;
@@ -38,7 +38,7 @@ var AddressSpaceCrawler = (function () {
             if (!err) {
                 serverObjectPrevious = JSON.parse(JSON.stringify(serverObject));
                 serverObject = obj;
-                logger.debug("Differences in address Space", JSON.stringify(diff(getServerObjectPrevious, serverObject)));
+                //logger.debug("Differences in address Space", JSON.stringify(diff(getServerObjectPrevious, serverObject)));
                 if (doCrawling) {
                     logger.debug("Server Object:".bold.cyan, JSON.stringify(obj));
                 }
