@@ -70,10 +70,10 @@ var OrionUpdater = (function () {
                 /*WARNING attributes must be an ARRAY*/
                 iotAgentLib.update(device.name, device.type, '', attributes, device, function (err) {
                     if (err) {
-                        logger.error("Error updating " + mapping.ocb_id + " on " + device.name + "".red.bold);
+                        logger.error("Error updating ".bold.red + " " + mapping.ocb_id.bold.yelloy + " on " + device.name.bold.yellow + "");
                         logger.error(JSON.stringify(err).red.bold);
                     } else {
-                        logger.debug("Successfully updated ".bold.cyan + "" + mapping.ocb_id + "".bold.red + " on " + device.name + "".bold.red);
+                        logger.debug("Successfully updated ".bold.cyan + "" + mapping.ocb_id.bold.yellow + "" + " on " + device.name.bold.yellow + "");
                     }
                 });
             }

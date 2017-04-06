@@ -1,6 +1,7 @@
 "use strict";
 // node-opcue dependencies
 var util = require("util");
+var _ = require("underscore");
 var opcua = require("node-opcua");
 var dataType = opcua.DataType;
 var VariantArrayType = opcua.VariantArrayType;
@@ -15,6 +16,8 @@ var OrionManager = (function () {
     var addressSpaceCrawler = null;
     var subscribeBroker = null;
     var contexts = null;
+    var savedMappingsMap = null;
+    var measuresSubscribed = null;
     //Costructor
     var OrionManager = function () {}
 
@@ -22,11 +25,14 @@ var OrionManager = (function () {
         contexts = [];
         addressSpaceCrawler = addressSpaceCrawler_;
         subscribeBroker = subscribeBroker_;
+        savedMappingsMap = new HashMap();
+        measuresSubscribed = new HashMap();
     }
     var reset = function () {
         contexts = null;
         subscribeBroker = null;
         addressSpaceCrawler = null;
+
     }
 
     var getContexts = function () {
@@ -67,7 +73,6 @@ var OrionManager = (function () {
                         ocb_id: attribute.browseName,
                         opcua_id: attribute.nodeId.toString(),
                         type: type
-
                     };
                     var attributeObj = {
                         name: attribute.browseName,
@@ -149,20 +154,27 @@ var OrionManager = (function () {
                     if (err) { // skip context
                         logger.error("could not register OCB context " + context.id + "".red.bold, JSON.stringify(err));
                         logger.debug("could not register OCB mappings for " + context.id + " " + JSON.stringify(context.active) + "".red.bold);
-                        if (err.name === "DUPLICATE_DEVICE_ID") { // and active contains measures
-                            iotAgentLib.updateRegisterDevice(device, function (errore) {
-                                if (errore) {
-                                    logger.error("could not UPDATE register OCB context " + context.id + "".red.bold, JSON.stringify(err));
-                                    logger.debug("could not UPDATE register OCB mappings for " + context.id + " " + JSON.stringify(context.active) + "".red.bold);
-                                } else {
-                                    logger.debug("Attempt to opcua subscribe AFTER UPDATE for attribute: " + mapping.ocb_id + " with context " + context.id);
-                                    //fare il diff per fare le subscriptions mancanti
-                                    subscribeBroker.manageSubscriptionBroker(context, mapping);
-                                }
+                        if (err.name === "DUPLICATE_DEVICE_ID" && context.id.indexOf("Event") === -1) { // and active contains measures
+                            var mappingsOld = savedMappingsMap.get(context.id);
+                            logger.debug("Mappings before: for context " + context.id + "  " + JSON.stringify(mappingsOld));
+                            logger.debug("Mappings current: for context  " + context.id + "  " + JSON.stringify(context.mappings));
+                            var differences = _.difference(_.pluck(context.mappings, "ocb_id"), _.pluck(mappingsOld, "ocb_id"));
+                            var results = _.filter(context.mappings, function (obj) {
+                                return differences.indexOf(obj.ocb_id) >= 0;
                             });
+                            logger.debug("Differences encounterd in mappings: " + JSON.stringify(differences));
+                            logger.debug("Differences result encounterd: " + JSON.stringify(results));
+                            for (var i in results) {
+                                if (!measuresSubscribed.has(results[i].ocb_id)) {
+                                    measuresSubscribed.set(results[i].ocb_id, results[i]);
+                                    subscribeBroker.manageSubscriptionBroker(context, results[i]);
+                                }
+                            }
+                            savedMappingsMap.set(context.id, _.clone(context.mappings));
                         }
                     } else { // init subscriptions
                         logger.info("registered successfully OCB context " + context.id);
+                        savedMappingsMap.set(context.id, context.mappings);
                         context.mappings.forEach(function (mapping) {
                             logger.debug("Attempt to opcua subscribe for attribute: " + mapping.ocb_id + " with context " + context.id);
                             subscribeBroker.manageSubscriptionBroker(context, mapping);

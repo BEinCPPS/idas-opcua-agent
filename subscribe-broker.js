@@ -16,8 +16,6 @@ dbManager.init();
 var logger = require("./logger.js");
 //var addressSpaceUpdater = require('./address-space-updater.js');
 
-
-
 var SubscribeBroker = (function () {
     var the_subscriptions = null;
     var cacheDb = new HashMap();
@@ -26,6 +24,7 @@ var SubscribeBroker = (function () {
     var subscription = null;
     var hash = null;
     var addressSpaceUpdater = null;
+    var monitoringConfig = null;
     //var orionUpdater = null; //TODO pass as paramter
 
     //Costructor
@@ -49,6 +48,12 @@ var SubscribeBroker = (function () {
             priority: 10
         };
         addressSpaceUpdater = addressSpaceUpdater_;
+        monitoringConfig = {
+            //clientHandle: 13, // TODO need to understand the meaning this! we probably cannot reuse the same handle everywhere
+            samplingInterval: 250,
+            queueSize: 10000,
+            discardOldest: true
+        };
         //orionUpdater = orionUpdater_;
     }
     var reset = function () {
@@ -108,22 +113,16 @@ var SubscribeBroker = (function () {
                 logger.info("successfully terminated subscription: " + subscription.subscriptionId);
             }
         });
-
         the_subscriptions.push(subscription);
     }
 
     var manageSubscriptionBroker = function (context, mapping) {
         if (subscription == null) initSubscription();
-        logger.info("initializing monitoring: " + mapping.opcua_id);
+        logger.info("initializing monitoring: " + mapping.opcua_id + ":" + mapping.ocb_id);
         var monitoredItem = subscription.monitor({
                 nodeId: mapping.opcua_id,
                 attributeId: opcua.AttributeIds.Value
-            }, {
-                //clientHandle: 13, // TODO need to understand the meaning this! we probably cannot reuse the same handle everywhere
-                samplingInterval: 250,
-                queueSize: 10000,
-                discardOldest: true
-            },
+            }, monitoringConfig,
             opcua.read_service.TimestampsToReturn.Both
         );
 
@@ -133,11 +132,12 @@ var SubscribeBroker = (function () {
 
         monitoredItem.on("changed", function (dataValue) {
             function updateChangeForContext() {
-                logger.debug("Received value change for ".bold.red+" "+context.id+" for "+mapping)
+                if (mapping.ocb_id.indexOf('measure') >= 0)
+                    logger.debug("Measure Arrived".bold.red + " " + JSON.stringify(mapping));
+                logger.debug("Received value change for ".bold.red + " " + context.id + " for " + JSON.stringify(mapping));
                 var variableValue = null;
                 if (typeof dataValue.value !== "undefined" && dataValue.value != null) //TODO typeof dataValue.value !== 'undefined'
                     variableValue = dataValue.value.value;
-                //|| null;
                 var attributeInfoObj = null;
                 if (doBrowse) {
                     if (cacheDb.has(mapping.ocb_id)) {

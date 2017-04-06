@@ -11,7 +11,6 @@ var VariantArrayType = opcua.VariantArrayType;
 var HashMap = require("hashmap");
 var config = require('./config');
 var logger = require("./logger");
-var diff = require('deep-diff').diff;
 var doCrawling = true;
 
 var AddressSpaceCrawler = (function () {
@@ -36,7 +35,7 @@ var AddressSpaceCrawler = (function () {
         var nodeId = typeof node === "undefined" || node == null ? "ns=1;s=main_folder" : node.nodeId;
         nodeCrawler.read(nodeId, function (err, obj) {
             if (!err) {
-                serverObjectPrevious = JSON.parse(JSON.stringify(serverObject));
+                serverObjectPrevious = _.clone(serverObject);
                 serverObject = obj;
                 //logger.debug("Differences in address Space", JSON.stringify(diff(getServerObjectPrevious, serverObject)));
                 if (doCrawling) {
