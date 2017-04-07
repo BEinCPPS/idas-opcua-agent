@@ -3,14 +3,25 @@ var HashMap = require("hashmap");
 var iotAgentLib = require('iotagent-node-lib');
 var config = require('./config');
 const utilsLocal = require('./utils.js');
-var orionManager = require('./orion-manager');
 var logger = require("./logger.js");
-
 
 var OrionUpdater = (function () {
     //Costructor
+    var serialNumber = null;
+    var _12NC = null;
+
     var OrionUpdater = function () {}
-    var updateMonitored = function (context, mapping, dataValue, variableValue, attributeInfo) {
+    var init = function () {
+        serialNumber = null;
+        _12NC = null;
+    }
+    var setSerialNumber = function (serialNumber_) {
+        serialNumber = serialNumber_;
+    }
+    var set12NC = function (_12NC_) {
+        _12NC = _12NC_;
+    }
+    var updateMonitored = function (context, mapping, dataValue, variableValue, dbInfo) {
         logger.debug("Context " + context.id + " attribute " + mapping.ocb_id, " value has changed to " + variableValue + "".bold.yellow);
         iotAgentLib.getDevice(context.id, function (err, device) {
             if (err) {
@@ -27,7 +38,7 @@ var OrionUpdater = (function () {
                     return null;
                 }
                 /* WARNING attributes must be an ARRAY */
-                var attributes = [{
+                var attribute = {
                     name: mapping.ocb_id,
                     type: mapping.type || findType(mapping.ocb_id),
                     value: typeof variableValue === "undefined" || variableValue == null ? null : variableValue,
@@ -44,36 +55,56 @@ var OrionUpdater = (function () {
                         {
                             name: "description",
                             type: "string",
-                            value: attributeInfo != null ?
-                                utilsLocal.removeParenthesisfromAttr(attributeInfo.Descr) : null //TODO from database
+                            value: dbInfo != null ?
+                                utilsLocal.removeParenthesisfromAttr(dbInfo.Descr) : null //TODO from database
                         }
                     ]
-                }];
-                if (mapping.ocb_id.indexOf(config.browseServerOptions.mainObjectStructure.variableType1.namePrefix) > -1) {
+                };
+                //MEASURE specific METADATAS
+                if (mapping.ocb_id.indexOf(config.browseServerOptions.mainObjectStructure.variableType1.namePrefix) > -1) { //MEASURE
                     var measCode = {
                         name: "measCode",
                         type: "string",
                         value: mapping.ocb_id.replace(config.browseServerOptions.mainObjectStructure.variableType1.namePrefix, '')
+                    };
+                    var serialNumberObj = {
+                        name: "serialNumber",
+                        type: "string",
+                        value: serialNumber
+                    };
+                    var _12NCObj = {
+                        name: "12NC",
+                        type: "string",
+                        value: _12NC
                     }
-                    attributes[0].metadatas.add(measCode);
-                    if (attributeInfo && attributeInfo.MeasUnit) {
+                    attribute.metadatas.add(measCode);
+                    attribute.metadatas.add(serialNumberObj);
+                    attribute.metadatas.add(_12NCObj);
+                    if (dbInfo && dbInfo.MeasUnit) {
                         var measUnit = {
                             name: "measUnit",
                             type: "string",
-                            value: utilsLocal.removeParenthesisfromAttr(attributeInfo.MeasUnit)
-                        }
-                        attributes[0].metadatas.add(measUnit);
+                            value: utilsLocal.removeParenthesisfromAttr(dbInfo.MeasUnit)
+                        };
+                        var multiplier = {
+                            name: "multiplier",
+                            type: "string",
+                            value: "100" //TODOit 
+                        };
+                        attribute.metadatas.add(measUnit);
+                        attribute.metadatas.add(multiplier);
                     }
                 }
-                logger.debug("ATTRIBUTES".bold.cyan, JSON.stringify(attributes));
-                logger.debug("METADATAS".bold.cyan, JSON.stringify(attributes[0].metadatas));
+                logger.debug("ATTRIBUTE".bold.cyan, JSON.stringify(attribute));
+                logger.debug("METADATAS".bold.cyan, JSON.stringify(attribute.metadatas));
                 /*WARNING attributes must be an ARRAY*/
-                iotAgentLib.update(device.name, device.type, '', attributes, device, function (err) {
+                iotAgentLib.update(device.name, device.type, '', [attribute], device, function (err) {
                     if (err) {
-                        logger.error("Error updating ".bold.red + " " + mapping.ocb_id.bold.yelloy + " on " + device.name.bold.yellow + "");
-                        logger.error(JSON.stringify(err).red.bold);
+                        logger.info("Error updating ".bold.red + mapping.ocb_id + " on " + device.name + " with attribute " + JSON.stringify(attribute),
+                            JSON.stringify(err).bold.red);
                     } else {
-                        logger.debug("Successfully updated ".bold.cyan + "" + mapping.ocb_id.bold.yellow + "" + " on " + device.name.bold.yellow + "");
+                        logger.info("Succesfully updated ".bold.cyan + mapping.ocb_id.bold.yellow + " on " + device.name.bold.yellow);
+                        logger.debug(device.name + "_" + mapping.ocb_id, JSON.stringify(attribute), "result");
                     }
                 });
             }
@@ -82,6 +113,9 @@ var OrionUpdater = (function () {
     OrionUpdater.prototype = {
         //constructor
         constructor: OrionUpdater,
+        init: init,
+        setSerialNumber: setSerialNumber,
+        set12NC: set12NC,
         updateMonitored: updateMonitored
     }
     return OrionUpdater;

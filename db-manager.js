@@ -9,12 +9,15 @@ const configDb = {
     "password": config.databaseConnection.password,
     "database": config.databaseConnection.database
 };
-var logger =require("./logger.js");
+var logger = require("./logger.js");
 
 var DbManager = (function () {
 
     function getMeasureInfoFromDb(measureCod) {
-        return dbSchema.getMeasureByCod(measureCod, languageDb);
+        var measure = dbSchema.getMeasureByCod(measureCod, languageDb);
+        var measureMultiplier = dbSchema.getMultiplierByCod(measureCod);
+        measure.Multiplier = measureMultiplier.Multiplier;
+        return measure;
     }
 
     function getStateInfoFromDb(stateCod) {

@@ -96,9 +96,11 @@ var addressSpaceCrawler = require('./address-space-crawler.js');
 var orionManager = require('./orion-manager.js');
 var subscribeBroker = require('./subscribe-broker.js');
 var addressSpaceUpdater = require('./address-space-updater');
+var orionUpdater = require('./orion-updater.js');
 
 addressSpaceCrawler.init();
-subscribeBroker.init(addressSpaceUpdater);
+orionUpdater.init();
+subscribeBroker.init(addressSpaceUpdater, orionUpdater);
 orionManager.init(addressSpaceCrawler, subscribeBroker);
 addressSpaceUpdater.init(addressSpaceCrawler, orionManager);
 
@@ -181,7 +183,6 @@ function callMethods(value) {
 
             });
         },
-
         //------------------------------------------
         // initialize client session on the OPCUA Server
         function (callback) {
@@ -200,7 +201,7 @@ function callMethods(value) {
                     logger.info(" session created".yellow);
                     logger.info(" sessionId : ", session.sessionId.toString());
                     subscribeBroker.setSession(the_session);
-                    
+
                 }
                 callback(err);
             });

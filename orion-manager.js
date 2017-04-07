@@ -68,7 +68,7 @@ var OrionManager = (function () {
             for (var j in attributes) {
                 var attribute = attributes[j];
                 if (attribute) {
-                    var type = attribute.browseName.indexOf("measure") > 0 ? "integer" : "string"; //TODO;
+                    var type = attribute.browseName.indexOf("measure") >= 0 ? "integer" : "string"; //TODO;
                     var contextVariableObj = {
                         ocb_id: attribute.browseName,
                         opcua_id: attribute.nodeId.toString(),
@@ -99,7 +99,6 @@ var OrionManager = (function () {
             if (testStations != null) {
                 for (var i in testStations) {
                     var testStation = testStations[i];
-                    //if (testStation.browseName.indexOf("Event") > -1) continue;
                     var contextObj = {
                         id: testStation.browseName,
                         type: config.defaultType,

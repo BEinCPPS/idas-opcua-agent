@@ -9,7 +9,7 @@ var VariantArrayType = opcua.VariantArrayType;
 var HashMap = require("hashmap");
 var config = require('./config');
 
-var orionUpdater = require('./orion-updater.js');
+//var orionUpdater = require('./orion-updater.js');
 var doBrowse = true; //TODO
 var dbManager = require('./db-manager.js');
 dbManager.init();
@@ -24,6 +24,7 @@ var SubscribeBroker = (function () {
     var subscription = null;
     var hash = null;
     var addressSpaceUpdater = null;
+    var orionUpdater = null;
     var monitoringConfig = null;
     //var orionUpdater = null; //TODO pass as paramter
 
@@ -37,7 +38,7 @@ var SubscribeBroker = (function () {
     var setSession = function (session) {
         the_session = session;
     }
-    var init = function (addressSpaceUpdater_) {
+    var init = function (addressSpaceUpdater_, orionUpdater_) {
         the_subscriptions = [];
         parameters = {
             requestedPublishingInterval: 100,
@@ -48,6 +49,7 @@ var SubscribeBroker = (function () {
             priority: 10
         };
         addressSpaceUpdater = addressSpaceUpdater_;
+        orionUpdater = orionUpdater_;
         monitoringConfig = {
             //clientHandle: 13, // TODO need to understand the meaning this! we probably cannot reuse the same handle everywhere
             samplingInterval: 250,
@@ -125,39 +127,46 @@ var SubscribeBroker = (function () {
             }, monitoringConfig,
             opcua.read_service.TimestampsToReturn.Both
         );
-
         monitoredItem.on("initialized", function () {
             logger.info("started monitoring: " + monitoredItem.itemToMonitor.nodeId.toString());
         });
 
         monitoredItem.on("changed", function (dataValue) {
+            function updateSerialNumberAnd12NC(variableValue) {
+                if (typeof variableValue === "undefined" || variableValue == null) return;
+                if (mapping.ocb_id.indexOf("serialNumber") >= 0) {
+                    orionUpdater.setSerialNumber(variableValue);
+                } else if (mapping.ocb_id.indexOf("12NC") >= 0) {
+                    orionUpdater.set12NC(variableValue);
+                }
+            }
+
             function updateChangeForContext() {
-                if (mapping.ocb_id.indexOf('measure') >= 0)
-                    logger.debug("Measure Arrived".bold.red + " " + JSON.stringify(mapping));
-                logger.debug("Received value change for ".bold.red + " " + context.id + " for " + JSON.stringify(mapping));
+                logger.debug("Received value change for ".bold.red + " " + context.id + " for ", mapping);
                 var variableValue = null;
                 if (typeof dataValue.value !== "undefined" && dataValue.value != null) //TODO typeof dataValue.value !== 'undefined'
                     variableValue = dataValue.value.value;
-                var attributeInfoObj = null;
+                var dbInfoObj = null;
                 if (doBrowse) {
+                    updateSerialNumberAnd12NC(variableValue);
                     if (cacheDb.has(mapping.ocb_id)) {
-                        attributeInfoObj = cacheDb.get(mapping.ocb_id);
-                        orionUpdater.updateMonitored(context, mapping, dataValue, variableValue, attributeInfoObj);
+                        dbInfoObj = cacheDb.get(mapping.ocb_id);
+                        orionUpdater.updateMonitored(context, mapping, dataValue, variableValue, dbInfoObj);
                     } else {
                         var fn = dbManager.getAttributeInfoFromDb(mapping.ocb_id, variableValue);
-                        if (fn == null) orionUpdater.updateMonitored(context, mapping, dataValue, variableValue, attributeInfoObj);
+                        if (fn == null) orionUpdater.updateMonitored(context, mapping, dataValue, variableValue, dbInfoObj);
                         else fn.then(function (results) {
-                            console.log(results);
-                            attributeInfoObj = results[0]; //I have always one result!!
+                            logger.debug("Data fetched from DB", JSON.stringify(results));
+                            dbInfoObj = results[0]; //I have always one result!!
                             cacheDb.set(mapping.ocb_id, results[0]);
-                            orionUpdater.updateMonitored(context, mapping, dataValue, variableValue, attributeInfoObj);
+                            orionUpdater.updateMonitored(context, mapping, dataValue, variableValue, dbInfoObj);
                         }, function (err) {
                             logger.error("SQL Error happended:".bold.red, err);
-                            orionUpdater.updateMonitored(context, mapping, dataValue, variableValue, attributeInfoObj);
+                            orionUpdater.updateMonitored(context, mapping, dataValue, variableValue, dbInfoObj);
                         });
                     }
                 } else
-                    orionUpdater.updateMonitored(context, mapping, dataValue, variableValue, attributeInfoObj);
+                    orionUpdater.updateMonitored(context, mapping, dataValue, variableValue, dbInfoObj);
             }
             if (typeof dataValue.value !== "undefined" && dataValue.value != null) {
                 if (context.id.indexOf("Event") === -1) { //NOT EVENT NOTIFIER
