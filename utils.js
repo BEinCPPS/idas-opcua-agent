@@ -1,17 +1,15 @@
 
-"use strict";
+'use strict'
 var Utils = {
-    removeParenthesisfromAttr: function (attributeValue) {
-        if (attributeValue)
-            return attributeValue.replace(/[{()}]/g, '');
-    },
-    removeSuffixFromName: function (name, suffix) {
-        if (name.indexOf(suffix) > -1) {
-            var str = name.replace(suffix, "");
-            return str;
-        }
-        return name;
+  removeParenthesisfromAttr: function (attributeValue) {
+    if (attributeValue) { return attributeValue.replace(/[{()}]/g, '') }
+  },
+  removeSuffixFromName: function (name, suffix) {
+    if (name.indexOf(suffix) > -1) {
+      var str = name.replace(suffix, '')
+      return str
     }
-};
-module.exports = Utils;
-
+    return name
+  }
+}
+module.exports = Utils
