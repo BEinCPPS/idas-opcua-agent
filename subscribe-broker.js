@@ -7,9 +7,10 @@ var HashMap = require('hashmap')
 
 // var orionUpdater = require('./orion-updater.js');
 var doBrowse = true // TODO
-var dbManager = require('./db-manager.js')
-dbManager.init()
+
 var logger = require('./logger.js')
+var config = require('./config')
+
 // var addressSpaceUpdater = require('./address-space-updater.js');
 
 var SubscribeBroker = (function () {
@@ -19,14 +20,19 @@ var SubscribeBroker = (function () {
   var session = null
   var subscription = null
   var hash = null
+  var variableValuePrevious = new HashMap()
   var addressSpaceUpdater = null
   var orionUpdater = null
   var productNumberManager = null
+  var dbManager = null
   var monitoringConfig = null
+  var orionManager = null
     // var orionUpdater = null; //TODO pass as paramter
 
     // Costructor
-  var SubscribeBroker = function () {}
+  var SubscribeBroker = function () {
+
+  }
 
   var getSession = function () {
     return session
@@ -35,7 +41,7 @@ var SubscribeBroker = (function () {
   var setSession = function (session_) {
     session = session_
   }
-  var init = function (addressSpaceUpdater_, orionUpdater_, productNumberManager_) {
+  var init = function (addressSpaceUpdater_, orionUpdater_, productNumberManager_, dbManager_, orionManager_) {
     subscriptions = []
     parameters = {
       requestedPublishingInterval: 100,
@@ -48,10 +54,12 @@ var SubscribeBroker = (function () {
     addressSpaceUpdater = addressSpaceUpdater_
     orionUpdater = orionUpdater_
     productNumberManager = productNumberManager_
+    dbManager = dbManager_
+    orionManager = orionManager_
     monitoringConfig = {
             // clientHandle: 13, // TODO need to understand the meaning this! we probably cannot reuse the same handle everywhere
-      samplingInterval: 250,
-      queueSize: 10000,
+      samplingInterval: 1000, // 250
+      queueSize: 1000, // 10000
       discardOldest: true
     }
         // orionUpdater = orionUpdater_;
@@ -62,6 +70,11 @@ var SubscribeBroker = (function () {
     subscription = null
     hash = null
     addressSpaceUpdater = null
+    orionUpdater = null
+    productNumberManager = null
+    dbManager = null
+    monitoringConfig = null
+    orionManager = null
         // orionUpdater = null;
   }
 
@@ -137,6 +150,11 @@ var SubscribeBroker = (function () {
         if (typeof dataValue.value !== 'undefined' && dataValue.value != null) { // TODO typeof dataValue.value !== 'undefined'
           variableValue = dataValue.value.value
         }
+        var mappingKey = context.id + '_' + mapping.ocb_id
+        if ((variableValuePrevious.has(mappingKey) && variableValuePrevious.get(mappingKey) === variableValue) && config.discardEqualValues) {
+          return
+        }
+        variableValuePrevious.set(mappingKey, variableValue)
         // logger.debug('ok->' + context.id + '_' + mapping.ocb_id, variableValue, 'result')
         var dbInfoObj = {}
         if (doBrowse) {
@@ -166,11 +184,12 @@ var SubscribeBroker = (function () {
           }
         } else { orionUpdater.updateMonitored(context, mapping, dataValue, variableValue, dbInfoObj) }
       }
-      if (typeof dataValue.value !== 'undefined' && dataValue.value != null) {
+
+      if (typeof dataValue.value !== 'undefined' && dataValue.value !== null) {
         if (context.id.indexOf('Event') === -1) { // NOT EVENT NOTIFIER
           updateChangeForContext()
         } else {
-          logger.info('Event notification arrived!!!'.bold.cyan, dataValue.value)
+          logger.debug('Event notification arrived!!!'.bold.cyan, dataValue.value)
           if (hash !== dataValue.value.value) {
             hash = dataValue.value.value
             logger.info('START UPDATING Address Space'.bold.red, hash)
@@ -188,7 +207,7 @@ var SubscribeBroker = (function () {
   var terminateAllSubscriptions = function () {
     if (subscriptions) {
       subscriptions.forEach(function (subscription) {
-        logger.info('terminating subscription: ', subscription.subscriptionId)
+        logger.info('terminating subscription: '.bold.red, subscription.subscriptionId)
         subscription.terminate()
       })
     }

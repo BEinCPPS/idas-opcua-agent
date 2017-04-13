@@ -10,7 +10,7 @@ var config = {
   deviceRegistry: {
     type: 'memory'
   },
-
+  discardEqualValues: true,
   types: {
     'teststation': {
       service: 'whrTestservice',

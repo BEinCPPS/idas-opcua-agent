@@ -18,7 +18,7 @@ var AddressSpaceUpdater = (function () {
     orionManager = orionManager_
   }
 
-  var updateAll = function (session) {
+  var updateAll = function (session, reset) {
     logger.info('Entering in UPDATE ALL...'.cyan.bold)
     async.series([
       function (callback) {
@@ -26,6 +26,13 @@ var AddressSpaceUpdater = (function () {
       },
       function (callback) {
         orionManager.createContextAttributesForOCB(null, callback)
+      },
+      function (callback) {
+        if (typeof reset === 'undefined' || reset === null) {
+          callback()
+        } else {
+          orionManager.unRegisterContexts(callback)
+        }
       },
       function (callback) {
         orionManager.registerContexts(callback)

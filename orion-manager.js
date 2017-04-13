@@ -14,6 +14,7 @@ var OrionManager = (function () {
   var contexts = null
   var savedMappingsMap = null
   var measuresSubscribed = null
+  var orionSubscriptions = null
     // Costructor
   var OrionManager = function () {}
 
@@ -23,11 +24,15 @@ var OrionManager = (function () {
     subscribeBroker = subscribeBroker_
     savedMappingsMap = new HashMap()
     measuresSubscribed = new HashMap()
+    orionSubscriptions = []
   }
   var reset = function () {
     contexts = null
     subscribeBroker = null
     addressSpaceCrawler = null
+    orionSubscriptions = null
+    savedMappingsMap = null
+    measuresSubscribed = null
   }
 
   var getContexts = function () {
@@ -148,9 +153,13 @@ var OrionManager = (function () {
       try {
         iotAgentLib.register(device, function (err) {
           if (err) { // skip context
-            logger.error('could not register OCB context ' + context.id + ''.red.bold, JSON.stringify(err))
+            if (err.name !== 'DUPLICATE_DEVICE_ID') {
+              logger.error('could not register OCB context ' + context.id + ''.red.bold, JSON.stringify(err))
+            } else {
+              logger.warn('could not register OCB context ' + context.id, JSON.stringify(err))
+            }
             logger.debug('could not register OCB mappings for ' + context.id + ' ' + JSON.stringify(context.active) + ''.red.bold)
-            if (err.name === 'DUPLICATE_DEVICE_ID' && context.id.indexOf('Event') === -1) { // and active contains measures
+            if (err.name === 'DUPLICATE_DEVICE_ID' && context.id.indexOf('Event') === -1) { // TODO and active contains measures
               var mappingsOld = savedMappingsMap.get(context.id)
               logger.debug('Mappings before: for context ' + context.id + '  ' + JSON.stringify(mappingsOld))
               logger.debug('Mappings current: for context  ' + context.id + '  ' + JSON.stringify(context.mappings))
@@ -193,6 +202,36 @@ var OrionManager = (function () {
     })
   }
 
+  var unRegisterContexts = function (callback) {
+    var counter = 0
+    if (contexts == null || contexts.length === 0) {
+      logger.info('No contexts found!!!'.cyan.bold)
+      callback()
+    }
+    contexts.forEach(function (context) {
+      try {
+        iotAgentLib.unregister(context.id, function (err) {
+          if (err) {
+            logger.error('could not unregister OCB context ' + context.id + ''.red.bold, JSON.stringify(err))
+          } else {
+            logger.info('unregistered successfully OCB context ' + context.id)
+          }
+          counter++
+
+          if (counter === contexts.length) {
+            callback()
+          }
+        })
+      } catch (error) {
+        logger.error('error unregistering OCB context'.red.bold, JSON.stringify(error))
+        callback(error)
+      }
+      if (counter === contexts.length) {
+        callback()
+      }
+    })
+  }
+
   var createOrionSubscription = function (context, device) {
     if (typeof device === 'undefined' ||
             typeof context === 'undefined' ||
@@ -213,10 +252,33 @@ var OrionManager = (function () {
                             device.name, attributeTriggers)
                   }
                 })
+      /*
+      orionSubscriptions.push(
+        {
+          device: device,
+          idSubscription: idSubscription
+        })
+        */
     } catch (err) {
       logger.error('There was an error subscribing device [%s] to attributes [%j]',
                 device.name, attributeTriggers)
       logger.error(JSON.stringify(err).red.bold)
+    }
+  }
+
+  var unsuscribeOrionSubscriptions = function () {
+    if (orionSubscriptions == null || orionSubscriptions.length === 0) return
+    for (var i in orionSubscriptions) {
+      var orionSubscription = orionSubscriptions[i]
+      iotAgentLib.unsubscribe(orionSubscription.device, orionSubscription.idSubscription, function (err) {
+        if (err) {
+          logger.error('There was an error unsubscribing device [%s] with idSubscription [%j]'.bold.red,
+                            orionSubscription.device.name, orionSubscription.idSubscription)
+        } else {
+          logger.info('Successfully unsubscribed device [%s] with idSubscription[%j]'.bold.yellow,
+                            orionSubscription.device.name, orionSubscription.idSubscription)
+        }
+      })
     }
   }
 
@@ -225,9 +287,11 @@ var OrionManager = (function () {
     constructor: OrionManager,
     activate: activate,
     registerContexts: registerContexts,
+    unRegisterContexts: unRegisterContexts,
     createContextAttributesForOCB: createContextAttributesForOCB,
     getContexts: getContexts,
     setContexts: setContexts,
+    unsuscribeOrionSubscriptions: unsuscribeOrionSubscriptions,
     reset: reset,
     init: init
   }

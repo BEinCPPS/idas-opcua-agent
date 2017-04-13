@@ -35,7 +35,7 @@ var OrionUpdater = (function () {
           type: mapping.type || findType(mapping.ocb_id),
           value: typeof variableValue === 'undefined' || variableValue == null ? null : variableValue,
           metadatas: [{
-            name: 'sourceTimestamp',
+            name: 'timestamp',
             type: 'typestamp',
             value: dataValue.sourceTimestamp
           },
@@ -45,7 +45,7 @@ var OrionUpdater = (function () {
             value: new Date()
           },
           {
-            name: 'description',
+            name: 'descr',
             type: 'string',
             value: dbInfo != null && typeof dbInfo !== 'undefined' && dbInfo.Descr
                                 ? utilsLocal.removeParenthesisfromAttr(dbInfo.Descr) : null // TODO from database
@@ -55,7 +55,7 @@ var OrionUpdater = (function () {
                 // MEASURE specific METADATAS
         if (mapping.ocb_id.indexOf(config.browseServerOptions.mainObjectStructure.variableType1.namePrefix) > -1) { // MEASURE
           var measCode = {
-            name: 'measCode',
+            name: 'id',
             type: 'string',
             value: mapping.ocb_id.replace(config.browseServerOptions.mainObjectStructure.variableType1.namePrefix, '')
           }
@@ -72,23 +72,23 @@ var OrionUpdater = (function () {
           attribute.metadatas.add(measCode)
           attribute.metadatas.add(serialNumberObj)
           attribute.metadatas.add(_12NCObj)
-          if (dbInfo && dbInfo.MeasUnit) {
+          if (dbInfo) {
             var measUnit = {
-              name: 'measUnit',
+              name: 'descrUnitOfMeasure',
               type: 'string',
-              value: utilsLocal.removeParenthesisfromAttr(dbInfo.MeasUnit)
-            }
-            var multiplier = {
-              name: 'multiplier',
-              type: 'string',
-              value: typeof dbInfo.Multiplier === 'undefined' ? null : dbInfo.Multiplier
+              value: dbInfo.MeasUnit ? utilsLocal.removeParenthesisfromAttr(dbInfo.MeasUnit) : null
             }
             attribute.metadatas.add(measUnit)
+            var multiplier = {
+              name: 'multiplier',
+              type: 'integer',
+              value: typeof dbInfo.Multiplier === 'undefined' || dbInfo.Multiplier == null ? 1 : dbInfo.Multiplier
+            }
             attribute.metadatas.add(multiplier)
           }
         }
-        logger.debug('ATTRIBUTE'.bold.cyan, JSON.stringify(attribute))
-        logger.debug('METADATAS'.bold.cyan, JSON.stringify(attribute.metadatas))
+        // logger.debug('ATTRIBUTE'.bold.cyan, JSON.stringify(attribute))
+        // logger.debug('METADATAS'.bold.cyan, JSON.stringify(attribute.metadatas))
                 /* WARNING attributes must be an ARRAY */
         iotAgentLib.update(device.name, device.type, '', [attribute], device, function (err) {
           if (err) {

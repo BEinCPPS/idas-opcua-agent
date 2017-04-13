@@ -53,7 +53,7 @@ var getAllMeasureInfoByCod = function (measureCod, language) {
     }
   })
 })
-}
+} // return a promise .then()
 
 var getStateByCod = function (stateCod, language) {
   return sql.execute({

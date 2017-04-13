@@ -37,7 +37,7 @@ var ProductNumberManager = (function () {
   }
   // TODO Call the D2LAbService
   var callD2LAbService = function () {
-    if (serialNumber.trim() !== serialNumberPrevious.trim()) {
+    if (serialNumber && serialNumberPrevious && serialNumber.trim() !== serialNumberPrevious.trim()) {
       // Call service
       logger.info('SerialNumber Changed!!! Calling the D2Lab Service ')
     }

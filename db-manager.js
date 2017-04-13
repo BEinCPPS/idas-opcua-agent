@@ -43,7 +43,10 @@ var DbManager = (function () {
       // sql.closeConnection()
     }
   }
-
+  var closeConnection = function () {
+    logger.info('Closing SQL Connection...')
+    sql.closeConnection()
+  }
     // Costructor
   var DbManager = function () {
     reset()
@@ -63,6 +66,7 @@ var DbManager = (function () {
     // getStateInfoFromDb: getStateInfoFromDb,
     getAttributeInfoFromDb: getAttributeInfoFromDb,
     // getMeasureMultplierFromDb: getMeasureMultplierFromDb,
+    closeConnection: closeConnection,
     reset: reset,
     init: init
   }
