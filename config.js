@@ -37,7 +37,8 @@ var config = {
   },
     // WARNING Used only with "-browse" option
   browseServerOptions: {
-    mainFolderToBrowse: 'ObjectsFolder',
+    mainFolderToBrowse: 'TestStationFolder',
+    eventNotifier: 'TestStationEventNotifier',
     mainObjectStructure: {
       namePrefix: 'TestStation', // devices
       variableType1: {

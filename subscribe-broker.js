@@ -6,10 +6,9 @@ var opcua = require('node-opcua')
 var HashMap = require('hashmap')
 
 // var orionUpdater = require('./orion-updater.js');
-var doBrowse = true // TODO
-
 var logger = require('./logger.js')
 var config = require('./config')
+var utilsLocal = require('./utils.js')
 
 // var addressSpaceUpdater = require('./address-space-updater.js');
 
@@ -27,6 +26,8 @@ var SubscribeBroker = (function () {
   var dbManager = null
   var monitoringConfig = null
   var orionManager = null
+  var monitoredItems = null
+  var doBrowse = false
     // var orionUpdater = null; //TODO pass as paramter
 
     // Costructor
@@ -41,7 +42,7 @@ var SubscribeBroker = (function () {
   var setSession = function (session_) {
     session = session_
   }
-  var init = function (addressSpaceUpdater_, orionUpdater_, productNumberManager_, dbManager_, orionManager_) {
+  var init = function (addressSpaceUpdater_, orionUpdater_, productNumberManager_, dbManager_, orionManager_, doBrowse_) {
     subscriptions = []
     parameters = {
       requestedPublishingInterval: 100,
@@ -59,9 +60,11 @@ var SubscribeBroker = (function () {
     monitoringConfig = {
             // clientHandle: 13, // TODO need to understand the meaning this! we probably cannot reuse the same handle everywhere
       samplingInterval: 1000, // 250
-      queueSize: 1000, // 10000
+      queueSize: 10000, // 10000
       discardOldest: true
     }
+    monitoredItems = new HashMap()
+    doBrowse = doBrowse_
         // orionUpdater = orionUpdater_;
   }
   var reset = function () {
@@ -75,10 +78,14 @@ var SubscribeBroker = (function () {
     dbManager = null
     monitoringConfig = null
     orionManager = null
+    monitoredItems = null
         // orionUpdater = null;
   }
 
   var initSubscription = function () {
+    if (subscriptions !== null && subscriptions.lenght > 0) {
+      terminateAllSubscriptions()
+    }
     subscription = new opcua.ClientSubscription(session, parameters)
     if (subscription == null) initSubscription()
 
@@ -117,7 +124,13 @@ var SubscribeBroker = (function () {
         logger.info('successfully terminated subscription: ' + subscription.subscriptionId)
       }
     })
+    subscriptions = []
     subscriptions.push(subscription)
+    // Subscribe the event notifier
+    logger.debug('Attach Event Notifier'.bold.red)
+    if (doBrowse) {
+      manageSubscriptionBroker({id: config.browseServerOptions.eventNotifier}, { ocb_id: 'hash', opcua_id: 'ns=3;s=test_station_event_hash' }) // TODO Config
+    }
   }
 
   var manageSubscriptionBroker = function (context, mapping) {
@@ -186,21 +199,34 @@ var SubscribeBroker = (function () {
       }
 
       if (typeof dataValue.value !== 'undefined' && dataValue.value !== null) {
-        if (context.id.indexOf('Event') === -1) { // NOT EVENT NOTIFIER
+        if (!utilsLocal.isEventNotifier(context.id)) { // NOT EVENT NOTIFIER
           updateChangeForContext()
         } else {
           logger.debug('Event notification arrived!!!'.bold.cyan, dataValue.value)
           if (hash !== dataValue.value.value) {
             hash = dataValue.value.value
             logger.info('START UPDATING Address Space'.bold.red, hash)
-            addressSpaceUpdater.updateAll(session)
+            if (hash === 'TERMINATE') { // TODO Config
+              terminateAllMonitoredItems()
+              orionManager.unRegisterContexts()
+              dbManager.closeConnection()
+              // addressSpaceUpdater.updateAll(session, 'reset')
+              // monitoredItems.clear()
+            } else {
+              addressSpaceUpdater.updateAll(session)
+            }
           }
         }
       }
     })
-
     monitoredItem.on('err', function (errMessage) {
       logger.error(monitoredItem.itemToMonitor.nodeId.toString() + ' ERROR'.red, errMessage)
+    })
+    monitoredItems.set(context.id + '_' + mapping.ocb_id, {
+      monitoredItem: monitoredItem,
+      context: context,
+      mapping: mapping,
+      enabled: true
     })
   }
 
@@ -212,10 +238,30 @@ var SubscribeBroker = (function () {
       })
     }
   }
+ // UNUSED
+  var terminateAllMonitoredItems = function () {
+    if (monitoredItems) {
+      // logger.debug('Entering in terminate all monitored items'.magenta, monitoredItems)
+      monitoredItems.keys().forEach(function (monitoredItmKey) {
+        if (monitoredItmKey.indexOf('Event') === -1) {
+          var monitoredItemObj = monitoredItems.get(monitoredItmKey)
+          if (monitoredItemObj.enabled) {
+            try {
+              monitoredItemObj.monitoredItem.terminate()
+            } catch (error) {
+              logger.error('Error encountered in terminating subscription: ' + monitoredItemObj.context.id + '_' + monitoredItemObj.mapping.ocb_id)
+            }
+            monitoredItemObj.enabled = false
+          }
+        }
+      })
+    }
+  }
 
   SubscribeBroker.prototype = {
         // constructor
     constructor: SubscribeBroker,
+    initSubscription: initSubscription,
     manageSubscriptionBroker: manageSubscriptionBroker,
         // manageSubscriptionForEventNotifier: manageSubscriptionForEventNotifier,
     terminateAllSubscriptions: terminateAllSubscriptions,

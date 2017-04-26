@@ -4,7 +4,7 @@ require('requirish')._(module)
 var _ = require('underscore')
 var crawler = require('./node_modules/node-opcua/lib/client/node_crawler.js')
 var logger = require('./logger')
-var doCrawling = true
+var doCrawling = false
 
 var AddressSpaceCrawler = (function () {
   var serverObject = null

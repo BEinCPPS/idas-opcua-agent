@@ -5,8 +5,7 @@ var HashMap = require('hashmap')
 var iotAgentLib = require('iotagent-node-lib')
 var config = require('./config')
 var logger = require('./logger.js')
-
-var doBrowse = true
+var utilsLocal = require('./utils.js')
 
 var OrionManager = (function () {
   var addressSpaceCrawler = null
@@ -15,16 +14,17 @@ var OrionManager = (function () {
   var savedMappingsMap = null
   var measuresSubscribed = null
   var orionSubscriptions = null
-    // Costructor
+  var doBrowse = false    // Costructor
   var OrionManager = function () {}
 
-  var init = function (addressSpaceCrawler_, subscribeBroker_) {
+  var init = function (addressSpaceCrawler_, subscribeBroker_, doBrowse_) {
     contexts = []
     addressSpaceCrawler = addressSpaceCrawler_
     subscribeBroker = subscribeBroker_
     savedMappingsMap = new HashMap()
     measuresSubscribed = new HashMap()
     orionSubscriptions = []
+    doBrowse = doBrowse_
   }
   var reset = function () {
     contexts = null
@@ -128,7 +128,10 @@ var OrionManager = (function () {
         contexts.push(contextObj)
       }
       callback()
-    } else callback()
+    } else {
+      contexts = config.contexts
+      callback()
+    }
   }
 
   var registerContexts = function (callback) {
@@ -185,7 +188,7 @@ var OrionManager = (function () {
               logger.debug('Attempt to opcua subscribe for attribute: ' + mapping.ocb_id + ' with context ' + context.id)
               subscribeBroker.manageSubscriptionBroker(context, mapping)
             })
-            if (context.id.indexOf('Event') === -1) { // TODO
+            if (!utilsLocal.isEventNotifier(context.id)) { // TODO
               createOrionSubscription(context, device)
             }
           }
@@ -206,7 +209,9 @@ var OrionManager = (function () {
     var counter = 0
     if (contexts == null || contexts.length === 0) {
       logger.info('No contexts found!!!'.cyan.bold)
-      callback()
+      if (typeof callback !== 'undefined') {
+        callback()
+      }
     }
     contexts.forEach(function (context) {
       try {
@@ -217,17 +222,18 @@ var OrionManager = (function () {
             logger.info('unregistered successfully OCB context ' + context.id)
           }
           counter++
-
           if (counter === contexts.length) {
-            callback()
+            contexts = []
+            if (typeof callback !== 'undefined') {
+              callback()
+            }
           }
         })
       } catch (error) {
         logger.error('error unregistering OCB context'.red.bold, JSON.stringify(error))
-        callback(error)
-      }
-      if (counter === contexts.length) {
-        callback()
+        if (typeof callback !== 'undefined') {
+          callback(error)
+        }
       }
     })
   }

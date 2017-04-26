@@ -1,9 +1,9 @@
 'use strict'
 var sql = require('seriate')
 var config = require('./config')
-const dbSchema = require('./db-schema')
-const languageDb = config.databaseConnection.languageDb
-const configDb = {
+var dbSchema = require('./db-schema')
+var languageDb = config.databaseConnection.languageDb
+var configDb = {
   'host': config.databaseConnection.host,
   'user': config.databaseConnection.user,
   'password': config.databaseConnection.password,

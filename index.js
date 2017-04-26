@@ -72,8 +72,7 @@ if (!securityPolicy) {
 }
 var timeout = parseInt(argv.timeout) * 1000 || -1 // 604800*1000; //default 20000
 
-// var doBrowse = true; //TODO
-// argv.browse ? true : false;
+var doBrowse = argv.browse || false
 
 logger.info('endpointUrl         = '.cyan, endpointUrl)
 logger.info('securityMode        = '.cyan, securityMode.toString())
@@ -96,8 +95,8 @@ dbManager.init()
 addressSpaceCrawler.init()
 productNumberManager.init()
 orionUpdater.init(productNumberManager)
-subscribeBroker.init(addressSpaceUpdater, orionUpdater, productNumberManager, dbManager, orionManager)
-orionManager.init(addressSpaceCrawler, subscribeBroker)
+subscribeBroker.init(addressSpaceUpdater, orionUpdater, productNumberManager, dbManager, orionManager, doBrowse)
+orionManager.init(addressSpaceCrawler, subscribeBroker, doBrowse)
 addressSpaceUpdater.init(addressSpaceCrawler, orionManager)
 
 function disconnect () {
@@ -191,6 +190,7 @@ function callMethods(value) {
           logger.info(' session created'.yellow)
           logger.info(' sessionId : ', session.sessionId.toString())
           subscribeBroker.setSession(session)
+          subscribeBroker.initSubscription()
         }
         callback(err)
       })
