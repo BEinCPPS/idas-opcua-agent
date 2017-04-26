@@ -1,6 +1,5 @@
 .vscode/*
 .node_modules/*
 .idea/*
-result.log
-idas-opcua-agent.log
+*.log
 index_old.js
