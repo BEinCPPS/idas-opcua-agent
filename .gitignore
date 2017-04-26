@@ -1,5 +1,5 @@
 .vscode/*
-.node_modules/*
+node_modules/*
 .idea/*
 *.log
 index_old.js
