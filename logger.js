@@ -14,6 +14,7 @@ winston.loggers.add('information', {
 })
 winston.loggers.add('result', {
   file: {
+    timestamp: false,
     json: false,
     filename: 'result.log',
     level: 'debug'

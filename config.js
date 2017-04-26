@@ -1,8 +1,8 @@
 var config = {
   logLevel: 'DEBUG',
   contextBroker: {
-    host: 'localhost', // '161.27.159.64',
-    port: 1026 // 8080
+    host: 'localhost',
+    port: 1026
   },
   server: {
     port: 4041
@@ -10,7 +10,7 @@ var config = {
   deviceRegistry: {
     type: 'memory'
   },
-  discardEqualValues: true,
+  discardEqualValues: true, // **IMPORTANT** This flag sends to ORION only diff values arrived from OPCUA
   types: {
     'teststation': {
       service: 'whrTestservice',
@@ -80,7 +80,7 @@ var config = {
     // END WARNING Used only with "-browse" option
   service: 'whrTestservice',
   subservice: '/whrTestsubservice',
-  providerUrl: 'http://172.20.0.3:5050', // 'http://4769258e.ngrok.io'
+  providerUrl: 'http://172.20.0.3:5050',
   deviceRegistrationDuration: 'P1M', // one month
   defaultType: 'teststation',
 
@@ -124,6 +124,7 @@ var config = {
       opcua_id: 'ns=1;s=buttonPressed'
     }]
   } ],
+  // **IMPORTANT** Used only with -browse option
   databaseConnection: {
     host: '127.0.0.1',
     database: 'BeInCPPS',

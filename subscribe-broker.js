@@ -205,7 +205,7 @@ var SubscribeBroker = (function () {
           logger.debug('Event notification arrived!!!'.bold.cyan, dataValue.value)
           if (hash !== dataValue.value.value) {
             hash = dataValue.value.value
-            logger.info('START UPDATING Address Space'.bold.red, hash)
+            logger.info('START UPDATING Address Space'.bold.cyan, hash)
             if (hash === 'TERMINATE') { // TODO Config
               terminateAllMonitoredItems()
               orionManager.unRegisterContexts()
