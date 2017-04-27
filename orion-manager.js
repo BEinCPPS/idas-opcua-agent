@@ -1,5 +1,4 @@
 'use strict'
-// node-opcue dependencies
 var _ = require('underscore')
 var HashMap = require('hashmap')
 var iotAgentLib = require('iotagent-node-lib')

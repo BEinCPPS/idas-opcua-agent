@@ -35,7 +35,7 @@ var config = {
       commands: []
     }
   },
-    // WARNING Used only with "-browse" option
+    // WARNING Used only with "--browse" option
   browseServerOptions: {
     mainFolderToBrowse: 'TestStationFolder',
     eventNotifier: 'TestStationEventNotifier',
@@ -75,9 +75,21 @@ var config = {
         namePrefix: 'Method',
         type: 'method'
       }
+    },
+    databaseConnection: {
+      host: '127.0.0.1',
+      database: 'BeInCPPS',
+      user: 'sa',
+      password: 'Fiware2017!',
+      pool: { // OPTIONAL NOT USED YET!!!
+        max: 10,
+        min: 4,
+        idleTimeoutMillis: 30000
+      },
+      languageDb: 0 // English use 0 possible options 1 or 2
     }
   },
-    // END WARNING Used only with "-browse" option
+    // END WARNING Used only with "--browse" option
   service: 'whrTestservice',
   subservice: '/whrTestsubservice',
   providerUrl: 'http://172.20.0.3:5050',
@@ -85,7 +97,7 @@ var config = {
   defaultType: 'teststation',
 
     /* start of custom section for OPC UA mapping */
-    /* WARNING Not considered with "-browse" option, built from Server Address Space */
+    /* WARNING Not considered with "--browse" option, built from Server Address Space */
   contexts: [{
     id: 'MyDevice1',
     type: 'teststation',
@@ -113,9 +125,6 @@ var config = {
     ]
   }
   ],
-    // WARNING Used only with "-browse" option
-    // Orion Subscriptions to Contexts
-    // start of custom section for OPC UA mapping OCB -> Agent
   contextSubscriptions: [{
     id: 'FrontEndState',
     type: 'mobilestation',
@@ -123,21 +132,6 @@ var config = {
       ocb_id: 'button',
       opcua_id: 'ns=1;s=buttonPressed'
     }]
-  } ],
-  // **IMPORTANT** Used only with -browse option
-  databaseConnection: {
-    host: '127.0.0.1',
-    database: 'BeInCPPS',
-    user: 'sa',
-    password: 'Fiware2017!',
-    pool: { // OPTIONAL NOT USED YET!!!
-      max: 10,
-      min: 4,
-      idleTimeoutMillis: 30000
-    },
-    languageDb: 0 // English use 0 possible options 1 or 2
-  }
-    // WARNING Used only with "-browse" option
+  } ]
 }
-
 module.exports = config

@@ -2,12 +2,12 @@
 var sql = require('seriate')
 var config = require('./config')
 var dbSchema = require('./db-schema')
-var languageDb = config.databaseConnection.languageDb
+var languageDb = config.browseServerOptions.databaseConnection.languageDb
 var configDb = {
-  'host': config.databaseConnection.host,
-  'user': config.databaseConnection.user,
-  'password': config.databaseConnection.password,
-  'database': config.databaseConnection.database
+  'host': config.browseServerOptions.databaseConnection.host,
+  'user': config.browseServerOptions.databaseConnection.user,
+  'password': config.browseServerOptions.databaseConnection.password,
+  'database': config.browseServerOptions.databaseConnection.database
 }
 var logger = require('./logger.js')
 

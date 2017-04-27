@@ -33,7 +33,7 @@ var argv = require('yargs')
     .describe('debug', ' display more verbose information')
 
     .string('browse')
-    .describe('browse', ' browse Objects from opc-ua server. Fulfill browseServerOptions section in config file')
+    .describe('browse', ' browse Objects from opcua server. Fulfill browseServerOptions section in config file')
 
     .string('port')
     .describe('port', ' server port override configuration server.port')
