@@ -1,9 +1,13 @@
-##IDAS OPC-UA Agent
-###Description
+IDAS OPC-UA Agent
+================
+Description
+-----------
 The **IDAS OPC-UA Agent** is a component to connect in bidirectional way, the IoT Devices which implements the [OPC-UA](https://opcfoundation.org/about/opc-technologies/opc-ua/) standard connection technology, with a NGSI Publish/Subscribe Context Broker as [Fiware Orion](http://catalogue.fiware.org/enablers/publishsubscribe-context-broker-orion-context-broker).
 
-###How to run the IDAS OPC-UA Agent against a local simulated OPC-UA Server
-###Pre-requisites
+How to run the IDAS OPC-UA Agent against a local simulated OPC-UA Server
+------------------------------------------------------------------------
+Pre-requisites
+----------------
 A. **Node.js** (v4.4.3 or greater) and npm correctly installed. Test your installation with ```node --version```<br/>
 B. Your project structure is as follows: <br/>
 ```
@@ -66,7 +70,8 @@ Change if you want, these **important** parameters that identify your ```context
     ]
 
  ```
-###Launch
+Launch
+---------
 1. Open a terminal session
 2. ```cd to <your_project_dir>/node-opcua```
 3. Launch the simulated Server: ```node bin/simple_server.js```
@@ -80,5 +85,6 @@ Change if you want, these **important** parameters that identify your ```context
 11. You can shut down the Server or the Agent anytime by pressing CTRL+C
 
 
-###License
+License
+-------
 IDAS OPC-UA Agent software is licensed under [Affero General Public License](http://www.gnu.org/licenses/agpl-3.0.html) (GPL) version 3.
