@@ -35,6 +35,11 @@ var OrionManager = (function () {
     measuresSubscribed = null
   }
 
+  var resetMappings = function () {
+    savedMappingsMap.clear()
+    measuresSubscribed.clear()
+  }
+
   var getContexts = function () {
     return contexts
   }
@@ -162,7 +167,7 @@ var OrionManager = (function () {
               logger.warn('could not register OCB context ' + context.id, JSON.stringify(err))
             }
             logger.debug('could not register OCB mappings for ' + context.id + ' ' + JSON.stringify(context.active) + ''.red.bold)
-            if (err.name === 'DUPLICATE_DEVICE_ID' && context.id.indexOf('Event') === -1) { // TODO and active contains measures
+            if (err.name === 'DUPLICATE_DEVICE_ID' && !utilsLocal.isEventNotifier(context.id)) { // TODO and active contains measures
               var mappingsOld = savedMappingsMap.get(context.id)
               logger.debug('Mappings before: for context ' + context.id + '  ' + JSON.stringify(mappingsOld))
               logger.debug('Mappings current: for context  ' + context.id + '  ' + JSON.stringify(context.mappings))
@@ -299,6 +304,7 @@ var OrionManager = (function () {
     setContexts: setContexts,
     unsuscribeOrionSubscriptions: unsuscribeOrionSubscriptions,
     reset: reset,
+    resetMappings: resetMappings,
     init: init
   }
   return OrionManager

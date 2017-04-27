@@ -19,7 +19,7 @@ var SubscribeBroker = (function () {
   var session = null
   var subscription = null
   var hash = null
-  var variableValuePrevious = new HashMap()
+  var variableValuePreviousMap = new HashMap()
   var addressSpaceUpdater = null
   var orionUpdater = null
   var productNumberManager = null
@@ -164,10 +164,10 @@ var SubscribeBroker = (function () {
           variableValue = dataValue.value.value
         }
         var mappingKey = context.id + '_' + mapping.ocb_id
-        if ((variableValuePrevious.has(mappingKey) && variableValuePrevious.get(mappingKey) === variableValue) && config.discardEqualValues) {
+        if ((variableValuePreviousMap.has(mappingKey) && variableValuePreviousMap.get(mappingKey) === variableValue) && config.discardEqualValues) {
           return
         }
-        variableValuePrevious.set(mappingKey, variableValue)
+        variableValuePreviousMap.set(mappingKey, variableValue)
         // logger.debug('ok->' + context.id + '_' + mapping.ocb_id, variableValue, 'result')
         var dbInfoObj = {}
         if (doBrowse) {
@@ -209,9 +209,9 @@ var SubscribeBroker = (function () {
             if (hash === 'TERMINATE') { // TODO Config
               terminateAllMonitoredItems()
               orionManager.unRegisterContexts()
+              orionManager.resetMappings()
               dbManager.closeConnection()
-              // addressSpaceUpdater.updateAll(session, 'reset')
-              // monitoredItems.clear()
+              variableValuePreviousMap.clear()
             } else {
               addressSpaceUpdater.updateAll(session)
             }
