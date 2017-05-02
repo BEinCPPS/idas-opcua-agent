@@ -72,8 +72,7 @@ if (!securityPolicy) {
 }
 var timeout = parseInt(argv.timeout) * 1000 || -1 // 604800*1000; //default 20000
 
-var doBrowse = true
-// argv.browse || false
+var doBrowse = typeof argv.browse !== 'undefined' || false
 
 logger.info('endpointUrl         = '.cyan, endpointUrl)
 logger.info('securityMode        = '.cyan, securityMode.toString())

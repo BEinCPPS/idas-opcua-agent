@@ -219,7 +219,7 @@ var OrionManager = (function () {
     }
     contexts.forEach(function (context) {
       try {
-        iotAgentLib.unregister(context.id, function (err) {
+        iotAgentLib.unregister(context.id, config.service, config.subservice, function (err) {
           if (err) {
             logger.error('could not unregister OCB context ' + context.id + ''.red.bold, JSON.stringify(err))
           } else {

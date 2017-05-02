@@ -21,7 +21,7 @@ var OrionUpdater = (function () {
 
   var updateMonitored = function (context, mapping, dataValue, variableValue, dbInfo) {
     logger.debug('Context ' + context.id + ' attribute ' + mapping.ocb_id, ' value has changed to ' + variableValue + ''.bold.yellow)
-    iotAgentLib.getDevice(context.id, function (err, device) {
+    iotAgentLib.getDevice(context.id, config.service, config.subservice, function (err, device) {
       if (err) {
         logger.error('could not find the OCB context ' + context.id + ''.red.bold)
         logger.error(JSON.stringify(err).red.bold)
