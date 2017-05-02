@@ -10,11 +10,11 @@ var config = {
   deviceRegistry: {
     type: 'memory'
   },
-  discardEqualValues: true, // **IMPORTANT** This flag sends to ORION only diff values arrived from OPCUA
+  discardEqualValues: false, // **IMPORTANT** This flag sends to ORION only diff values arrived from OPCUA
   types: {
     'teststation': {
-      service: 'whrTestservice',
-      subservice: '/whrTestsubservice',
+      service: 'whirlpool',
+      subservice: '/cassinetta',
       active: [
 
         {
@@ -90,8 +90,8 @@ var config = {
     }
   },
     // END WARNING Used only with "--browse" option
-  service: 'whrTestservice',
-  subservice: '/whrTestsubservice',
+  service: 'whirlpool',
+  subservice: '/cassinetta',
   providerUrl: 'http://172.20.0.3:5050',
   deviceRegistrationDuration: 'P1M', // one month
   defaultType: 'teststation',

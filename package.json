@@ -1,5 +1,5 @@
 {
-  "name": "opcua-agent",
+  "name": "idas-opcua-agent",
   "version": "1.0.0",
   "description": "IDAS Agent for OPC UA",
   "main": "index.js",
@@ -17,7 +17,7 @@
     "winston": "^2.3.1"
   },
   "scripts": {
-    "start":"node index.js -e \"opc.tcp://localhost:26543\" -b",
+    "start":"node index.js -e \"opc.tcp://${DOCKER_HOST}:26543\" -b",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Mauro Isaja (Engineering Ingegneria Informatica SpA) mauro.isaja@eng.it, Antonio Scatoloni (Engineering Ingegneria Informatica SpA) antonio.scatoloni@eng.it",

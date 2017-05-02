@@ -19,7 +19,6 @@ var SubscribeBroker = (function () {
   var session = null
   var subscription = null
   var hash = null
-  var variableValuePreviousMap = new HashMap()
   var addressSpaceUpdater = null
   var orionUpdater = null
   var productNumberManager = null
@@ -158,16 +157,11 @@ var SubscribeBroker = (function () {
         }
       }
       function updateChangeForContext () {
-        logger.debug('Received value change for '.bold.red + ' ' + context.id + ' for ', mapping)
+        logger.debug('Received value change for '.bold.red + ' ' + context.id + '_' + mapping.ocb_id + ' with value ', dataValue.value.value)
         var variableValue = null
         if (typeof dataValue.value !== 'undefined' && dataValue.value != null) { // TODO typeof dataValue.value !== 'undefined'
           variableValue = dataValue.value.value
         }
-        var mappingKey = context.id + '_' + mapping.ocb_id
-        if ((variableValuePreviousMap.has(mappingKey) && variableValuePreviousMap.get(mappingKey) === variableValue) && config.discardEqualValues) {
-          return
-        }
-        variableValuePreviousMap.set(mappingKey, variableValue)
         // logger.debug('ok->' + context.id + '_' + mapping.ocb_id, variableValue, 'result')
         var dbInfoObj = {}
         if (doBrowse) {
@@ -211,7 +205,7 @@ var SubscribeBroker = (function () {
               orionManager.unRegisterContexts()
               orionManager.resetMappings()
               dbManager.closeConnection()
-              variableValuePreviousMap.clear()
+              orionUpdater.resetMappings()
             } else {
               addressSpaceUpdater.updateAll(session)
             }

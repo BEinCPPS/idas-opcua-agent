@@ -3,14 +3,20 @@ var iotAgentLib = require('iotagent-node-lib')
 var config = require('./config')
 const utilsLocal = require('./utils.js')
 var logger = require('./logger.js')
+var HashMap = require('hashmap')
 
 var OrionUpdater = (function () {
     // Costructor
   var productNumberManager = null
+  var variableValuePreviousMap = new HashMap()
 
   var OrionUpdater = function () {}
   var init = function (productNumberManager_) {
     productNumberManager = productNumberManager_
+  }
+
+  var resetMappings = function () {
+    variableValuePreviousMap.clear()
   }
 
   var updateMonitored = function (context, mapping, dataValue, variableValue, dbInfo) {
@@ -33,7 +39,7 @@ var OrionUpdater = (function () {
         var attribute = {
           name: mapping.ocb_id,
           type: mapping.type || findType(mapping.ocb_id),
-          value: typeof variableValue === 'undefined' || variableValue == null ? null : variableValue,
+          value: (typeof variableValue === 'undefined' || variableValue == null) ? null : variableValue,
           metadatas: [{
             name: 'timestamp',
             type: 'typestamp',
@@ -87,20 +93,24 @@ var OrionUpdater = (function () {
             attribute.metadatas.add(multiplier)
           }
         }
-        // logger.debug('ATTRIBUTE'.bold.cyan, JSON.stringify(attribute))
+        logger.debug('ATTRIBUTE'.bold.cyan, JSON.stringify(attribute))
         // logger.debug('METADATAS'.bold.cyan, JSON.stringify(attribute.metadatas))
                 /* WARNING attributes must be an ARRAY */
-        iotAgentLib.update(device.name, device.type, '', [attribute], device, function (err) {
-          if (err) {
-            logger.info('Error updating '.bold.red + mapping.ocb_id + ' on ' + device.name + ' with attribute ' + JSON.stringify(attribute),
+        var mappingKey = context.id + '_' + mapping.ocb_id
+        if (!((variableValuePreviousMap.has(mappingKey) && variableValuePreviousMap.get(mappingKey) === attribute.value) && config.discardEqualValues)) {
+          iotAgentLib.update(device.name, device.type, '', [attribute], device, function (err) {
+            if (err) {
+              logger.info('Error updating '.bold.red + mapping.ocb_id + ' on ' + device.name + ' with attribute ' + JSON.stringify(attribute),
                             JSON.stringify(err).bold.red)
             // logger.debug('ko->' + device.id + '_' + mapping.ocb_id, attribute.value, 'result')
-          } else {
-            logger.info('Succesfully updated '.bold.cyan + mapping.ocb_id.bold.yellow + ' on ' + device.name.bold.yellow)
-            logger.debug('ok->' + device.id + '_' + mapping.ocb_id, attribute.value, 'result')
-            logger.debug('ok->' + device.id + '_' + mapping.ocb_id, JSON.stringify(attribute.metadatas), 'result')
-          }
-        })
+            } else {
+              logger.info('Succesfully updated '.bold.cyan + mapping.ocb_id.bold.yellow + ' on ' + device.name.bold.yellow)
+              logger.debug('ok->' + device.id + '_' + mapping.ocb_id, attribute.value, 'result')
+              logger.debug('ok->' + device.id + '_' + mapping.ocb_id, JSON.stringify(attribute.metadatas), 'result')
+              variableValuePreviousMap.set(mappingKey, attribute.value)
+            }
+          })
+        }
       }
     })
   }
@@ -108,6 +118,7 @@ var OrionUpdater = (function () {
         // constructor
     constructor: OrionUpdater,
     init: init,
+    resetMappings: resetMappings,
     updateMonitored: updateMonitored
   }
   return OrionUpdater
