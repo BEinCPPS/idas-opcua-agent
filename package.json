@@ -8,7 +8,7 @@
     "express": "^4.15.2",
     "hashmap": "^2.1.0",
     "http": "0.0.0",
-    "iotagent-node-lib": "2.4.1",
+    "iotagent-node-lib": "^2.4.1",
     "node-opcua": "0.0.54",
     "object-path": "^0.11.4",
     "object-search": "0.0.5",

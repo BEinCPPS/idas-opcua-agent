@@ -147,7 +147,7 @@ var SubscribeBroker = (function () {
 
     monitoredItem.on('changed', function (dataValue) {
       function updateSerialNumberAnd12NC (variableValue) {
-        if (typeof variableValue === 'undefined' || variableValue == null) return
+        if (typeof variableValue === 'undefined' || variableValue == null || variableValue.lenght === 0 || variableValue === 'null') return
         if (mapping.ocb_id.indexOf('serialNumber') >= 0) {
           logger.debug('SerialNumber arrived with value: ' + variableValue)
           productNumberManager.setSerialNumber(variableValue)

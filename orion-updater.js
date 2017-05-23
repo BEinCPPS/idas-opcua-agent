@@ -20,7 +20,7 @@ var OrionUpdater = (function () {
   }
 
   var updateMonitored = function (context, mapping, dataValue, variableValue, dbInfo) {
-    logger.debug('Context ' + context.id + ' attribute ' + mapping.ocb_id, ' value has changed to ' + variableValue + ''.bold.yellow)
+    logger.info('Context ' + context.id + ' attribute ' + mapping.ocb_id, ' value has changed to ' + variableValue + ''.bold.yellow)
     iotAgentLib.getDevice(context.id, config.service, config.subservice, function (err, device) {
       if (err) {
         logger.error('could not find the OCB context ' + context.id + ''.red.bold)
@@ -39,7 +39,7 @@ var OrionUpdater = (function () {
         var attribute = {
           name: mapping.ocb_id,
           type: mapping.type || findType(mapping.ocb_id),
-          value: (typeof variableValue === 'undefined' || variableValue == null) ? null : variableValue,
+          value: (typeof variableValue === 'undefined' || variableValue == null || variableValue.length === 0) ? null : variableValue,
           metadatas: [{
             name: 'timestamp',
             type: 'typestamp',
@@ -60,6 +60,10 @@ var OrionUpdater = (function () {
         }
                 // MEASURE specific METADATAS
         if (mapping.ocb_id.indexOf(config.browseServerOptions.mainObjectStructure.variableType1.namePrefix) > -1) { // MEASURE
+          if (attribute.value === null || attribute.value === '') {
+            logger.info('Discard elemnt ' + context.id + ' attribute ' + mapping.ocb_id, ' value has changed to ' + variableValue + ''.bold.yellow)
+            return
+          }
           var measCode = {
             name: 'id',
             type: 'string',
@@ -93,6 +97,7 @@ var OrionUpdater = (function () {
             attribute.metadatas.add(multiplier)
           }
         }
+
         logger.debug('ATTRIBUTE'.bold.cyan, JSON.stringify(attribute))
         // logger.debug('METADATAS'.bold.cyan, JSON.stringify(attribute.metadatas))
                 /* WARNING attributes must be an ARRAY */

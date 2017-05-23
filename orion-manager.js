@@ -179,8 +179,11 @@ var OrionManager = (function () {
               for (var i in results) {
                 if (!measuresSubscribed.has(results[i].ocb_id)) {
                   measuresSubscribed.set(results[i].ocb_id, results[i])
-                  logger.debug('Subscribed->' + context.id + '->' + results[i], null, 'result')
+                  logger.debug('Subscribed->' + context.id + '->' + JSON.stringify(results[i]), null, 'result')
                   subscribeBroker.manageSubscriptionBroker(context, results[i])
+                   if (!utilsLocal.isEventNotifier(context.id)) { // TODO
+                      createOrionSubscription(context, device)
+                    }
                 }
               }
               savedMappingsMap.set(context.id, _.clone(context.mappings))
