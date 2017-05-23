@@ -20,7 +20,7 @@ var OrionUpdater = (function () {
   }
 
   var updateMonitored = function (context, mapping, dataValue, variableValue, dbInfo) {
-    logger.info('Context ' + context.id + ' attribute ' + mapping.ocb_id, ' value has changed to ' + variableValue + ''.bold.yellow)
+    logger.debug('Context ' + context.id + ' attribute ' + mapping.ocb_id, ' value has changed to ' + variableValue + ''.bold.yellow)
     iotAgentLib.getDevice(context.id, config.service, config.subservice, function (err, device) {
       if (err) {
         logger.error('could not find the OCB context ' + context.id + ''.red.bold)
@@ -100,7 +100,7 @@ var OrionUpdater = (function () {
 
         logger.debug('ATTRIBUTE'.bold.cyan, JSON.stringify(attribute))
         // logger.debug('METADATAS'.bold.cyan, JSON.stringify(attribute.metadatas))
-                /* WARNING attributes must be an ARRAY */
+        /* WARNING attributes must be an ARRAY */
         var mappingKey = context.id + '_' + mapping.ocb_id
         if (!((variableValuePreviousMap.has(mappingKey) && variableValuePreviousMap.get(mappingKey) === attribute.value) && config.discardEqualValues)) {
           iotAgentLib.update(device.name, device.type, '', [attribute], device, function (err) {
@@ -114,7 +114,7 @@ var OrionUpdater = (function () {
               logger.debug('ok->' + device.id + '_' + mapping.ocb_id, JSON.stringify(attribute.metadatas), 'result')
               variableValuePreviousMap.set(mappingKey, attribute.value)
             }
-          })
+          }, !variableValuePreviousMap.has(mappingKey))
         }
       }
     })

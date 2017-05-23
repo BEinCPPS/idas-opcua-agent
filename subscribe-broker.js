@@ -58,8 +58,8 @@ var SubscribeBroker = (function () {
     orionManager = orionManager_
     monitoringConfig = {
             // clientHandle: 13, // TODO need to understand the meaning this! we probably cannot reuse the same handle everywhere
-      samplingInterval: 1000, // 250
-      queueSize: 10000, // 10000
+      samplingInterval: 1000, // 250 1000
+      queueSize: 1, // 10000
       discardOldest: true
     }
     monitoredItems = new HashMap()
@@ -147,7 +147,7 @@ var SubscribeBroker = (function () {
 
     monitoredItem.on('changed', function (dataValue) {
       function updateSerialNumberAnd12NC (variableValue) {
-        if (typeof variableValue === 'undefined' || variableValue == null || variableValue.lenght === 0 || variableValue === 'null') return
+        if (utilsLocal.isEmptyForValue(variableValue)) return
         if (mapping.ocb_id.indexOf('serialNumber') >= 0) {
           logger.debug('SerialNumber arrived with value: ' + variableValue)
           productNumberManager.setSerialNumber(variableValue)
@@ -163,6 +163,7 @@ var SubscribeBroker = (function () {
           variableValue = dataValue.value.value
         }
         // logger.debug('ok->' + context.id + '_' + mapping.ocb_id, variableValue, 'result')
+        if (utilsLocal.isEmptyForValue(variableValue)) return
         var dbInfoObj = {}
         if (doBrowse) {
           updateSerialNumberAnd12NC(variableValue)

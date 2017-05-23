@@ -1,5 +1,5 @@
 var config = {
-  logLevel: 'DEBUG',
+  // logLevel: 'DEBUG',
   contextBroker: {
     host: 'localhost',
     port: 1026
@@ -10,11 +10,11 @@ var config = {
   deviceRegistry: {
     type: 'memory'
   },
-  discardEqualValues: false, // **IMPORTANT** This flag sends to ORION only diff values arrived from OPCUA
+  discardEqualValues: true, // **IMPORTANT** This flag sends to ORION only diff values arrived from OPCUA
   types: {
     'teststation': {
       service: 'whirlpool',
-      subservice: '/cassinetta',
+      subservice: '/napoli',
       active: [
 
         {
@@ -91,7 +91,7 @@ var config = {
   },
     // END WARNING Used only with "--browse" option
   service: 'whirlpool',
-  subservice: '/cassinetta',
+  subservice: '/napoli',
   providerUrl: 'http://172.20.0.3:5050',
   deviceRegistrationDuration: 'P1M', // one month
   defaultType: 'teststation',
