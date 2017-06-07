@@ -111,7 +111,8 @@ var OrionUpdater = (function () {
             } else {
               logger.info('Succesfully updated '.bold.cyan + mapping.ocb_id.bold.yellow + ' on ' + device.name.bold.yellow)
               logger.debug('ok->' + device.id + '_' + mapping.ocb_id, attribute.value, 'result')
-              logger.debug('ok->' + device.id + '_' + mapping.ocb_id, JSON.stringify(attribute.metadatas), 'result')
+              logger.debug('Data to compare: ' + variableValuePreviousMap.get(mappingKey))
+              // logger.debug('ok->' + device.id + '_' + mapping.ocb_id, JSON.stringify(attribute.metadatas), 'result')
               variableValuePreviousMap.set(mappingKey, attribute.value)
             }
           }, !variableValuePreviousMap.has(mappingKey))

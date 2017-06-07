@@ -19,8 +19,10 @@ var SubscribeBroker = (function () {
   var session = null
   var subscription = null
   var hash = null
+  var productNumber = null
   var addressSpaceUpdater = null
   var orionUpdater = null
+  var productNumberManagerMap = new HashMap()
   var productNumberManager = null
   var dbManager = null
   var monitoringConfig = null
@@ -58,7 +60,7 @@ var SubscribeBroker = (function () {
     orionManager = orionManager_
     monitoringConfig = {
             // clientHandle: 13, // TODO need to understand the meaning this! we probably cannot reuse the same handle everywhere
-      samplingInterval: 1000, // 250 1000
+      samplingInterval: config.samplingInterval, // 250 1000
       queueSize: 1, // 10000
       discardOldest: true
     }
@@ -73,11 +75,12 @@ var SubscribeBroker = (function () {
     hash = null
     addressSpaceUpdater = null
     orionUpdater = null
-    productNumberManager = null
+    productNumberManagerMap = new HashMap()
     dbManager = null
     monitoringConfig = null
     orionManager = null
     monitoredItems = null
+    productNumber = null
         // orionUpdater = null;
   }
 
@@ -147,15 +150,20 @@ var SubscribeBroker = (function () {
 
     monitoredItem.on('changed', function (dataValue) {
       function updateSerialNumberAnd12NC (variableValue) {
-        if (utilsLocal.isEmptyForValue(variableValue)) return
+        if (utilsLocal.isEmptyForValue(variableValue)) return // TODO TODO avere due mappe separate una 12nc una serialNumber
         if (mapping.ocb_id.indexOf('serialNumber') >= 0) {
+          if (productNumberManagerMap.get(context.id + '_serialNumber') === variableValue) return
           logger.debug('SerialNumber arrived with value: ' + variableValue)
           productNumberManager.setSerialNumber(variableValue)
+          productNumberManagerMap.set(context.id + '_serialNumber', variableValue)
         } else if (mapping.ocb_id.indexOf('12NC') >= 0) {
+          if (productNumberManagerMap.get(context.id + '_12NC') === variableValue) return
           logger.debug('12NC arrived with value: ' + variableValue)
           productNumberManager.set12NC(variableValue)
+          productNumberManagerMap.set(context.id + '_12NC', variableValue)
         }
       }
+
       function updateChangeForContext () {
         logger.debug('Received value change for '.bold.red + ' ' + context.id + '_' + mapping.ocb_id + ' with value ', dataValue.value.value)
         var variableValue = null
@@ -167,8 +175,12 @@ var SubscribeBroker = (function () {
         var dbInfoObj = {}
         if (doBrowse) {
           updateSerialNumberAnd12NC(variableValue)
-          if (cacheDb.has(mapping.ocb_id)) {
-            dbInfoObj = cacheDb.get(mapping.ocb_id)
+          var idCache = mapping.ocb_id
+          if (utilsLocal.isStateParam(mapping.ocb_id)) {
+            idCache += '_' + variableValue
+          }
+          if (cacheDb.has(idCache)) {
+            dbInfoObj = cacheDb.get(idCache)
             orionUpdater.updateMonitored(context, mapping, dataValue, variableValue, dbInfoObj)
           } else {
             var dbData = dbManager.getAttributeInfoFromDb(mapping.ocb_id, variableValue)
@@ -182,7 +194,11 @@ var SubscribeBroker = (function () {
                   dbInfoObj.MeasUnit = results.measure[0].MeasUnit
                   dbInfoObj.Multiplier = results.multiplier[0].Multiplier
                 } else { dbInfoObj = results[0] } // I have always one result!!
-                cacheDb.set(mapping.ocb_id, dbInfoObj)
+                var idCache = mapping.ocb_id
+                if (utilsLocal.isStateParam(mapping.ocb_id)) {
+                  idCache += '_' + variableValue
+                }
+                cacheDb.set(idCache, dbInfoObj)
                 orionUpdater.updateMonitored(context, mapping, dataValue, variableValue, dbInfoObj)
               }, function (err) {
                 logger.error('SQL Error happended:'.bold.red, err)
@@ -202,6 +218,7 @@ var SubscribeBroker = (function () {
             hash = dataValue.value.value
             logger.info('START UPDATING Address Space'.bold.cyan, hash)
             if (hash === 'TERMINATE') { // TODO Config
+              productNumberManagerMap.clear()
               terminateAllMonitoredItems()
               orionManager.unRegisterContexts()
               orionManager.resetMappings()

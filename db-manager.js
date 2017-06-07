@@ -17,7 +17,12 @@ var DbManager = (function () {
   }
 
   function getStateInfoFromDb (stateCod) {
-    return dbSchema.getStateByCod(stateCod, languageDb)
+    if (typeof stateCod !== 'undefined' && stateCod !== null) {
+      var code = Number(stateCod)
+      return dbSchema.getStateByCod(code, languageDb)
+    } else {
+      logger.error('Error in dbManager with status code invalid: '.bold.red, stateCod)
+    }
   }
 
   /* function getMeasureMultplierFromDb (measureCode) {
@@ -34,7 +39,7 @@ var DbManager = (function () {
       if (attributeCod.indexOf(namePrefix1) > -1) { // ex measure13
         var attrCode = attributeCod.replace(namePrefix1, '')
         return getMeasureInfoFromDb(attrCode)
-      } else if (attributeCod.indexOf(namePrefix2) > -1) { // state value
+      } else if (attributeCod === namePrefix2) { // state value
         return getStateInfoFromDb(attributeValue)
       }
     } catch (error) {
@@ -47,7 +52,7 @@ var DbManager = (function () {
     logger.info('Closing SQL Connection...')
     sql.closeConnection()
   }
-    // Costructor
+  // Costructor
   var DbManager = function () {
     reset()
   }
@@ -60,7 +65,7 @@ var DbManager = (function () {
   var reset = function () {}
 
   DbManager.prototype = {
-        // constructor
+    // constructor
     constructor: DbManager,
     // getMeasureInfoFromDb: getMeasureInfoFromDb,
     // getStateInfoFromDb: getStateInfoFromDb,

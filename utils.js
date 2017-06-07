@@ -25,6 +25,20 @@ var Utils = {
       return true
     }
     return false
+  },
+  isStateParam: function (value) {
+    var namePrefix1 = config.browseServerOptions.mainObjectStructure.variableType1.namePrefix
+    var namePrefix2 = config.browseServerOptions.mainObjectStructure.variableType2.namePrefix
+    if (value.indexOf(namePrefix1) < 0 && value.indexOf(namePrefix2) < 0) {
+      return null
+    }
+    if (value.indexOf(namePrefix1) > -1) { // ex measure13
+      return false
+    } else if (value === namePrefix2) { // state value
+      return true
+    } else {
+      return false
+    }
   }
 }
 module.exports = Utils

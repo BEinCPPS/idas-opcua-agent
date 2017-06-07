@@ -1,20 +1,21 @@
 var config = {
-  // logLevel: 'DEBUG',
+  logLevel: process.env.LEVEL_LOG || 'info', // options debug, info, error
   contextBroker: {
-    host: 'localhost',
-    port: 1026
+    host: process.env.ORION_HOST || 'localhost',
+    port: process.env.ORION_PORT || 1026
   },
   server: {
-    port: 4041
+    port: process.env.LOCAL_PORT || 4041
   },
   deviceRegistry: {
     type: 'memory'
   },
-  discardEqualValues: true, // **IMPORTANT** This flag sends to ORION only diff values arrived from OPCUA
+  discardEqualValues: process.env.DISCARD_EQUAL_VALUES || true, // **IMPORTANT** This flag sends to ORION only diff values arrived from OPCUA
+  samplingInterval: process.env.SAMPLING_INTERVAL || 2000,
   types: {
     'teststation': {
-      service: 'whirlpool',
-      subservice: '/napoli',
+      service: process.env.ORION_FIWARE_SERVICE || 'whirlpool',
+      subservice: process.env.ORION_FIWARE_SUBSERVICE || '/cassinetta',
       active: [
 
         {
@@ -77,26 +78,26 @@ var config = {
       }
     },
     databaseConnection: {
-      host: '127.0.0.1',
-      database: 'BeInCPPS',
-      user: 'sa',
-      password: 'Fiware2017!',
+      host: process.env.DATABASE_BEINCPPS_HOST || '127.0.0.1',
+      database: process.env.DATABASE_BEINCPPS_NAME || 'BeInCPPS',
+      user: process.env.DATABASE_BEINCPPS_USER || 'sa',
+      password: process.env.DATABASE_BEINCPPS_PASSWORD || 'Fiware2017!',
       pool: { // OPTIONAL NOT USED YET!!!
         max: 10,
         min: 4,
         idleTimeoutMillis: 30000
       },
-      languageDb: 0 // English use 0 possible options 1 or 2
+      languageDb: process.env.DB_LANGUAGE || 0 // English use 0 possible options 1 or 2
     }
   },
     // END WARNING Used only with "--browse" option
-  service: 'whirlpool',
-  subservice: '/napoli',
-  providerUrl: 'http://172.20.0.3:5050',
+  service: process.env.ORION_FIWARE_SERVICE || 'whirlpool',
+  subservice: process.env.ORION_FIWARE_SUBSERVICE || '/cassinetta',
+  providerUrl: 'http://' + process.env.CYGNUS_NGSI_HOST + ':' + process.env.CYGNUS_NGSI_PORT || 'http://172.20.0.3:5050',
   deviceRegistrationDuration: 'P1M', // one month
   defaultType: 'teststation',
 
-    /* start of custom section for OPC UA mapping */
+    /* start of general section for OPC UA mapping */
     /* WARNING Not considered with "--browse" option, built from Server Address Space */
   contexts: [{
     id: 'MyDevice1',

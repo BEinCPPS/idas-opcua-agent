@@ -177,13 +177,13 @@ var OrionManager = (function () {
               logger.debug('Differences encounterd in mappings: ' + JSON.stringify(differences))
               logger.debug('Differences result encounterd: ' + JSON.stringify(results))
               for (var i in results) {
-                if (!measuresSubscribed.has(results[i].ocb_id)) {
-                  measuresSubscribed.set(results[i].ocb_id, results[i])
+                if (!measuresSubscribed.has(context.id + '_' + results[i].ocb_id)) {
+                  measuresSubscribed.set(context.id + '_' + results[i].ocb_id, results[i])
                   logger.debug('Subscribed->' + context.id + '->' + JSON.stringify(results[i]), null, 'result')
                   subscribeBroker.manageSubscriptionBroker(context, results[i])
-                   if (!utilsLocal.isEventNotifier(context.id)) { // TODO
-                      createOrionSubscription(context, device)
-                    }
+                  if (!utilsLocal.isEventNotifier(context.id)) { // TODO
+                    createOrionSubscription(context, device)
+                  }
                 }
               }
               savedMappingsMap.set(context.id, _.clone(context.mappings))
