@@ -36,6 +36,48 @@ var config = {
       commands: []
     }
   },
+    // END WARNING Used only with "--browse" option
+  service: process.env.ORION_FIWARE_SERVICE || 'whirlpool',
+  subservice: process.env.ORION_FIWARE_SUBSERVICE || '/cassinetta',
+  providerUrl: 'http://' + process.env.CYGNUS_NGSI_HOST + ':' + process.env.CYGNUS_NGSI_PORT || 'http://172.20.0.3:5050',
+  deviceRegistrationDuration: 'P1M', // one month
+  defaultType: 'teststation',
+
+  contexts: [{
+    id: 'MyDevice1',
+    type: 'teststation',
+    mappings: [{
+      ocb_id: 'attrib1',
+      opcua_id: 'ns=1;s=PumpSpeed'
+    },
+    {
+      ocb_id: 'attrib2',
+      opcua_id: 'ns=1;s=Temperature'
+    }
+    ]
+  },
+  {
+    id: 'MyDevice2',
+    type: 'teststation',
+    mappings: [{
+      ocb_id: 'attrib1',
+      opcua_id: 'ns=1;s=PumpSpeed2'
+    },
+    {
+      ocb_id: 'attrib2',
+      opcua_id: 'ns=1;s=Temperature2'
+    }
+    ]
+  }
+  ],
+  contextSubscriptions: [{
+    id: 'FrontEndState',
+    type: 'mobilestation',
+    mappings: [{
+      ocb_id: 'button',
+      opcua_id: 'ns=1;s=buttonPressed'
+    }]
+  }],
     // WARNING Used only with "--browse" option
   browseServerOptions: {
     mainFolderToBrowse: 'TestStationFolder',
@@ -89,50 +131,7 @@ var config = {
       },
       languageDb: process.env.DB_LANGUAGE || 0 // English use 0 possible options 1 or 2
     }
-  },
-    // END WARNING Used only with "--browse" option
-  service: process.env.ORION_FIWARE_SERVICE || 'whirlpool',
-  subservice: process.env.ORION_FIWARE_SUBSERVICE || '/cassinetta',
-  providerUrl: 'http://' + process.env.CYGNUS_NGSI_HOST + ':' + process.env.CYGNUS_NGSI_PORT || 'http://172.20.0.3:5050',
-  deviceRegistrationDuration: 'P1M', // one month
-  defaultType: 'teststation',
-
-    /* start of general section for OPC UA mapping */
-    /* WARNING Not considered with "--browse" option, built from Server Address Space */
-  contexts: [{
-    id: 'MyDevice1',
-    type: 'teststation',
-    mappings: [{
-      ocb_id: 'attrib1',
-      opcua_id: 'ns=1;s=PumpSpeed'
-    },
-    {
-      ocb_id: 'attrib2',
-      opcua_id: 'ns=1;s=Temperature'
-    }
-    ]
-  },
-  {
-    id: 'MyDevice2',
-    type: 'teststation',
-    mappings: [{
-      ocb_id: 'attrib1',
-      opcua_id: 'ns=1;s=PumpSpeed2'
-    },
-    {
-      ocb_id: 'attrib2',
-      opcua_id: 'ns=1;s=Temperature2'
-    }
-    ]
   }
-  ],
-  contextSubscriptions: [{
-    id: 'FrontEndState',
-    type: 'mobilestation',
-    mappings: [{
-      ocb_id: 'button',
-      opcua_id: 'ns=1;s=buttonPressed'
-    }]
-  } ]
+   // WARNING Used only with "--browse" option
 }
 module.exports = config
