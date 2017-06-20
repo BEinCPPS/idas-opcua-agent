@@ -43,7 +43,7 @@ var config = {
   deviceRegistrationDuration: 'P1M', // one month
   defaultType: 'teststation',
 
-  contexts: [{
+  contexts: require('./config-idas.json') || [{
     id: 'MyDevice1',
     type: 'teststation',
     mappings: [{
@@ -68,8 +68,7 @@ var config = {
       opcua_id: 'ns=1;s=Temperature2'
     }
     ]
-  }
-  ],
+  }],
   contextSubscriptions: [{
     id: 'FrontEndState',
     type: 'mobilestation',
