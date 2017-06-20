@@ -1,7 +1,8 @@
 #!/bin/sh
 rm idas-opcua-agent.log
 rm result.log
-node index.js -e "opc.tcp://localhost:26543"  -b
+node index.js -e "opc.tcp://localhost:26543"  
+# -b
 # Change with your endpoint 
 # -b 
 # "Browse" server address
