@@ -1,7 +1,7 @@
 var config = {
   logLevel: process.env.LEVEL_LOG || 'info', // options debug, info, error
   contextBroker: {
-    host: process.env.ORION_HOST || 'localhost',
+    host: process.env.ORION_HOST || '192.168.62.233',
     port: process.env.ORION_PORT || 1026
   },
   server: {
@@ -43,7 +43,8 @@ var config = {
   deviceRegistrationDuration: 'P1M', // one month
   defaultType: 'teststation',
 
-  contexts: require('./config-idas.json') || [{
+  contexts: require('./config-idas.json'),
+  /*|| [{
     id: 'MyDevice1',
     type: 'teststation',
     mappings: [{
@@ -68,7 +69,7 @@ var config = {
       opcua_id: 'ns=1;s=Temperature2'
     }
     ]
-  }],
+  }], */
   contextSubscriptions: [{
     id: 'FrontEndState',
     type: 'mobilestation',

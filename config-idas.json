@@ -1,0 +1,26 @@
+ [{
+    "id": "MyDevice1",
+    "type": "teststation",
+    "mappings": [{
+      "ocb_id": "attrib1",
+      "opcua_id": "ns=1;s=PumpSpeed"
+    },
+    {
+      "ocb_id": "attrib2",
+      "opcua_id": "ns=1;s=Temperature"
+    }
+    ]
+  },
+  {
+    "id": "MyDevice2",
+    "type": "teststation",
+    "mappings": [{
+      "ocb_id": "attrib1",
+      "opcua_id": "ns=1;s=PumpSpeed2"
+    },
+    {
+      "ocb_id": "attrib2",
+      "opcua_id": "ns=1;s=Temperature2"
+    }
+    ]
+  }]
